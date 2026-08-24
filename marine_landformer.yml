@@ -2,6 +2,8 @@ metadataId: 5e8d9286-4d94-4e95-8546-2ef4b891c007
 output_directory: produktspesifikasjon
 product_slug: marine_landformer
 updated: '2026-08-24'
+outputs: geopackage,xsd,jsonschema,odcs,ldproxy
+ldproxy_provider: geopackage
 scopes:
 - name: Datasett basert på SOSI-datamodell
   url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/NGU/MarineLandformer-1.0.xml
