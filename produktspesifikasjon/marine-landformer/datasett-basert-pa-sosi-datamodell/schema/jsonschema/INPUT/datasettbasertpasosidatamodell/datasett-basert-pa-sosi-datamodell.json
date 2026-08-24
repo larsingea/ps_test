@@ -1,0 +1,229 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landformer/datasett-basert-pa-sosi-datamodell/datasettbasertpasosidatamodell/datasett-basert-pa-sosi-datamodell.json",
+  "definitions": {
+    "FellesegenskaperLosmasse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LosmasseGrense"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "datauttaksdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "førsteDigitaliseringsdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "oppdateringsdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "kvalitet": {
+              "$ref": "#/definitions/Posisjonskvalitet"
+            },
+            "medium": {
+              "$ref": "#/definitions/Medium"
+            },
+            "mediumNavn": {
+              "type": "string"
+            },
+            "opphav": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "datauttaksdato",
+            "førsteDigitaliseringsdato",
+            "kvalitet",
+            "medium",
+            "mediumNavn"
+          ]
+        }
+      ]
+    },
+    "FiktivDelelinje": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "GeolPavisningstype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "type": "string"
+        },
+        "navnerom": {
+          "type": "string"
+        },
+        "versjonId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lokalId",
+        "navnerom",
+        "versjonId"
+      ]
+    },
+    "KvFormFlatetype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "KvFormLinjetype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "LosmasseGrense": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "geolPavisningstype": {
+          "$ref": "#/definitions/GeolPavisningstype"
+        },
+        "geolPavisningstypeNavn": {
+          "type": "string"
+        },
+        "temakvalitet": {
+          "$ref": "#/definitions/TemaKvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "geolPavisningstype",
+        "geolPavisningstypeNavn"
+      ]
+    },
+    "LosmasseOverflateform": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperLosmasse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "identifikasjon": {
+              "$ref": "#/definitions/Identifikasjon"
+            },
+            "kvFormFlatetype": {
+              "$ref": "#/definitions/KvFormFlatetype"
+            },
+            "kvFormFlatetypeNavn": {
+              "type": "string"
+            },
+            "losmassetype": {
+              "$ref": "#/definitions/Losmassetype"
+            },
+            "losmassetypeNavn": {
+              "type": "string"
+            },
+            "avgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "identifikasjon",
+            "kvFormFlatetype",
+            "kvFormFlatetypeNavn"
+          ]
+        }
+      ]
+    },
+    "LosmasseOverflateformLinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperLosmasse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "identifikasjon": {
+              "$ref": "#/definitions/Identifikasjon"
+            },
+            "kvFormLinjetype": {
+              "$ref": "#/definitions/KvFormLinjetype"
+            },
+            "kvFormLinjetypeNavn": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identifikasjon",
+            "kvFormLinjetype",
+            "kvFormLinjetypeNavn"
+          ]
+        }
+      ]
+    },
+    "Losmassetype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Medium": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Målemetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "$ref": "#/definitions/Målemetode"
+        },
+        "målemetodeNavn": {
+          "type": "string"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "målemetode",
+        "målemetodeNavn"
+      ]
+    },
+    "TemaKvalitet": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+---
+label: GeolPavisningstype
+entries:
+  Aavgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.: "Aavgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l."
+  Avgrensning basert på Lidardata, flyfoto og/eller multi-/hyperspektrale bilder og eksisterende geologisk informasjon: "Avgrensning basert på Lidardata, flyfoto og/eller multi-/hyperspektrale bilder og eksisterende geologisk informasjon"
+  Avgrensning basert på akustiske data/metoder: Avgrensning basert på akustiske data/metoder
+  Avgrensning basert på backscatter data/sidescan.sonar: Avgrensning basert på backscatter data/sidescan.sonar
+  Avgrensning basert på detaljerte dybdedata: Avgrensning basert på detaljerte dybdedata
+  Avgrensning basert på flere metoder/datatyper: Avgrensning basert på flere metoder/datatyper
+  Avgrensning basert på geofysiske data/metoder verifisert ved prøvetaking: Avgrensning basert på geofysiske data/metoder verifisert ved prøvetaking
+  Avgrensning basert på geologisk observasjon i felt, prøvetaking og analyser: "Avgrensning basert på geologisk observasjon i felt, prøvetaking og analyser"
+  Avgrensning basert på prøvetaking: Avgrensning basert på prøvetaking
+  Avgrensning basert på prøvetaking og akustiske data/metoder: Avgrensning basert på prøvetaking og akustiske data/metoder
+  Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata: Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata
+  ? Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata, prøvetaking samt fysiske datasett som strøm, bølger, eksponering og lysforhold
+  : "Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata, prøvetaking samt fysiske datasett som strøm, bølger, eksponering og lysforhold"
+  Avgrensning basert på seismikk: Avgrensning basert på seismikk
+  Avgrensning basert på tolkning av tilgjengelige geologiske/geofysiske data (varierende oppløsning), litteratur og kart: "Avgrensning basert på tolkning av tilgjengelige geologiske/geofysiske data (varierende oppløsning), litteratur og kart"
+  Avgrensning basert på undervannsfoto og/eller -video: Avgrensning basert på undervannsfoto og/eller -video
+  Avgrensning ikke basert på geologi: Avgrensning ikke basert på geologi
+  Avgrensningen er foretatt ut fra tolkning basert på tilgjengelige batymetriske data (varierende oppløsning), litteratur og kart: "Avgrensningen er foretatt ut fra tolkning basert på tilgjengelige batymetriske data (varierende oppløsning), litteratur og kart"
+  Dårlig synlig avgrensning i terrenget: Dårlig synlig avgrensning i terrenget
+  Flyfototolket objekt eller delobjekt: Flyfototolket objekt eller delobjekt
+  Geofysisk tolket grense: Geofysisk tolket grense
+  Ikke spesifisert: Ikke spesifisert
+  Konstruert avgrensning: Konstruert avgrensning
+  Observasjon med usikker geografisk beliggenhet: Observasjon med usikker geografisk beliggenhet
+  Overgangsmessig grense: Overgangsmessig grense
+  Sikker påvisning/observasjon: Sikker påvisning/observasjon
+  Tolket avgrensning basert på tilgjengelig geologisk kartlegging: Tolket avgrensning basert på tilgjengelig geologisk kartlegging
+  Tolket avgrensning/registrering: Tolket avgrensning/registrering
+  Usikker påvisning/observasjon: Usikker påvisning/observasjon
+sourceType: TEMPLATES
