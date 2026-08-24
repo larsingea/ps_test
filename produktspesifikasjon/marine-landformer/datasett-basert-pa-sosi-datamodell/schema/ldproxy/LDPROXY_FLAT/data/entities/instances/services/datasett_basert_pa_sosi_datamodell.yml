@@ -1,0 +1,19 @@
+---
+id: datasett_basert_pa_sosi_datamodell
+label: FIXME
+description: FIXME
+enabled: true
+serviceType: OGC_API
+collections:
+  fiktivdelelinje:
+    id: fiktivdelelinje
+    label: fiktivdelelinje
+    enabled: true
+  losmasseoverflateform:
+    id: losmasseoverflateform
+    label: losmasseoverflateform
+    enabled: true
+  losmasseoverflateformlinje:
+    id: losmasseoverflateformlinje
+    label: losmasseoverflateformlinje
+    enabled: true

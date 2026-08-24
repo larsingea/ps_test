@@ -1,0 +1,4567 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sc:Model xmlns:sc="http://shapechange.net/model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" encoding="UTF-8" scxmlProducer="ps.editor.actions" scxmlProducerVersion="1.0" xsi:schemaLocation="http://shapechange.net/model http://shapechange.net/resources/schema/ShapeChangeExportedModel.xsd">
+ <sc:packages>
+  <sc:Package>
+   <sc:name>datasett-basert-pa-sosi-datamodell</sc:name>
+   <sc:id>P1</sc:id>
+   <sc:stereotypes>
+    <sc:Stereotype>application schema</sc:Stereotype>
+   </sc:stereotypes>
+   <sc:taggedValues>
+    <sc:TaggedValue>
+     <sc:name>targetNamespace</sc:name>
+     <sc:values>
+      <sc:Value>https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landformer/datasett-basert-pa-sosi-datamodell/1.0</sc:Value>
+     </sc:values>
+    </sc:TaggedValue>
+    <sc:TaggedValue>
+     <sc:name>xmlns</sc:name>
+     <sc:values>
+      <sc:Value>datasettbasertpasosidatamodell</sc:Value>
+     </sc:values>
+    </sc:TaggedValue>
+    <sc:TaggedValue>
+     <sc:name>version</sc:name>
+     <sc:values>
+      <sc:Value>1.0</sc:Value>
+     </sc:values>
+    </sc:TaggedValue>
+    <sc:TaggedValue>
+     <sc:name>xsdDocument</sc:name>
+     <sc:values>
+      <sc:Value>datasett-basert-pa-sosi-datamodell.xsd</sc:Value>
+     </sc:values>
+    </sc:TaggedValue>
+    <sc:TaggedValue>
+     <sc:name>jsonDocument</sc:name>
+     <sc:values>
+      <sc:Value>datasett-basert-pa-sosi-datamodell.json</sc:Value>
+     </sc:values>
+    </sc:TaggedValue>
+   </sc:taggedValues>
+   <sc:classes>
+    <sc:Class>
+     <sc:name>Identifikasjon</sc:name>
+     <sc:id>C6</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>datatype</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>lokalId</sc:name>
+       <sc:id>C6_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>lokal identifikator, tildelt av dataleverendør/dataforvalter. Den lokale identifikatoren er unik innenfor navnerommet, ingen andre objekter har samme identifikator.
+
+NOTE: Det er data leverendørens ansvar å sørge for at denne lokale identifikatoren er unik innenfor navnerommet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:taggedValues>
+        <sc:TaggedValue>
+         <sc:name>SOSI_navn</sc:name>
+         <sc:values>
+          <sc:Value>LOKALID</sc:Value>
+         </sc:values>
+        </sc:TaggedValue>
+       </sc:taggedValues>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+       <sc:typeName>CharacterString</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>navnerom</sc:name>
+       <sc:id>C6_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>navnerom som unikt identifiserer datakilden til objektet, starter med to bokstavs kode jfr ISO 3166. Benytter understreking  ("_") dersom data produsenten ikke er assosiert med bare et land.
+
+NOTE 1 : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og vil registreres i "INSPIRE external  Object Identifier Namespaces Register"
+
+Eksempel: NO for Norge.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:taggedValues>
+        <sc:TaggedValue>
+         <sc:name>SOSI_navn</sc:name>
+         <sc:values>
+          <sc:Value>NAVNEROM</sc:Value>
+         </sc:values>
+        </sc:TaggedValue>
+       </sc:taggedValues>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+       <sc:typeName>CharacterString</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>versjonId</sc:name>
+       <sc:id>C6_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>identifikasjon av en spesiell versjon av et geografisk objekt (instans), maksimum lengde på 25 karakterers. Dersom spesifikasjonen av et geografisk objekt med en identifikasjon inkludererer livsløpssyklusinformasjon, benyttes denne versjonId for å skille mellom ulike versjoner av samme objekt. versjonId er en unik  identifikasjon av versjonen.
+
+NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO 8601, slik som  "2007-02-12T12:12:12+05:30" som versjonId.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:taggedValues>
+        <sc:TaggedValue>
+         <sc:name>SOSI_navn</sc:name>
+         <sc:values>
+          <sc:Value>VERSJONID</sc:Value>
+         </sc:values>
+        </sc:TaggedValue>
+       </sc:taggedValues>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+       <sc:typeName>CharacterString</sc:typeName>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>Posisjonskvalitet</sc:name>
+     <sc:id>C7</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>datatype</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>målemetode</sc:name>
+       <sc:id>C7_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+       <sc:typeId>C9</sc:typeId>
+       <sc:typeName>Målemetode</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>målemetodeNavn</sc:name>
+       <sc:id>C7_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>navn på metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:taggedValues>
+        <sc:TaggedValue>
+         <sc:name>SOSI_navn</sc:name>
+         <sc:values>
+          <sc:Value>MÅLEMETODENAVN</sc:Value>
+         </sc:values>
+        </sc:TaggedValue>
+       </sc:taggedValues>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+       <sc:typeName>CharacterString</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>nøyaktighet</sc:name>
+       <sc:id>C7_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:taggedValues>
+        <sc:TaggedValue>
+         <sc:name>SOSI_navn</sc:name>
+         <sc:values>
+          <sc:Value>NØYAKTIGHET</sc:Value>
+         </sc:values>
+        </sc:TaggedValue>
+       </sc:taggedValues>
+       <sc:cardinality>0..1</sc:cardinality>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+       <sc:typeName>Integer</sc:typeName>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>KvFormLinjetype</sc:name>
+     <sc:id>C8</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>kvartærgeologiske formelementlinjer
+
+Merknad: Linjetema på kvartærgeologiske kart. Viser former skapt under isavsmeltingen, elve-/bekkeformer, strandformer eller skredformer mm. Ved flere av linjesymbolene må en ta hensyn til digitaliseringsretningen for å få symbolet riktig</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Ikke angitt</sc:name>
+       <sc:id>C8_1</sc:id>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Drumlin</sc:name>
+       <sc:id>C8_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Strømlinjeformet rygg i løsmasser og/eller berggrunn, orientert parallelt med isbevegelsesretningen. Hvis løsmasseryggen er akkumulert i le av oppstikkende berggrunn kan formen kalles knaus og hale.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Drumlinoid rygg</sc:name>
+       <sc:id>C8_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Utydelig strømlinjeformet rygg i løsmasser og/eller berggrunn, orientert parallelt med isbevegelsesretningen. Hvis løsmasseryggen er akkumulert i le av oppstikkende berggrunn kan formen kalles knaus og hale.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Randmorene</sc:name>
+       <sc:id>C8_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggformet moreneavsetning dannet langs ytterkanten av en bre. Omfatter ende- og sidemorener.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Parallelle rygger og furer i overflaten</sc:name>
+       <sc:id>C8_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Langstrakte strømlinjeformede rygger og furer i overflaten. Formene er orientert parallelt med tidligere isbevegelsesretning og er dannet under en isbre. Lavt relieff og liten bredde i forhold til lengde.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sprekkefyllrygg</sc:name>
+       <sc:id>C8_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggform som dannes ved at løsmasser blir presset opp i sprekk i sålen av en isbre. Forbindes med stagnasjon av breen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tilbaketrekningsmorene</sc:name>
+       <sc:id>C8_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Morenerygger avsatt foran breen ved lite fremstøt eller stillstand av brefronten, i en periode med generell tilbaketrekning av breen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morenerygg</sc:name>
+       <sc:id>C8_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggformet moreneavsetning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Esker (ryggformet breelvavsetning)</sc:name>
+       <sc:id>C8_9</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Klar ryggform i løsmasser. Angir at materialet er avsatt i tunneler eller sprekker i eller under en bre. Dersom den ryggformete breelvavsetningen er stor nok til å danne figur på kartet brukes fargen for breelvavsetninger til å angi utbredelsen og eskersymbolet til å angi ryggformen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Breelvnedskjæring</sc:name>
+       <sc:id>C8_10</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Erosjonskant dannet av breelv</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bre-lateralt smeltevannsløp (spylerenne, venstre side) (2)</sc:name>
+       <sc:id>C8_11</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Smeltevannsløp dannet langs kanten av en bre (venstre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Smeltevannsløp (spylerenne)</sc:name>
+       <sc:id>C8_12</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kanal i løsmasser dannet av smeltevann fra isbreer</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bre-lateralt smeltevannsløp (spylerenne, høyre side) (1)</sc:name>
+       <sc:id>C8_13</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Smeltevannsløp dannet langs kanten av en bre (høyre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Smeltevannsløp over passpunkt</sc:name>
+       <sc:id>C8_14</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Smeltevannsspor dannet ved overløp mellom to høyder (passpunkt)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Side av smeltevannsgjel (1)</sc:name>
+       <sc:id>C8_15</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tørrlagt gjel utformet i fast fjell av smeltevann fra en isbre (venstre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Side av smeltevannsgjel (2)</sc:name>
+       <sc:id>C8_16</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tørrlagt gjel utformet i fast fjell av smeltevann fra en isbre (høyre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Smeltevannsgjel</sc:name>
+       <sc:id>C8_17</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tørrlagt gjel, utformet i fast fjell av smeltevann fra en isbre</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spylefelt</sc:name>
+       <sc:id>C8_18</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Fjelloverflate avspylt av smeltevann fra en isbre</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>18</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Iskontaktskråning</sc:name>
+       <sc:id>C8_19</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bratt skråning utformet i løsmasser avsatt med støtte mot en brekant</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>19</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandlinje fra bredemt sjø</sc:name>
+       <sc:id>C8_20</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Horisontal linje i landskapet som markerer ytterkanten av en tidligere bredemt sjø. Kan være utformet både i løsmasser og i fast fjell. Blir også kalt sete.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>20</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandvoll fra bredemt sjø</sc:name>
+       <sc:id>C8_21</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Voll av sorterte løsmasser. Dannet av bølgeaktivitet langs strandsonen i en bredemt sjø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>21</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Pløyespor fra isfjell</sc:name>
+       <sc:id>C8_22</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avlange grøfter i løsmasser. Dannet av drivende isfjell i kontakt med bunnen av hav eller innsjø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>22</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stor dødisgrop</sc:name>
+       <sc:id>C8_23</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Stor forsenkning i løsmasser. Dannet ved smelting av begravde isrester. Kalles også grytehull.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>23</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Grop dannet av isfjell</sc:name>
+       <sc:id>C8_24</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forsenkning i løsmasser. Dannet ved at et grunnstøtt isfjell blir liggende i ro.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>24</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Breelvvifte</sc:name>
+       <sc:id>C8_25</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Vifteformet løsmasseavsetning, hovedsaklig formet av rennende smeltevann fra en isbre.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>25</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Nivasjonskant</sc:name>
+       <sc:id>C8_26</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Skrent dannet i bakkant av snøleie</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>26</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrassekant, glasial</sc:name>
+       <sc:id>C8_27</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bratt kant/skråning som avgrenser en terrasseflate i sorterte løsmasser. Dannet i brenært miljø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>27</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasitektonisk skrent</sc:name>
+       <sc:id>C8_28</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bratt skråning dannet der en isbre har dratt med seg et flak av underlaget</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>28</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Elve-/bekkenedskjæring</sc:name>
+       <sc:id>C8_29</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kant dannet av rennende vann som har erodert ned i underlaget</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>29</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tidligere elve-/bekkeløp</sc:name>
+       <sc:id>C8_30</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Inaktiv kanal/løp, formet av rennende vann</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>30</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomløp</sc:name>
+       <sc:id>C8_31</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kanal formet av fluvial erosjon under ekstremt stor vannføring</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>31</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Gjel, elv/bekk</sc:name>
+       <sc:id>C8_32</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Gjel utformet i fast fjell av vann</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>32</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Vifteform</sc:name>
+       <sc:id>C8_33</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Vifteformet løsmasseavsetning, hovedsaklig formet av rennende vann</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>33</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Ravine</sc:name>
+       <sc:id>C8_34</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Dypt nedskåret, v-formet kanal i løsmasser</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>34</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrassekant</sc:name>
+       <sc:id>C8_35</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bratt kant/skråning som avgrenser en terrasseflate i sorterte løsmasser</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>35</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Nedskåret bekkeløp, vannførende</sc:name>
+       <sc:id>C8_36</sc:id>
+       <sc:sequenceNumber>36</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Nedskåret bekkeløp, sjeldent vannførende</sc:name>
+       <sc:id>C8_37</sc:id>
+       <sc:sequenceNumber>37</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stor gjel utformet av elv og/eller breelv (venstre side)</sc:name>
+       <sc:id>C8_38</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Stort gjel (eller canyon) utformet av vann, i fast fjell (venstre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>38</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stor gjel utformet av elv og/eller breelv (høyre side)</sc:name>
+       <sc:id>C8_39</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Stort gjel (eller canyon) utformet av vann, i fast fjell (høyre side)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>39</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strømgrop</sc:name>
+       <sc:id>C8_40</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Erosjonsgroper som dannes i elvebunn og på elvesletter i flomperioder.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>40</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kanal, uspesifisert (under vann)</sc:name>
+       <sc:id>C8_41</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kanal på sjøbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>41</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fjellkløft (under vann)</sc:name>
+       <sc:id>C8_42</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kløft eller sprekk i fast fjell på sjøbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>42</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kanalside (under vann)</sc:name>
+       <sc:id>C8_43</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Side av en kanal på sjøbunnen, som definerer bredden av kanalen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>43</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandvoll</sc:name>
+       <sc:id>C8_44</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Voll av sorterte løsmasser. Dannet av bølgeaktivitet langs en strandsone.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>44</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandlinje utformet i løsmasser</sc:name>
+       <sc:id>C8_45</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Horisontal linje i landskapet som markerer en tidligere strandlinje. Utformet i løsmasser.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>45</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandlinje utformet i fastFjell</sc:name>
+       <sc:id>C8_46</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Horisontal linje i landskapet som markerer en tidligere strandlinje. Utformet i fast fjell.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>46</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Abrasjonskant</sc:name>
+       <sc:id>C8_47</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tydelig skrent i løsmasse eller fast fjell. Erodert av bølgeaktivitet i strandsone.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>47</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredvifte, ytterkant</sc:name>
+       <sc:id>C8_48</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ytre grense av vifteformet skredavsetning. Ikke knyttet til en spesifikk skredprosess.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>48</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredløp, tydelig</sc:name>
+       <sc:id>C8_49</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kanal i bratt skråning dannet av gjentatte skred av forskjellig type (snøskred, jordskred, steinsprang)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>49</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snøskredvoll</sc:name>
+       <sc:id>C8_50</sc:id>
+       <sc:sequenceNumber>50</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snøskredtunge</sc:name>
+       <sc:id>C8_51</sc:id>
+       <sc:sequenceNumber>51</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Front av fjellskredavsetning</sc:name>
+       <sc:id>C8_52</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ytre grense av fjellskredavsetning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>52</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredkant</sc:name>
+       <sc:id>C8_53</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bratt skrent som markerer løsnekant av et skred. Kan være dannet av forskjellige typer skred i både løsmasser og fast fjell.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>53</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jord- og flomskredløp</sc:name>
+       <sc:id>C8_54</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kanal i løsmasser dannet som følge av jord- eller flomskred</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>54</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Nedslagsgrop (maringeologi)</sc:name>
+       <sc:id>C8_55</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Grop dannet ved foten av skråning i sjøen pga. skred</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>55</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredkant, flak (maringeologi)</sc:name>
+       <sc:id>C8_56</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bakkant av flakformet skred på sjøbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>56</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredfront (maringeologi)</sc:name>
+       <sc:id>C8_57</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Front av et løsmasseskred. Viser utstrekning av en skredvifte på sjøbunnen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>57</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snøskredløp</sc:name>
+       <sc:id>C8_58</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tydelig løp, erodert gjennom gjentatte snøskred</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>58</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jord- og flomskredslevée</sc:name>
+       <sc:id>C8_59</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Små rygger langs jord- og flomskredløp</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>59</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skrederosjonskant</sc:name>
+       <sc:id>C8_60</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kant i løsmassedekket langs skredløp. Dannet av gjentatte skred langs samme løp.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>60</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinstriper</sc:name>
+       <sc:id>C8_61</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Rekker av steiner orientert nedover en skråning grunnet gjentatte fryse- og tineprosesser. Fremstår som striper nedover fjellsider.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>61</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rygg</sc:name>
+       <sc:id>C8_62</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggform i løsmasser. Primært brukt for rygger dannet ved avsetning eller deformasjon, ikke for ryggformer som har oppstått som følge av erosjon.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>62</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Deflasjonsgrop</sc:name>
+       <sc:id>C8_63</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Fordypning i løsmasser dannet ved vinderosjon. Kan være flere meter bred og dyp.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>63</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Markert haug eller rygg</sc:name>
+       <sc:id>C8_64</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensning av en enkelt haug eller rygg i løsmasser</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>64</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Nedskjæring i løsmasser (maringeologi)</sc:name>
+       <sc:id>C8_65</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Nedskjæring i løsmasser</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>65</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Lineament (maringeologi)</sc:name>
+       <sc:id>C8_66</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Regionalt utstrakt, linjeformet landskapstrekk som antas å avspeile svakhetsstrukturer eller inhomogeniteter i jordskorpen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>66</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sandbølge (maringeologi)</sc:name>
+       <sc:id>C8_67</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sandbølge eller sanddyne dannet av strømmende vann eller vind</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>67</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kildehorisont</sc:name>
+       <sc:id>C8_68</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Horisont med grunnvannsutslag</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>68</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forkastningslinje med antatt glasial og/eller postglasial aktivitet</sc:name>
+       <sc:id>C8_69</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Rettlinjet form i landoverflaten, som oftest synlig som en bratt skrent. Tolket som en forkastning med antatt aktivitet i glasial eller postglasial tid, basert på påvist deformasjon og skred/utglidninger av glasiale eller postglasiale løsmasser.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>69</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasitektonisk haug (maringeologi)</sc:name>
+       <sc:id>C8_70</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Haug- og ryggformet terreng som dannes når isbreen drar med seg og senere legger igjen store flak av underlaget</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>70</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasitektonisk grop (maringeologi)</sc:name>
+       <sc:id>C8_71</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forsenkning som dannes når isbreen beveger seg framover underlaget og drar med seg store flak av underlaget</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>71</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rygg, uspesifisert (maringeologi)</sc:name>
+       <sc:id>C8_72</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Rygg, uspesifisert</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>72</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strømrenne (maringeologi)</sc:name>
+       <sc:id>C8_73</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Renner på havbunnen dannet av bunnstrømmer</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>73</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Renne, uspesifisert (maringeologi)</sc:name>
+       <sc:id>C8_74</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Renne, uspesifisert</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>74</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sedimentbølge (maringeologi)</sc:name>
+       <sc:id>C8_75</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Stor, bølgelignende landform på havbunnen dannet av bunnstrømmer. Toppen av bølgen er vanligvis orientert vinkelrett på strømretningen. Sedimentbølger består oftest av en blanding av slam, silt og sand, men kan og inneholde grus.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>75</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Korallrev (maringeologi)</sc:name>
+       <sc:id>C8_76</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Korallrev</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>76</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forkastning (maringeologi)</sc:name>
+       <sc:id>C8_77</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bruddflate der det har foregått målbar/visuell forskyving av bergartene. Bevegelsesretningen på forskyvningen mellom forkastningsblokkene definerer betegnelsen for forkastningstypen, deriblant normal-, revers-, skrå- og sidelengsforkastning.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>77</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sprekk (maringeologi)</sc:name>
+       <sc:id>C8_78</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Smal fordypning i havbunnen, som dannes ved nedsynkning av sedimenter pga. forkastning, utslipp av gass fra oppløsning av gasshydrater, eller svekket stabilitet av skråning etter utglidning av et skred.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>78</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kant, uspesifisert (maringeologi)</sc:name>
+       <sc:id>C8_79</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kant av usikker opprinnelse i løsmasser (f.eks. pga. skred, strøm eller en kombinasjon)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>79</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Ankerspor (maringeologi)</sc:name>
+       <sc:id>C8_80</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ankerspor på sjøbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>80</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kabel (maringeologi)</sc:name>
+       <sc:id>C8_81</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kabel</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>81</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rørledning (maringeologi)</sc:name>
+       <sc:id>C8_82</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Rørledning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>82</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>Målemetode</sc:name>
+     <sc:id>C9</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Terrengmålt: Uspesifisert måleinstrument</sc:name>
+       <sc:id>C9_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i terrenget , uspesifisert metode/måleinstrument</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrengmålt: Totalstasjon</sc:name>
+       <sc:id>C9_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i terrenget med totalstasjon</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrengmålt: Teodolitt og el avstandsmåler</sc:name>
+       <sc:id>C9_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i terrenget med teodolitt og elektronisk avstandsmåler</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrengmålt: Teodolitt og målebånd</sc:name>
+       <sc:id>C9_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i terrenget med teodolitt og målebånd</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Terrengmålt: Ortogonalmetoden</sc:name>
+       <sc:id>C9_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i terrenget, ortogonalmetoden</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Utmål</sc:name>
+       <sc:id>C9_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Punkt beregnet på bakgrunn av måling mot andre punkter, slik som to avstander eller avstand og retning
+
+-- Definition --
+Point calculated on the basis of other items, such as two distances or distance + direction.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tatt fra plan</sc:name>
+       <sc:id>C9_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tatt fra plan eller godkjent tiltak</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Annet  (denne har ingen mening, bør fjernes?)</sc:name>
+       <sc:id>C9_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Annet</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stereoinstrument</sc:name>
+       <sc:id>C9_9</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i stereoinstrument, uspesifisert instrument</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Aerotriangulert</sc:name>
+       <sc:id>C9_10</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Punkt beregnet ved aerotriangulering
+
+-- Definition --
+Point calculated by aerotriangulation</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stereoinstrument: Analytisk plotter</sc:name>
+       <sc:id>C9_11</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i stereoinstrument, analytisk plotter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stereoinstrument: Autograf</sc:name>
+       <sc:id>C9_12</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i stereoinstrument, autograf, analogt instrument</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Stereoinstrument: Digitalt</sc:name>
+       <sc:id>C9_13</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt i stereoinstrument, digitalt instrument</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Scannet fra kart</sc:name>
+       <sc:id>C9_14</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner, uspesifisert kartmedium</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skannet fra kart: Blyantoriginal</sc:name>
+       <sc:id>C9_15</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er blyantoriginal</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skannet fra kart: Rissefolie</sc:name>
+       <sc:id>C9_16</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er rissefolie</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skannet fra kart: Transparent folie, god kvalitet</sc:name>
+       <sc:id>C9_17</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av  god kvalitet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skannet fra kart: Transparent folie, mindre god kvalitet</sc:name>
+       <sc:id>C9_18</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av mindre god kvalitet</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>18</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skannet fra kart: Papirkopi</sc:name>
+       <sc:id>C9_19</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er papirkopi.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>19</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flybåren laserscanner</sc:name>
+       <sc:id>C9_20</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt med laserskanner fra fly</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>20</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bilbåren laser</sc:name>
+       <sc:id>C9_21</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målt med laserskanner plassert i kjøretøy</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>21</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Lineær referanse</sc:name>
+       <sc:id>C9_22</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>brukes for objekter som er stedfestet med lineær referanse, enten disse leveres med stedfesting kun som lineære referanser, eller med koordinatgeometri avledet fra lineære referanser</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>22</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringbord: Ortofoto eller flybilde</sc:name>
+       <sc:id>C9_23</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra ortofoto eller flybilde ved hjelp av manuell registrering på et digitaliseringsbord, uspesifisert bildemedium</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>23</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringbord: Ortofoto, film</sc:name>
+       <sc:id>C9_24</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>24</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringbord: Ortofoto, fotokopi</sc:name>
+       <sc:id>C9_25</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>25</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringbord: Flybilde, film</sc:name>
+       <sc:id>C9_26</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>26</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringbord: Flybilde, fotokopi</sc:name>
+       <sc:id>C9_27</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>27</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitalisert på skjerm fra ortofoto</sc:name>
+       <sc:id>C9_28</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra ortofoto ved hjelp av manuell registrering på skjerm</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>28</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitalisert på skjerm fra satellittbilde</sc:name>
+       <sc:id>C9_29</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra satellittbilde ved hjelp av manuell registrering på skjerm</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>29</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitalisert på skjerm fra andre digitale rasterdata</sc:name>
+       <sc:id>C9_30</sc:id>
+       <sc:sequenceNumber>30</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitalisert på skjerm fra tolkning av seismikk</sc:name>
+       <sc:id>C9_31</sc:id>
+       <sc:sequenceNumber>31</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Vektorisering av laserdata</sc:name>
+       <sc:id>C9_32</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Vektorisering fra laserdata, brukes også der vektoriseringen støttes av ortofoto</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>32</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart</sc:name>
+       <sc:id>C9_33</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord, medium uspesifisert</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>33</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart, blyantoriginal</sc:name>
+       <sc:id>C9_34</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er blyantoriginal</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>34</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart, rissefoile</sc:name>
+       <sc:id>C9_35</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er rissefolie</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>35</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart, transparent foile, god kvalitet</sc:name>
+       <sc:id>C9_36</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av god kvalitet, samkopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>36</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart, transparent foile, mindre god kvalitet</sc:name>
+       <sc:id>C9_37</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av mindre god kvalitet, samkopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>37</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitaliseringsbord: Kart, papirkopi</sc:name>
+       <sc:id>C9_38</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er papirkopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>38</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Digitalisert på skjerm fra skannet kart</sc:name>
+       <sc:id>C9_39</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri overført fra kart ved hjelp av manuell registrering på skjerm, medium skannet kart (raster), samkopi</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>39</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data (interpolasjon)</sc:name>
+       <sc:id>C9_40</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Genererte data, interpolasjonsmetode. Ikke nærmere spesifisert</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>40</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data (interpolasjon): Terrengmodell</sc:name>
+       <sc:id>C9_41</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Genererte data, interpolasjonsmetode, fra terrengmodell</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>41</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data (interpolasjon): Vektet middel</sc:name>
+       <sc:id>C9_42</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Genererte data, interpolasjonsmetode, vektet middel</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>42</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data: Fra annen geometri</sc:name>
+       <sc:id>C9_43</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Genererte data: Sirkelgeometri, korridor eller annen geometri generert ut fra f.eks et punkt eller en linje (f.eks midtlinje veg)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>43</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data: Generalisering</sc:name>
+       <sc:id>C9_44</sc:id>
+       <sc:sequenceNumber>44</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data: Sentralpunkt</sc:name>
+       <sc:id>C9_45</sc:id>
+       <sc:sequenceNumber>45</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Genererte data: Sammenknytningspunkt, randpunkt</sc:name>
+       <sc:id>C9_46</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Genererte data: Sammenknytningspunkt (f.eks mellom ulike kartlegginger), randpunkt (f.eks mellom ulike kilder til kart)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>46</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Koordinater hentet fra GAB</sc:name>
+       <sc:id>C9_47</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Koordinater hentet fra GAB, forløperen til registerdelen av matrikkelen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>47</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Koordinater hentet fra JREG</sc:name>
+       <sc:id>C9_48</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Koordinater hentet fra JREG, jordregisteret</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>48</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Beregnet</sc:name>
+       <sc:id>C9_49</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Beregnet, uspesifisert hvordan</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>49</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spesielle metoder</sc:name>
+       <sc:id>C9_50</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Spesielle metoder, uspesifisert</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>50</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spesielle metoder: Målt med stikkstang</sc:name>
+       <sc:id>C9_51</sc:id>
+       <sc:sequenceNumber>51</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spesielle metoder: Målt med waterstang</sc:name>
+       <sc:id>C9_52</sc:id>
+       <sc:sequenceNumber>52</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spesielle metoder: Målt med målehjul</sc:name>
+       <sc:id>C9_53</sc:id>
+       <sc:sequenceNumber>53</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Spesielle metoder: Målt med stigningsmåler</sc:name>
+       <sc:id>C9_54</sc:id>
+       <sc:sequenceNumber>54</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fastsatt punkt</sc:name>
+       <sc:id>C9_55</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Punkt fastsatt ut fra et grunnlag (kart, bilde), f.eks ved partenes enighet ved en oppmålingsforretning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>55</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fastsatt ved dom eller kongelig resolusjon</sc:name>
+       <sc:id>C9_56</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Geometri fastsatt ved dom, lov, traktat eller kongelig resolusjon</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>56</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Annet (spesifiseres i filhode) ( bør vel fjernes, blir borte ved overføring mellom systemer)</sc:name>
+       <sc:id>C9_57</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Annet (spesifiseres i filhode)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>57</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Frihåndstegning</sc:name>
+       <sc:id>C9_58</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Digitalisert ut fra frihåndstegning.  Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>58</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Frihåndstegning på kart</sc:name>
+       <sc:id>C9_59</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Digitalisert fra krokering på kart, dvs grovt skissert på kart</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>59</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Frihåndstegning på skjerm</sc:name>
+       <sc:id>C9_60</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Digitalisert ut fra frihåndstegning (direkte på skjerm). Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>60</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Treghetsstedfesting</sc:name>
+       <sc:id>C9_61</sc:id>
+       <sc:sequenceNumber>61</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Kodemåling, relative målinger</sc:name>
+       <sc:id>C9_62</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, relative målinger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>62</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Kodemåling, enkle målinger</sc:name>
+       <sc:id>C9_63</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, enkle målinger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>63</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Fasemåling, statisk måling</sc:name>
+       <sc:id>C9_64</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling statisk måling.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>64</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Fasemåling, andre metoder</sc:name>
+       <sc:id>C9_65</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling andre metoder.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>65</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kombinasjon av GNSS/Treghet</sc:name>
+       <sc:id>C9_66</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Kombinasjon av GPS/Treghet</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>66</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Fasemåling RTK</sc:name>
+       <sc:id>C9_67</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO).: Fasemåling RTK (realtids kinematisk måling)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>67</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>GNSS: Fasemåling , float-løsning</sc:name>
+       <sc:id>C9_68</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO). Fasemåling float-løsning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>68</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Ukjent målemetode</sc:name>
+       <sc:id>C9_69</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Målemetode er ukjent</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>69</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>Medium</sc:name>
+     <sc:id>C10</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Alltid i vann</sc:name>
+       <sc:id>C10_1</sc:id>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>I bygning/bygningsmessig anlegg</sc:name>
+       <sc:id>C10_2</sc:id>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>I luft</sc:name>
+       <sc:id>C10_3</sc:id>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>På isbre</sc:name>
+       <sc:id>C10_4</sc:id>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>På sjøbunnen</sc:name>
+       <sc:id>C10_5</sc:id>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>På terrenget/på bakkenivå</sc:name>
+       <sc:id>C10_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>default</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>På vannoverflaten</sc:name>
+       <sc:id>C10_7</sc:id>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tidvis under vann</sc:name>
+       <sc:id>C10_8</sc:id>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Under isbre</sc:name>
+       <sc:id>C10_9</sc:id>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Under sjøbunnen</sc:name>
+       <sc:id>C10_10</sc:id>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Under terrenget</sc:name>
+       <sc:id>C10_11</sc:id>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Ukjent</sc:name>
+       <sc:id>C10_12</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>ukjent</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>GeolPavisningstype</sc:name>
+     <sc:id>C11</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for påvisningen/registreringen</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Ikke spesifisert</sc:name>
+       <sc:id>C11_1</sc:id>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sikker påvisning/observasjon</sc:name>
+       <sc:id>C11_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensningen eller registreringen av objektet er påvist eller observert i felt</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Usikker påvisning/observasjon</sc:name>
+       <sc:id>C11_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ikke påvist/observert men antatt avgrensning/registrering av objekt</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Konstruert avgrensning</sc:name>
+       <sc:id>C11_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tilfeldig plassert avgrensning og meget usikker.  Benyttes blant annet under vann- eller breoverflater</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Geofysisk tolket grense</sc:name>
+       <sc:id>C11_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensning basert på geofysiske indikasjoner</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Dårlig synlig avgrensning i terrenget</sc:name>
+       <sc:id>C11_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Basert på generalisert tolkning av objekter med små innbyrdes variasjoner (f.eks. skille mellom tynt humusdekke og bart fjell, eller mellom to svært like bergarter)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Overgangsmessig grense</sc:name>
+       <sc:id>C11_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Glidende overgang mellom to bergarter,  jordarter o.l.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tolket avgrensning/registrering</sc:name>
+       <sc:id>C11_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensninger av geologisk objekt eller delobjekt fremkommet ved generalisering, samtolkning eller aggregering</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flyfototolket objekt eller delobjekt</sc:name>
+       <sc:id>C11_9</sc:id>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Observasjon med usikker geografisk beliggenhet</sc:name>
+       <sc:id>C11_10</sc:id>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning ikke basert på geologi</sc:name>
+       <sc:id>C11_11</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Der f.eks. en administrativ grense eller kystkontur har bidratt til avgrensning av et geologisk objekt</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på geofysiske data/metoder verifisert ved prøvetaking</sc:name>
+       <sc:id>C11_12</sc:id>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på tolkning av tilgjengelige geologiske/geofysiske data (varierende oppløsning), litteratur og kart</sc:name>
+       <sc:id>C11_13</sc:id>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på geologisk observasjon i felt, prøvetaking og analyser</sc:name>
+       <sc:id>C11_14</sc:id>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tolket avgrensning basert på tilgjengelig geologisk kartlegging</sc:name>
+       <sc:id>C11_15</sc:id>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på prøvetaking</sc:name>
+       <sc:id>C11_16</sc:id>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på seismikk</sc:name>
+       <sc:id>C11_17</sc:id>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på detaljerte dybdedata</sc:name>
+       <sc:id>C11_18</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensning ved bruk av multistråleekkolodd eller interferometrisk sonar</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>18</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på backscatter data/sidescan.sonar</sc:name>
+       <sc:id>C11_19</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensning basert på bunnreflektivitet/data fra sidescan.sonar</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>19</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på prøvetaking og akustiske data/metoder</sc:name>
+       <sc:id>C11_20</sc:id>
+       <sc:sequenceNumber>20</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på akustiske data/metoder</sc:name>
+       <sc:id>C11_21</sc:id>
+       <sc:sequenceNumber>21</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på flere metoder/datatyper</sc:name>
+       <sc:id>C11_22</sc:id>
+       <sc:sequenceNumber>22</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på undervannsfoto og/eller -video</sc:name>
+       <sc:id>C11_23</sc:id>
+       <sc:sequenceNumber>23</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Aavgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.</sc:name>
+       <sc:id>C11_24</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>24</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensningen er foretatt ut fra tolkning basert på tilgjengelige batymetriske data (varierende oppløsning), litteratur og kart</sc:name>
+       <sc:id>C11_25</sc:id>
+       <sc:sequenceNumber>25</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på Lidardata, flyfoto og/eller multi-/hyperspektrale bilder og eksisterende geologisk informasjon</sc:name>
+       <sc:id>C11_26</sc:id>
+       <sc:sequenceNumber>26</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata</sc:name>
+       <sc:id>C11_27</sc:id>
+       <sc:sequenceNumber>27</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata, prøvetaking samt fysiske datasett som strøm, bølger, eksponering og lysforhold</sc:name>
+       <sc:id>C11_28</sc:id>
+       <sc:sequenceNumber>28</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>TemaKvalitet</sc:name>
+     <sc:id>C12</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Høyest mulig posisjonell og tematisk nøyaktighet</sc:name>
+       <sc:id>C12_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Den geologiske observasjonen/registreringen er stedfestet med høyest mulig posisjonell og tematisk nøyaktighet for direkte bruk i kommunenes reguleringsplaner (Målestokk under 1:20.000)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Høy posisjonell- og tematisk nøyaktighet, høy oppløsning, lite generalisering</sc:name>
+       <sc:id>C12_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Registrering basert på det som for naturinformasjon må anses å være av høy posisjonell- og tematisk nøyaktighet (+/- 20 m). Høy oppløsning og lite generalisering. Kan anvendes i kommuneplanens arealdel. Minste arealenhet er 0.5-1 dekar (~M 1: 20.000)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>God posisjonell- og tematisk nøyaktighet, god oppløsning, noe generalisert</sc:name>
+       <sc:id>C12_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Registrering stedfestet med nøyaktighet i terrenget på +/- 50m, akseptabelt for oversiktsinformasjon på kommunenivå (arealplan). Minste arealenhet er ca. 2 dekar for viktige tema, ca. 5 dekar for øvrige (~M 1:50.000)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Lav posisjonell- og tematisk nøyaktighet, lav oppløsning, med generalisering</sc:name>
+       <sc:id>C12_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Registrering med lav oppløsning (+/- 100 m) og hvor det er gjort generalisering, ofte basert på flyfototolkning. Minste gjengitte arealenhet ca. 10 dekar for viktige tema, ca 20 dekar for de øvrige. Kan med forbehold benyttes som oversiktsinformasjon på kommunenivå (~M 1:100.000)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Meget lav posisjonell- og tematisk nøyaktighet, meget lav oppløsning, stor grad generalisert</sc:name>
+       <sc:id>C12_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Registrering basert på oversiktskartlegging i liten målestokk. Meget lav oppløsning (+/- 250 m) og kan inneholde stor grad av generalisering. Minste arealenhet er ca. 60 dekar. Bør kun anvendes til regionale oversikter (~M 1:250.000)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Meget lav posisjonell- og tematisk nøyaktighet, sterkt generalisert</sc:name>
+       <sc:id>C12_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Beregnet for oversiktskart i meget små målestokker. Minste arealenhet er ca. 1000 dekar. Anvendelsesområdet er landsoversikter og oversikt over store regioner (~M &gt; 250.000).</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>KvFormFlatetype</sc:name>
+     <sc:id>C13</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>område med bestemte formelementer
+
+Merknad: Utformet som flateavgrensninger på kvartærgeologiske og maringeologiske kart. Formlementene kan være naturlig dannet eller menneskeskapt. De samme formelementene kan også forekomme som punktregistreringer og/eller linjeregistreringer</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Esker</sc:name>
+       <sc:id>C13_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tydelig ryggform i sorterte løsmasser, som opprinnelig ble avsatt i tunneler eller hulrom i en bre. For å tydeliggjøre ryggformen kan linjesymbol for esker (12) brukes i kombinasjon med dette flatesymbolet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Haug- og ryggformet terreng</sc:name>
+       <sc:id>C13_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område karakterisert av hauger og rygger med ulik lengde og orientering.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Drumlin</sc:name>
+       <sc:id>C13_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Strømlinjeformet rygg i løsmasse orientert parallelt med isbevegelsesretningen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Drumlinsverm</sc:name>
+       <sc:id>C13_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med mange drumliner med lik orientering.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Dødislandskap</sc:name>
+       <sc:id>C13_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med landformer og løsmasser avsatt ved nedsmelting av dynamisk død breis. Kan omfatte både morene (oftest ablasjonsmorene) og glasifluvialt materiale.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rogenmoreneområde</sc:name>
+       <sc:id>C13_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Bølgende rygger av hovedsakelig morenemateriale, orientert på tvers av brebevegelsen. Forekommer ofte i nær relasjon til områder med drumliner.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tuemarkområde</sc:name>
+       <sc:id>C13_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med tuer som er et resultat av frostaktivitet i torv.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Polygonmark område</sc:name>
+       <sc:id>C13_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område hvor overflaten er preget av mønstre oppstått ved gjentatte fryse-tineprosesser. Dette kan være dannet som isfylte sprekker i bakken eller ved steinsortering.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Palsområde</sc:name>
+       <sc:id>C13_9</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Myrområde med torvdekke, isfylte hauger. Oppstått ved dannelse av is i torva som ikke smelter om sommeren.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med landformer fra uspesifiserte skredmasser</sc:name>
+       <sc:id>C13_10</sc:id>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med landformer fra fjellskredmasser</sc:name>
+       <sc:id>C13_11</sc:id>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med landformer fra løsmasseskredavsetninger</sc:name>
+       <sc:id>C13_12</sc:id>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med landformer fra kvikkleireskredsavsetninger</sc:name>
+       <sc:id>C13_13</sc:id>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Vifte, uspesifisert</sc:name>
+       <sc:id>C13_14</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Uspesifisert dannelsesmåte</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område som er bakkeplanert</sc:name>
+       <sc:id>C13_15</sc:id>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Deltaflate</sc:name>
+       <sc:id>C13_16</sc:id>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Elveslette</sc:name>
+       <sc:id>C13_17</sc:id>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Karst område</sc:name>
+       <sc:id>C13_18</sc:id>
+       <sc:sequenceNumber>18</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sandbølgefelt</sc:name>
+       <sc:id>C13_19</sc:id>
+       <sc:sequenceNumber>19</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med pløyespor</sc:name>
+       <sc:id>C13_20</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med furer på havbunnen som dannes når isfjell driver vilkårlig med havstrømmene og skraper ned i havbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>20</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredvifte</sc:name>
+       <sc:id>C13_21</sc:id>
+       <sc:sequenceNumber>21</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Gjel</sc:name>
+       <sc:id>C13_22</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Trang dal med bratte sider som er oppstått ved at en elv eller undersjøiske strømmer har gravd seg ned i berggrunnen eller i harde sedimenter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>22</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Grop dannet av isfjell</sc:name>
+       <sc:id>C13_23</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forsenkning i løsmasser. Dannet ved at et grunnstøtt isfjell blir liggende i ro.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>23</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasitektonisk haug</sc:name>
+       <sc:id>C13_24</sc:id>
+       <sc:sequenceNumber>24</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasitektonisk grop</sc:name>
+       <sc:id>C13_25</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forsenkning som dannes når isbreen beveger seg framover underlaget og drar med seg store flak av underlaget</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>25</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredområde</sc:name>
+       <sc:id>C13_26</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Skredpåvirket område, kan bl.a. omfatte skredgrop, skredløp og skredvifte</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>26</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Parallellfuret overflate</sc:name>
+       <sc:id>C13_27</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med furer dannet av isbreer parallelt med den tidligere isbevegelsen. Også kalt &lt;i&gt;fluted surface.&lt;/i&gt;</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>27</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Mudringsmasser</sc:name>
+       <sc:id>C13_28</sc:id>
+       <sc:sequenceNumber>28</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Mudringsområde</sc:name>
+       <sc:id>C13_29</sc:id>
+       <sc:sequenceNumber>29</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Dumpeplass</sc:name>
+       <sc:id>C13_30</sc:id>
+       <sc:sequenceNumber>30</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Massetak</sc:name>
+       <sc:id>C13_31</sc:id>
+       <sc:sequenceNumber>31</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fylling</sc:name>
+       <sc:id>C13_32</sc:id>
+       <sc:sequenceNumber>32</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sedimentbølger</sc:name>
+       <sc:id>C13_33</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med sedimentbølger</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>33</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Område med rygger</sc:name>
+       <sc:id>C13_34</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med rygger av uspesifisert opprinnelse</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>34</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Korallrev</sc:name>
+       <sc:id>C13_35</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Enkelt rev eller område med flere rev på havbunnen, dannet av koraller og andre organismer</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>35</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Randmorene</sc:name>
+       <sc:id>C13_36</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggformet moreneavsetning dannet langs ytterkanten av en bre. Omfatter ende- og sidemorener.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>36</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Israndavsetning</sc:name>
+       <sc:id>C13_37</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Landform av morenemateriale og/eller breelvmateriale dannet langs breranden</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>37</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morenerygg</sc:name>
+       <sc:id>C13_38</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Ryggformet moreneavsetning</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>38</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rygg, uspesifisert</sc:name>
+       <sc:id>C13_39</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Klar ryggform på havbunnen med uspesifisert opprinnelse</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>39</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>Losmassetype</sc:name>
+     <sc:id>C14</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>codelist</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:descriptors>
+      <sc:documentation>
+       <sc:descriptorValues>
+        <sc:DescriptorValue>kvartærgeologiske løsmassetyper (jordartstyper)
+
+Merknad: Nærmere forklaring til definisjoner og dannelsesmåte er å finne i heftet; Kvartærgeologisk kart over Norge, 1:1 mill., tema jordarter (Thoresen M, Norges geologiske undersøkelse, 1991) og i NGU intern-rapport 2001.018 (Bergstrøm m.fl.).</sc:DescriptorValue>
+       </sc:descriptorValues>
+      </sc:documentation>
+     </sc:descriptors>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>Løsmasser/berggrunn under vann, uspesifisert</sc:name>
+       <sc:id>C14_1</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Brukes for en avsetning der genetisk opprinnelse ikke er påvist, og det er heller ikke bestemt  om sedimentet er av marin opprinnelse.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morenemateriale, uspesifisert</sc:name>
+       <sc:id>C14_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale plukket opp, transportert og avsatt av isbreen. Det er vanligvis dårlig sortert og kan inneholde alt fra leir til stein og blokk. Mektighet, morenetype og overflateform kan variere. Benyttes ved kartframstilling i svært små målestokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morenemateriale, sammenhengende dekke, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av isbreer. Materialet er dårlig sortert, ofte kompakt og kan inneholde alle kornstørrelser, alt fra leir til stein og store blokker. Avsetningens tykkelse kan variere fra noen desimeter til mange titalls meter. Eventuelle fjellblotninger er markert som punktsymboler.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morenemateriale, usammenhengende eller tynt dekke over berggrunnen</sc:name>
+       <sc:id>C14_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av isbreer. Materialet er dårlig sortert, ofte kompakt og kan inneholde alle kornstørrelser, alt fra leir til stein og store blokker. Avsetningen er normalt usammenhengende med hyppige fjellblotninger. Den er sjelden mer enn 0.5 m tykk, men kan enkelte steder være mektigere.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Moreneleire</sc:name>
+       <sc:id>C14_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Morenemateriale med særlig høyt leir- og siltinnhold, oftest meget kompakt.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Avsmeltningsmorene (Ablasjonsmorene)</sc:name>
+       <sc:id>C14_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Løst lagret, delvis sortert morenemateriale. Forekommer ofte som tilfeldig orienterte hauger og rygger, dannet ved passiv isnedsmelting (dødis).</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Randmorene/randmorenesone</sc:name>
+       <sc:id>C14_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Enkeltrygger eller større områder med morenemateriale som er avsatt langs en brefront. Materialet er usortert og kan inneholde alle kornstørrelser fra leir til stein og store blokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Drumlin</sc:name>
+       <sc:id>C14_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Strømlinjeformet løsmasserygg. Vanligvis utformet i morenemateriale, men kan også bestå av sorterte sedimenter. Hvis løsmasseavsetningen er akkumulert på lesiden av oppstikkende fjell, kan formen kalles knaus-og-hale. Ryggformen orientert parallelt med tidligere isbevegelsesretning.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Rogenmorene</sc:name>
+       <sc:id>C14_9</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med bølgende rygger av hovedsakelig morenemateriale, orientert på tvers av brebevegelsen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Breelvavsetning (Glasifluvial avsetning)</sc:name>
+       <sc:id>C14_10</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av breelver. Sedimentet består av sorterte, ofte lagdelte avsetninger av forskjellig kornstørrelse fra fin sand til stein og blokk. Breelvavsetninger har ofte tydelige overflateformer som tørrlagte kanaler, terrasser og rygger. Mektigheten er ofte flere ti-talls meter.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Breelv- og elveavsetning</sc:name>
+       <sc:id>C14_11</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av elver eller breelver. Sedimentet består av sorterte lag av forskjellig kornstørrelse fra fin sand til grus og stein. Det er ikke skilt mellom breelv- og elveavsetninger. Brukes kun i spesielle tilfeller.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Ryggformet breelvavsetning (Esker)</sc:name>
+       <sc:id>C14_12</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av breelver. Sorterte og lagdelte sedimenter, vesentlig sand, grus og stein, avsatt i tunneler eller sprekker i isbreer. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og linjesymbolet for esker til å angi ryggformer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Haugformet breelvavsetning (Kame)</sc:name>
+       <sc:id>C14_13</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med hauger av breelvmateriale, opprinnelig avsatt i hulrom i en bre eller langs en brekant. Kan ha terrasseform hvis materialet ble avsatt langs en iskant. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og punktsymbolet for kame til å angi haugformer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bresjø- eller brekammeravsetning (Glasilakustrin avsetning)</sc:name>
+       <sc:id>C14_14</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sortert, ofte finkornet materiale avsatt i bresjø eller vannfylt brekammer, hvor tykkelsen er mer enn 0,5 m. Mektigheten kan være flere ti-talls meter.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Breelv- og bresjø-/brekammeravsetning (Glasifluvial og glasilakustrin avsetning)</sc:name>
+       <sc:id>C14_15</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale avsatt av breelv eller i bredemte sjøer eller brekammer. Det er ikke skilt mellom breelv- og bresjø-/kammeravsetninger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Innsjøavsetning (Lakustrin avsetning)</sc:name>
+       <sc:id>C14_16</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sortert, ofte finkornet og organisk-rikt materiale avsatt i innsjø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bresjø-/brekammer og innsjøavsetning (Glasilakustrin og lakustrin avsetning)</sc:name>
+       <sc:id>C14_17</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Brukt der de to avsetningstypene bresjø-/brekammer og innsjøavsetning ikke separeres.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Strandavsetning innsjø og/eller bresjø</sc:name>
+       <sc:id>C14_18</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning av sortert og godt rundet materiale dannet ved bølgeaktivitet i strandsonen i innsjø eller bredemt sjø. Kornstørrelse varierer, men grus og stein er vanlig.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>18</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Hav- og fjordavsetning, uspesifisert</sc:name>
+       <sc:id>C14_19</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Finkornet, marin avsetning. Brukt for kart i små målestokker der avsetningen ikke er inndelt etter mektighet</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>19</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Hav- og fjordavsetning, sammenhengende dekke, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_20</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sammenhengende, finkornet marin avsetning med mektighet opp til mange ti-talls meter. Avsetningstypen kan også omfatteskredmasser fra kvikkleireskred, ofte angitt med tilleggssymbol.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>20</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Marin strandavsetning, sammenhengende dekke</sc:name>
+       <sc:id>C14_21</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sammenhengende avsetning av strandvaskede, marine sedimenter, dannet av bølge- og strømaktivitet i strandsonen. Avsetningen danner ofte strandvoller. Materialet er ofte rundet og godt sortert. Kornstørrelsen varierer fra sand til blokk, men sand, grus og stein er vanligst. Strandavsetninger ligger som et forholdsvis tynt dekke over berggrunn eller andre sedimenter. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og linjesymbolet for strandvoll til å angi ryggformer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>21</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Hav-, fjord- og strandavsetning, usammenhengende eller tynt dekke over berggrunnen</sc:name>
+       <sc:id>C14_22</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med ulike typer marine avsetninger. Tykkelsen på avsetningene er normalt mindre enn 0,5 m, men den kan helt lokalt være noe større. Kornstørrelser angis normalt ikke, men kan være alt fra leir til blokk.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>22</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skjellsand (maringeologi)</sc:name>
+       <sc:id>C14_23</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning som i stor grad består av knuste skall av kalkutskillende organismer. Er en type av bioklastisk materiale. Kornstørrelse varierer fra nesten hele skall til sand. Det kan være ansamlet store mengder av skjellsand i umiddelbar nærhet av gode skjellvekstområder.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>23</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Marin gytje</sc:name>
+       <sc:id>C14_24</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning som består av finkornet materiale med høyt organisk innhold. Det organiske materialet er primærprodusert i saltvann.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>24</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Elve- og bekkeavsetning (Fluvial avsetning)</sc:name>
+       <sc:id>C14_25</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale som er transportert og avsatt av elver og bekker. Sortert sand og grus dominerer og partiklene er ofte godt rundet. Avsetningene kan ha meget varierende mektigheter. Typiske overflateformer er elvesletter, terrasser og vifter.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>25</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Elveavsetning, sammenhengende dekke</sc:name>
+       <sc:id>C14_26</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale som er transportert og avsatt av elver og bekker. De mest typiske formene er elvesletter, terrasser og vifter. Sand og grus dominerer, og materialet er sortert og rundet. Brukes kun i spesielle tilfeller.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>26</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Elve- og bekkeavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_27</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale som er transportert og avsatt av elver og bekker. Sortert sand og grus dominerer og partiklene er ofte godt rundet. Tykkelsen på avsetningene er normalt mindre enn 0,5 m, men den kan helt lokalt være noe større.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>27</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomavsetning bresjøtapping (uspesifisert)</sc:name>
+       <sc:id>C14_28</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Brukes for spesielle sedimenter avsatt ved plutselig uttapning av bresjøer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>28</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomavsetning fra bresjøtapping, sammenhengende</sc:name>
+       <sc:id>C14_29</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av vann ved katastrofal tapping av bresjø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>29</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomavsetning fra bresjøtapping, usammenhengende eller tynt dekke over berggrunnen</sc:name>
+       <sc:id>C14_30</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av vann ved katastrofal tapping av bresjø. Tykkelse mindre enn 0,5 m.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>30</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomavsetning</sc:name>
+       <sc:id>C14_31</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale som er transportert og avsatt fra elver og bekker ved unormalt høy vannføring. I flate områder (elvesletter) vil avsetningen være finkornet (silt og sand), mens i brattere vassdrag vil relativt grovt materiale bli avsatt i vifteform der terrenget flater ut.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>31</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Flomavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_32</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale som er transportert og avsatt fra elver og bekker ved unormalt høy vannføring. I flate områder (elvesletter) vil avsetningen være finkornet (silt og sand), mens i brattere vassdrag vil relativt grovt materiale bli avsatt i vifteform der terrenget flater ut.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>32</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Vindavsetning (Eolisk avsetning)</sc:name>
+       <sc:id>C14_33</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Godt sortert sand og grov silt, transportert og avsatt av vind. Ofte kalt flygesand.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>33</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forvitringsmateriale, ikke inndelt etter mektighet</sc:name>
+       <sc:id>C14_34</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Løsmasser dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell. Brukes når en ikke skiller mellom sammenhengende og usammenhengende dekke av denne avsetningstypen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>34</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forvitringsmateriale</sc:name>
+       <sc:id>C14_35</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Usorterte løsmasser av varierende kornstrørrelse. Materalet er dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell. Tykkelsen er mer enn 0,5 m.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>35</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forvitringsmateriale, usammenhengende eller tynt dekke over berggrunnen</sc:name>
+       <sc:id>C14_36</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Usorterte løsmasser av varierende kornstrørrelse. Materalet er dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>36</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Forvitringsmateriale, stein- og blokkrikt (blokkhav)</sc:name>
+       <sc:id>C14_37</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Blokkrike avsetninger, ofte kalt blokkhav. Mest vanlig i høyfjellsområder. Dannet på stedet, primært ved frostforvitring av berggrunnen over lange tidsrom. Materialet er mer finkornet under overflaten.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>37</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale, ikke inndelt etter mektighet</sc:name>
+       <sc:id>C14_38</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetninger dannet ved steinsprang, fjellskred, snø- eller løsmasseskred fra bratte dalsider. Uspesifisert tykkelse</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>38</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale, sammenhengende dekke</sc:name>
+       <sc:id>C14_39</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetninger dannet ved steinsprang, fjellskred, snøskred eller løsmasseskred fra bratte dalsider. Materialet kan inneholde alle kornstørrelser og ha varierende sorteringsgrad. Punktsymbol viser dominerende skredtype.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>39</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_40</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetninger dannet ved steinsprang, fjellskred, snø- og løsmasseskred fra bratte dalsider. Materialet kan inneholde alle kornstørrelser og ha varierende sorteringsgrad. Punktsymbol viser dominerende skredtype.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>40</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinbreavsetning</sc:name>
+       <sc:id>C14_41</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Tungeformet masse av usortert materiale som inneholder, eller har inneholdt is og derfor er, eller har vært i bevegelse. Bevegelsen skyldes intern deformasjon av isen under påvirkning av tyngdekraften. Avsetningstypen dannes under permafrostforhold. De fleste steinbreer i Norge er i dag inaktive uten bevegelse.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>41</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Torv og myr</sc:name>
+       <sc:id>C14_42</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Organisk materiale dannet av ikke nedbrutte planterester, akkumulert gjennom perioden etter siste istid. Det skilles ikke mellom ulike torvtyper.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>42</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tynt dekke av organisk materiale over berggrunn</sc:name>
+       <sc:id>C14_43</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Område med tynt dekke av bakkevegetasjon og delvis nedbrutte planterester, som ligger direkte på berggrunn. Fjellblotninger opptrer hyppig innen slike områder.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>43</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Usammenhengende eller tynt løsmassedekke over berggrunnen, flere løsmassetyper, uspesifisert</sc:name>
+       <sc:id>C14_44</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forskjellige sedimenter som danner et tynt eller usammenhengende dekke over berggrunnen. Denne betegnelsen brukes bare når en ikke velger å skille mellom ulike typer av løsmasser.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>44</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sammenhengende løsmassedekke av flere jordarter</sc:name>
+       <sc:id>C14_45</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Vanligvis skredmateriale med morenemateriale, forvitringsmateriale, torv og humus sterkt blanda ved skråningsprosesser. Brukes kun i spesielle tilfeller der det er meget vanskelig å skille mellom opprinnelige løsmassetyper.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>45</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bart fjell/fjell med tynt torvdekke, uspesifisert</sc:name>
+       <sc:id>C14_46</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Brukes når en ikke velger å skille mellom bart fjell og humusdekke eller tynt torvdekke over berggrunnen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>46</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fyllmasse (antropogent materiale)</sc:name>
+       <sc:id>C14_47</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Løsmasser som i hovedsak er transportert og avsatt av mennesker. Løsmassetypen finnes ofte i områder med nyere bygningsmasse og ved store veganlegg.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>47</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steintipp</sc:name>
+       <sc:id>C14_48</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Masser av sprengt fjell, transportert og avsatt av mennesker. Ofte knyttet til gruvedrift.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>48</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Menneskepåvirket materiale, ikke nærmere spesifisert</sc:name>
+       <sc:id>C14_49</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Dominerende stedegne masser, omarbeidet i overflaten slik at opprinnelig løsmassetype ikke er gjenkjennelig.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>49</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bart fjell</sc:name>
+       <sc:id>C14_50</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Fjelloverflate uten løsmassedekke.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>50</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bart fjell/fjell med usammenhengende eller tynt løsmassedekke</sc:name>
+       <sc:id>C14_51</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Brukes på oversiktskart der bart fjell slås sammen med alle typer tynt eller usammenhengende løsmassedekke.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>51</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Harde sedimenter eller sedimentære bergarter (maringeologi)</sc:name>
+       <sc:id>C14_52</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Blotning av konsoliderte sedimenter eller sedimentære bergarter på havbunnen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>52</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Marin suspensjonsavsetning (maringeologi)</sc:name>
+       <sc:id>C14_53</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Finkornete (leire, silt) sedimenter transportert og avsatt fra suspensjon. Draperer vanligvis underliggende sedimenter eller fjell og er oftest lagdelt.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>53</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Marin bunnstrømavsetning (maringeologi)</sc:name>
+       <sc:id>C14_54</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter som består av hovedsaklig sand og grus transportert og avsatt fra bunnstrømmer. Dekker bunnen av undersjøiske kanaler laget av bunnstrømmer. Har ofte kryss-sjiktet og lentikulær- sjiktet indre struktur.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>54</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasimarin avsetning (maringeologi)</sc:name>
+       <sc:id>C14_55</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Hovedsakelig finkornete suspensjonsavsetninger (silt, leire) avsatt i nærhet av is/isbreer. Kan være påvirket av bunnstrømmer og utjevner topografien mer enn draperer. Forekommer i mektige lag i områder på kontinentalhyllen langs kysten og i fjorder.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>55</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Iskontaktavsetning (maringeologi)</sc:name>
+       <sc:id>C14_56</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter avsatt i kontakt med is. Kan være morene, glasifluvialt materiale, eller en blanding av glasialt avsatte sedimenter. Kornstørrelsen veksler mellom leire og grus alt etter hvilke prosesser som virket.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>56</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Utvaskingslag (maringeologi)</sc:name>
+       <sc:id>C14_57</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter bestående av sand, grus og bergartsfragmenter etter at finstoffet er vasket vekk av bølger og strøm. Danner et dekkende lag over morene eller andre jordarter med stor variasjon i kornstørrelser.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>57</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Glasifluvial deltaavsetning (maringeologi)</sc:name>
+       <sc:id>C14_58</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter transportert av breelver og avsatt i hav, bresjø eller innsjø.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>58</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fluvial deltaavsetning (maringeologi)</sc:name>
+       <sc:id>C14_59</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter avsatt ved utløpet av en elv i en fjord, innsjø eller i havet. Kornstørrelsen er ofte i sandfraksjonen nær elveutløpet og mer finkornete på dypere vann. Har typisk skrålaging med helling i strømretningen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>59</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Tidevannsavsetning (maringeologi)</sc:name>
+       <sc:id>C14_60</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning dannet i kystnære områder ved tidevannstransport. Sedimentene er sandige til leirholdige med typiske strukturer som sanddyner, rifler, kryss-sjikting, mikro-kryss-sjikting, flasersjikting og lentikulær sjikting.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>60</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Estuarin avsetning (maringeologi)</sc:name>
+       <sc:id>C14_61</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Et sediment avsatt i brakkvann i et estuarie. Sedimentet er karakterisert av finkornet materiale (silt, leire) av marin og fluvial opprinnelse blandet med en høy andel rester av terrestrisk organisk materiale.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>61</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Levé avsetning (maringeologi)</sc:name>
+       <sc:id>C14_62</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning dannet som en forhøyning av sedimenter langs en eller begge sidene  av en undersjøisk kanal (kløft, viftedal eller dyphavskanal). Avsetningen kan ha varierende kornstørrelse, fra finkornet (leir) til nokså grovt materiale (sand).</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>62</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Grunnmarin avsetning (maringeologi)</sc:name>
+       <sc:id>C14_63</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter avsatt i turbulent grunt marint miljø der det fineste materialet er vasket ut og transportert til dypere vann av strømmer og bølger. Består av sand, grus og stein. I områder med mye sand kan sandbølger bygges med en karakteristisk kryss-sjikting og skrålaging.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>63</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Konturittavsetning (maringeologi)</sc:name>
+       <sc:id>C14_64</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Klastiske sedimenter transportert og avsatt av kontur-strømmer langs egga kanten. Består av fint, velsortert materiale (silt og leir). Avsetningene har vanligvis horisontal- eller kryss-sjiktning og normal- eller omvendt gradering.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>64</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Turbidittavsetning (maringeologi)</sc:name>
+       <sc:id>C14_65</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetninger dannet ved sedimenttransport og utfelling fra en turbidittstrøm.  Består av materiale i kornstørrelse fra leire til sand og er ofte karakterisert ved normalgradert lagning og moderat til dårlig sortering. Finnes oftest ved foten av skråninger med stor mektighet av løse sedimenter (for eksempel langs kontinentalskråningen).</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>65</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Debrisstrømavsetning (maringeologi)</sc:name>
+       <sc:id>C14_66</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning fra en flytende masse av stein, jord og slam. Den består av usortert materiale der mer enn halvparten av partiklene er større enn sandstørrelse.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>66</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Undersjøisk vifteavsetning (maringeologi)</sc:name>
+       <sc:id>C14_67</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>En konisk eller vifteformet avsetning beliggende ved munningen av en undersjøisk kløft. Består for det meste av fine sedimenter (leire, silt). Viften har en finlaget indre struktur med en svak helling av lagene mot dyphavet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>67</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Kanalsavsetning (maringeologi)</sc:name>
+       <sc:id>C14_68</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sedimenter avsatt i en kanal. Avsetningene vil vanligvis bestå av relativt grove sedimenter (sand, grus)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>68</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Dypmarin avsetning (maringeologi)</sc:name>
+       <sc:id>C14_69</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Samlebetegnelse på dyphavssedimenter. Kan være både konturittisk, hemipelagisk, eupelagisk osv. Dette er fine sedimenter bunnfelt utenfor kontinentalmarginen. Består i stor grad av leire og rester av pelagiske organismer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>69</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Bioklastisk avsetning (maringeologi)</sc:name>
+       <sc:id>C14_70</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sediment som for en stor del består av små partikler av biologisk opprinnelse (skjell, korall). Kornstørrelsen kan variere fra sand til hele skjell eller korallkolonier. Forekommer i begrensete områder der vekstforholdene har vært optimale over lengre tid og mengden av annet klastisk materiale liten.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>70</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Vulkanosedimentær avsetning (maringeologi)</sc:name>
+       <sc:id>C14_71</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning som består av materiale av vulkansk opprinnelse. Alt etter kornstørrelse kan sedimentene deles inn i vulkansk aske, lapilli (2-64 mm) og breksje (&gt;64mm).</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>71</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Lagdelte sedimenter (&gt;1 m) over debrisstrøm (maringeologi)</sc:name>
+       <sc:id>C14_72</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Lagdelte sedimenter (&gt;1m) over debrisstrømavsetning.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>72</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Karbonatskorpe (maringeologi)</sc:name>
+       <sc:id>C14_73</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Forekomster av karbonatsementerte sedimenter som danner opp til flere desimeter tykke skorper på havbunnen</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>73</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morene med tynt dekke av glasimarine sedimenter</sc:name>
+       <sc:id>C14_74</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Morene med tynt dekke (mindre enn 1-2 m) av glasimarine sedimenter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>74</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Morene med tynt dekke av finkornige sedimenter</sc:name>
+       <sc:id>C14_75</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Morene med tynt dekke (mindre enn 1-2 m) av finkornige sedimenter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>75</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale, dekket av yngre sedimenter (maringeologi)</sc:name>
+       <sc:id>C14_76</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Skredmateriale, dekket av yngre sedimenter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>76</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale, delvis dekket av yngre sedimenter (maringeologi)</sc:name>
+       <sc:id>C14_77</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Skredmateriale, delvis dekket av yngre sedimenter</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>77</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Skredmateriale og hemipelagiske avsetninger (maringeologi)</sc:name>
+       <sc:id>C14_78</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Veksling mellom skredavsetninger og hemipelagiske avsetninger. Hemipelagiske avsetninger består stort sett av finkornet materiale, delvis produsert i vannmassene lokalt, og delvis tilført utenifra.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>78</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Uspesifisert marin avsetning (maringeologi)</sc:name>
+       <sc:id>C14_79</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Marin avsetning med ukjent opprinnelse</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>79</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jord- og flomskredavsetning</sc:name>
+       <sc:id>C14_80</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av løsmasseskred (ikke leirskred). Avsetningene danner gjerne rygger, lober eller vifteformer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>80</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jord- og flomskredavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_81</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av løsmasseskred (ikke leirskred). Avsetningene danner gjerne rygger, lober eller vifteformer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>81</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Leirskredavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_82</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning som dannes når leirholdige sedimenter løsner og glir ut.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>82</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Leirskredavsetning, usammenhengende eller tynt dekke over berggrunnen</sc:name>
+       <sc:id>C14_83</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning som dannes når leirholdige sedimenter løsner og glir ut.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>83</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fjellskredavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_84</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av fjellskred. Fjellskred har stort volum og svært lang utløpslengde og avsetningen har derfor typisk stor utstrekning. Avsetningens overflate er ofte dominert av kantete blokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>84</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Fjellskredavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_85</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av fjellskred. Fjellskred har stort volum og svært lang utløpslengde og avsetningen har derfor typisk stor utstrekning. Avsetningens overflate er ofte dominert av kantete blokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>85</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinsprangavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_86</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning bestående av usortert materiale nedenfor en bratt kant i fast fjell, hvor stein og blokk over tid har løsnet og falt ned til skråningsfoten. Materialet varierer i kornstørrelse fra sand til blokk, med generelt økende kornstørrelse med lengre avstand fra løsneområdet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>86</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinsprangavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_87</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Avsetning bestående av usortert materiale nedenfor en bratt kant i fast fjell, hvor stein og blokk over tid har løsnet og falt ned til skråningsfoten. Materialet varierer i kornstørrelse fra sand til blokk, med generelt økende kornstørrelse med lengre avstand fra løsneområdet.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>87</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snøskredavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_88</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred. Kan omfatte alle kornstørrelser og er usortert. Gjentatt snøskredaktivitet over tid kan bygge store vifteformete avsetninger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>88</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snøskredavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_89</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred. Kan omfatte alle kornstørrelser og er usortert.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>89</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinskredavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_90</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av steinskred. Steinskred har mindre volum og kortere utløpslengde enn fjellskred, men består hovedsakelig av større blokker enn nærliggende steinsprangavsetninger. Avsetningens overflate er ofte dominert av kantete blokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>90</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinskredavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_91</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av steinskred. Steinskred har mindre volum og kortere utløpslengde enn fjellskred, men består hovedsakelig av større blokker enn nærliggende steinsprangavsetninger. Avsetningens overflate er ofte dominert av kantete blokker.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>91</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snø- og jordskredavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_92</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred og jordskred. Begge prosessene er aktive ulike tider på året. Materialet omfatter alle kornstørrelser og er usortert. Gjentatt skredaktivitet over tid kan bygge store vifteformete avsetninger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>92</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snø- og jordskredavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_93</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred og jordskred. Begge prosessene er aktive ulike tider på året. Materialet omfatter alle kornstørrelser og er usortert.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>93</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jordskred- og steinsprangavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_94</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av jordskred og steinsprang. Sorteringsgraden er varierende i avsetningen. Gjentatt skredaktivitet over tid kan danne tykke avsetninger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>94</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Jordskred- og steinsprangavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_95</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av jordskred og steinsprang. Sorteringsgraden er varierende i avsetningen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>95</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snø- og steinsprangavsetning, stedvis med stor mektighet</sc:name>
+       <sc:id>C14_96</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred og steinsprang. Sorteringsgraden er varierende i avsetningen. Gjentatt skredaktivitet over tid kan danne tykke avsetninger.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>96</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Snø- og steinsprangavsetning, usammenhengende eller tynt dekke</sc:name>
+       <sc:id>C14_97</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Materiale transportert og avsatt av snøskred og steinsprang. Sorteringsgraden er varierende i avsetningen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>97</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Sigejord med høyt organisk innhold</sc:name>
+       <sc:id>C14_98</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Sterkt frostpåvirket blandingsmateriale som beveger seg sakte nedover en slak skråning. Materialet har opprinnelse i en eller flere finstoffholdige løsmassetyper, ofte morene.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>98</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>Steinrikt, sigende skråningsmateriale</sc:name>
+       <sc:id>C14_99</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>Grovkornet, frostpåvirket blandingsmateriale som beveger seg sakte nedover en skråning. Materialet har opprinnelse i forvitret fjell eller skredmateriale.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>99</sc:sequenceNumber>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+   </sc:classes>
+   <sc:packages>
+    <sc:Package>
+     <sc:name>MarineLandformer-1.0_utkast</sc:name>
+     <sc:id>P2</sc:id>
+     <sc:classes>
+      <sc:Class>
+       <sc:name>LosmasseOverflateformLinje</sc:name>
+       <sc:id>C1</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>observert overflateform med lineær utstrekning
+
+Eksempel: Terrassekant, vifte, haug, rygg</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:supertypes>
+        <sc:SupertypeId>C3</sc:SupertypeId>
+       </sc:supertypes>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>senterlinje</sc:name>
+         <sc:id>C1_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>forløp som følger objektets sentrale del</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>Kurve</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeName>GM_Curve</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>identifikasjon</sc:name>
+         <sc:id>C1_2</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>unik identifikasjon av et objekt</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>2</sc:sequenceNumber>
+         <sc:typeId>C6</sc:typeId>
+         <sc:typeName>Identifikasjon</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>kvFormLinjetype</sc:name>
+         <sc:id>C1_3</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>kvartærgeologiske formelementlinjer</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>FORMELLIN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>3</sc:sequenceNumber>
+         <sc:typeId>C8</sc:typeId>
+         <sc:typeName>KvFormLinjetype</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>kvFormLinjetypeNavn</sc:name>
+         <sc:id>C1_4</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>navn på kvartærgeologiske formelementlinjer</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>KVFORMLINJETYPENAVN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>4</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+      <sc:Class>
+       <sc:name>FiktivDelelinje</sc:name>
+       <sc:id>C2</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>linje for å dele opp store flateobjekter
+
+Merknad:
+En del produktspesifikasjoner benytter spesifikke fiktive delelinjer.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>grense</sc:name>
+         <sc:id>C2_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>forløp som følger overgang mellom ulike fenomener</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeName>GM_Curve</sc:typeName>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+      <sc:Class>
+       <sc:name>FellesegenskaperLosmasse</sc:name>
+       <sc:id>C3</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og avgrensningslinjer fra denne klassen.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:isAbstract>true</sc:isAbstract>
+       <sc:supertypes>
+        <sc:SupertypeId>C4</sc:SupertypeId>
+       </sc:supertypes>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>datauttaksdato</sc:name>
+         <sc:id>C3_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>DATAUTTAKSDATO</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeName>Date</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>førsteDigitaliseringsdato</sc:name>
+         <sc:id>C3_2</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>dato når en representasjon av objektet i digital form første gang ble etablert
+
+Merknad:
+førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess.
+Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>FØRSTEDIGITALISERINGSDATO</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>2</sc:sequenceNumber>
+         <sc:typeName>Date</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>oppdateringsdato</sc:name>
+         <sc:id>C3_3</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>dato for siste endring på objektetdataene
+
+Merknad:
+Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>OPPDATERINGSDATO</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>3</sc:sequenceNumber>
+         <sc:typeName>Date</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>kvalitet</sc:name>
+         <sc:id>C3_4</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>beskrivelse av kvaliteten på stedfestingen
+
+Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>KVALITET</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>4</sc:sequenceNumber>
+         <sc:typeId>C7</sc:typeId>
+         <sc:typeName>Posisjonskvalitet</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>medium</sc:name>
+         <sc:id>C3_5</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>MEDIUM</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>5</sc:sequenceNumber>
+         <sc:typeId>C10</sc:typeId>
+         <sc:typeName>Medium</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>mediumNavn</sc:name>
+         <sc:id>C3_6</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>MEDIUMNAVN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>6</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>opphav</sc:name>
+         <sc:id>C3_7</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde
+
+Merknad:
+Kan også beskrive navn på person og årsak til oppdatering</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>OPPHAV</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>7</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+      <sc:Class>
+       <sc:name>LosmasseGrense</sc:name>
+       <sc:id>C4</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>avgrensning av ulike typer løsmasser (jordarter)</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:isAbstract>true</sc:isAbstract>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>geolPavisningstype</sc:name>
+         <sc:id>C4_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>GEOPÅVISNINGTYPE</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeId>C11</sc:typeId>
+         <sc:typeName>GeolPavisningstype</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>geolPavisningstypeNavn</sc:name>
+         <sc:id>C4_2</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen.
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>GEOPÅVISNINGTYPENAVN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>2</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>temakvalitet</sc:name>
+         <sc:id>C4_3</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>TEMAKVAL</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>3</sc:sequenceNumber>
+         <sc:typeId>C12</sc:typeId>
+         <sc:typeName>TemaKvalitet</sc:typeName>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+      <sc:Class>
+       <sc:name>LosmasseOverflateform</sc:name>
+       <sc:id>C5</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>areal med formelement i løsmassenes overflate</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:supertypes>
+        <sc:SupertypeId>C3</sc:SupertypeId>
+       </sc:supertypes>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>område</sc:name>
+         <sc:id>C5_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>objektets utstrekning</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>Flate</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeName>GM_Surface</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>identifikasjon</sc:name>
+         <sc:id>C5_2</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>unik identifikasjon av et objekt</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>2</sc:sequenceNumber>
+         <sc:typeId>C6</sc:typeId>
+         <sc:typeName>Identifikasjon</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>kvFormFlatetype</sc:name>
+         <sc:id>C5_3</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>område med bestemte formelementer</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>FORMELFLATE</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>3</sc:sequenceNumber>
+         <sc:typeId>C13</sc:typeId>
+         <sc:typeName>KvFormFlatetype</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>kvFormFlatetypeNavn</sc:name>
+         <sc:id>C5_4</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>navn på område med bestemte formelementer</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>KVFORMFLATETYPENAVN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>4</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>losmassetype</sc:name>
+         <sc:id>C5_5</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>kvartærgeologiske løsmassetyper (jordartstyper)</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>JORDART</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>5</sc:sequenceNumber>
+         <sc:typeId>C14</sc:typeId>
+         <sc:typeName>Losmassetype</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>losmassetypeNavn</sc:name>
+         <sc:id>C5_6</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>navn på kvartærgeologiske løsmassetyper (jordartstyper)</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:taggedValues>
+          <sc:TaggedValue>
+           <sc:name>SOSI_navn</sc:name>
+           <sc:values>
+            <sc:Value>LOSMASSETYPENAVN</sc:Value>
+           </sc:values>
+          </sc:TaggedValue>
+         </sc:taggedValues>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>6</sc:sequenceNumber>
+         <sc:typeName>CharacterString</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>avgrensning</sc:name>
+         <sc:id>Sas1</sc:id>
+         <sc:cardinality>0..*</sc:cardinality>
+         <sc:isNavigable>true</sc:isNavigable>
+         <sc:sequenceNumber>7</sc:sequenceNumber>
+         <sc:typeId>C2</sc:typeId>
+         <sc:typeName>FiktivDelelinje</sc:typeName>
+         <sc:isAttribute>false</sc:isAttribute>
+         <sc:associationId>as1</sc:associationId>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+     </sc:classes>
+    </sc:Package>
+   </sc:packages>
+  </sc:Package>
+ </sc:packages>
+ <sc:associations>
+  <sc:Association>
+   <sc:name>LosmasseOverflateform_FiktivDelelinje</sc:name>
+   <sc:id>as1</sc:id>
+   <sc:end1 ref="Sas1" />
+   <sc:end2>
+    <sc:Property>
+     <sc:id>Tas1</sc:id>
+     <sc:cardinality>0..*</sc:cardinality>
+     <sc:isNavigable>false</sc:isNavigable>
+     <sc:sequenceNumber>1</sc:sequenceNumber>
+     <sc:typeId>C5</sc:typeId>
+     <sc:typeName>LosmasseOverflateform</sc:typeName>
+     <sc:isAttribute>false</sc:isAttribute>
+     <sc:inClassId>C2</sc:inClassId>
+     <sc:associationId>as1</sc:associationId>
+    </sc:Property>
+   </sc:end2>
+  </sc:Association>
+ </sc:associations>
+</sc:Model>

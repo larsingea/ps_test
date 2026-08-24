@@ -1,0 +1,1986 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:datasettbasertpasosidatamodell="https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landformer/datasett-basert-pa-sosi-datamodell/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landformer/datasett-basert-pa-sosi-datamodell/1.0" version="1.0">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="https://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="FellesegenskaperLosmasse" substitutionGroup="datasettbasertpasosidatamodell:LosmasseGrense" type="datasettbasertpasosidatamodell:FellesegenskaperLosmasseType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og avgrensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesegenskaperLosmasseType">
+    <complexContent>
+      <extension base="datasettbasertpasosidatamodell:LosmasseGrenseType">
+        <sequence>
+          <element name="datauttaksdato" type="date">
+            <annotation>
+              <documentation>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DATAUTTAKSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="førsteDigitaliseringsdato" type="date">
+            <annotation>
+              <documentation>dato når en representasjon av objektet i digital form første gang ble etablert
+
+Merknad:
+førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess.
+Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FØRSTEDIGITALISERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+Merknad:
+Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvalitet" type="datasettbasertpasosidatamodell:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen
+
+Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVALITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="medium" type="datasettbasertpasosidatamodell:MediumType">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="mediumNavn" type="string">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MEDIUMNAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="opphav" type="string">
+            <annotation>
+              <documentation>referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde
+
+Merknad:
+Kan også beskrive navn på person og årsak til oppdatering</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPHAV</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesegenskaperLosmassePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datasettbasertpasosidatamodell:FellesegenskaperLosmasse"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="FiktivDelelinje" substitutionGroup="gml:AbstractFeature" type="datasettbasertpasosidatamodell:FiktivDelelinjeType">
+    <annotation>
+      <documentation>linje for å dele opp store flateobjekter
+
+Merknad:
+En del produktspesifikasjoner benytter spesifikke fiktive delelinjer.</documentation>
+    </annotation>
+  </element>
+  <complexType name="FiktivDelelinjeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FiktivDelelinjePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datasettbasertpasosidatamodell:FiktivDelelinje"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="GeolPavisningstypeType">
+    <annotation>
+      <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for påvisningen/registreringen</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:GeolPavisningstypeEnumerationType datasettbasertpasosidatamodell:GeolPavisningstypeOtherType"/>
+  </simpleType>
+  <simpleType name="GeolPavisningstypeEnumerationType">
+    <annotation>
+      <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for påvisningen/registreringen</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ikke spesifisert"/>
+      <enumeration value="Sikker påvisning/observasjon">
+        <annotation>
+          <documentation>Avgrensningen eller registreringen av objektet er påvist eller observert i felt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Usikker påvisning/observasjon">
+        <annotation>
+          <documentation>Ikke påvist/observert men antatt avgrensning/registrering av objekt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Konstruert avgrensning">
+        <annotation>
+          <documentation>Tilfeldig plassert avgrensning og meget usikker.  Benyttes blant annet under vann- eller breoverflater</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Geofysisk tolket grense">
+        <annotation>
+          <documentation>Avgrensning basert på geofysiske indikasjoner</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dårlig synlig avgrensning i terrenget">
+        <annotation>
+          <documentation>Basert på generalisert tolkning av objekter med små innbyrdes variasjoner (f.eks. skille mellom tynt humusdekke og bart fjell, eller mellom to svært like bergarter)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Overgangsmessig grense">
+        <annotation>
+          <documentation>Glidende overgang mellom to bergarter,  jordarter o.l.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tolket avgrensning/registrering">
+        <annotation>
+          <documentation>Avgrensninger av geologisk objekt eller delobjekt fremkommet ved generalisering, samtolkning eller aggregering</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flyfototolket objekt eller delobjekt"/>
+      <enumeration value="Observasjon med usikker geografisk beliggenhet"/>
+      <enumeration value="Avgrensning ikke basert på geologi">
+        <annotation>
+          <documentation>Der f.eks. en administrativ grense eller kystkontur har bidratt til avgrensning av et geologisk objekt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på geofysiske data/metoder verifisert ved prøvetaking"/>
+      <enumeration value="Avgrensning basert på tolkning av tilgjengelige geologiske/geofysiske data (varierende oppløsning), litteratur og kart"/>
+      <enumeration value="Avgrensning basert på geologisk observasjon i felt, prøvetaking og analyser"/>
+      <enumeration value="Tolket avgrensning basert på tilgjengelig geologisk kartlegging"/>
+      <enumeration value="Avgrensning basert på prøvetaking"/>
+      <enumeration value="Avgrensning basert på seismikk"/>
+      <enumeration value="Avgrensning basert på detaljerte dybdedata">
+        <annotation>
+          <documentation>Avgrensning ved bruk av multistråleekkolodd eller interferometrisk sonar</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på backscatter data/sidescan.sonar">
+        <annotation>
+          <documentation>Avgrensning basert på bunnreflektivitet/data fra sidescan.sonar</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på prøvetaking og akustiske data/metoder"/>
+      <enumeration value="Avgrensning basert på akustiske data/metoder"/>
+      <enumeration value="Avgrensning basert på flere metoder/datatyper"/>
+      <enumeration value="Avgrensning basert på undervannsfoto og/eller -video"/>
+      <enumeration value="Aavgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.">
+        <annotation>
+          <documentation>Avgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensningen er foretatt ut fra tolkning basert på tilgjengelige batymetriske data (varierende oppløsning), litteratur og kart"/>
+      <enumeration value="Avgrensning basert på Lidardata, flyfoto og/eller multi-/hyperspektrale bilder og eksisterende geologisk informasjon"/>
+      <enumeration value="Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata"/>
+      <enumeration value="Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata, prøvetaking samt fysiske datasett som strøm, bølger, eksponering og lysforhold"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="GeolPavisningstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="datasettbasertpasosidatamodell:IdentifikasjonType"/>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element name="lokalId" type="string">
+        <annotation>
+          <documentation>lokal identifikator, tildelt av dataleverendør/dataforvalter. Den lokale identifikatoren er unik innenfor navnerommet, ingen andre objekter har samme identifikator.
+
+NOTE: Det er data leverendørens ansvar å sørge for at denne lokale identifikatoren er unik innenfor navnerommet.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">LOKALID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="navnerom" type="string">
+        <annotation>
+          <documentation>navnerom som unikt identifiserer datakilden til objektet, starter med to bokstavs kode jfr ISO 3166. Benytter understreking  ("_") dersom data produsenten ikke er assosiert med bare et land.
+
+NOTE 1 : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og vil registreres i "INSPIRE external  Object Identifier Namespaces Register"
+
+Eksempel: NO for Norge.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NAVNEROM</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="versjonId" type="string">
+        <annotation>
+          <documentation>identifikasjon av en spesiell versjon av et geografisk objekt (instans), maksimum lengde på 25 karakterers. Dersom spesifikasjonen av et geografisk objekt med en identifikasjon inkludererer livsløpssyklusinformasjon, benyttes denne versjonId for å skille mellom ulike versjoner av samme objekt. versjonId er en unik  identifikasjon av versjonen.
+
+NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO 8601, slik som  "2007-02-12T12:12:12+05:30" som versjonId.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">VERSJONID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="datasettbasertpasosidatamodell:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <simpleType name="KvFormFlatetypeType">
+    <annotation>
+      <documentation>område med bestemte formelementer
+
+Merknad: Utformet som flateavgrensninger på kvartærgeologiske og maringeologiske kart. Formlementene kan være naturlig dannet eller menneskeskapt. De samme formelementene kan også forekomme som punktregistreringer og/eller linjeregistreringer</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:KvFormFlatetypeEnumerationType datasettbasertpasosidatamodell:KvFormFlatetypeOtherType"/>
+  </simpleType>
+  <simpleType name="KvFormFlatetypeEnumerationType">
+    <annotation>
+      <documentation>område med bestemte formelementer
+
+Merknad: Utformet som flateavgrensninger på kvartærgeologiske og maringeologiske kart. Formlementene kan være naturlig dannet eller menneskeskapt. De samme formelementene kan også forekomme som punktregistreringer og/eller linjeregistreringer</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Esker">
+        <annotation>
+          <documentation>Tydelig ryggform i sorterte løsmasser, som opprinnelig ble avsatt i tunneler eller hulrom i en bre. For å tydeliggjøre ryggformen kan linjesymbol for esker (12) brukes i kombinasjon med dette flatesymbolet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Haug- og ryggformet terreng">
+        <annotation>
+          <documentation>Område karakterisert av hauger og rygger med ulik lengde og orientering.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Drumlin">
+        <annotation>
+          <documentation>Strømlinjeformet rygg i løsmasse orientert parallelt med isbevegelsesretningen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Drumlinsverm">
+        <annotation>
+          <documentation>Område med mange drumliner med lik orientering.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dødislandskap">
+        <annotation>
+          <documentation>Område med landformer og løsmasser avsatt ved nedsmelting av dynamisk død breis. Kan omfatte både morene (oftest ablasjonsmorene) og glasifluvialt materiale.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rogenmoreneområde">
+        <annotation>
+          <documentation>Bølgende rygger av hovedsakelig morenemateriale, orientert på tvers av brebevegelsen. Forekommer ofte i nær relasjon til områder med drumliner.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tuemarkområde">
+        <annotation>
+          <documentation>Område med tuer som er et resultat av frostaktivitet i torv.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Polygonmark område">
+        <annotation>
+          <documentation>Område hvor overflaten er preget av mønstre oppstått ved gjentatte fryse-tineprosesser. Dette kan være dannet som isfylte sprekker i bakken eller ved steinsortering.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Palsområde">
+        <annotation>
+          <documentation>Myrområde med torvdekke, isfylte hauger. Oppstått ved dannelse av is i torva som ikke smelter om sommeren.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Område med landformer fra uspesifiserte skredmasser"/>
+      <enumeration value="Område med landformer fra fjellskredmasser"/>
+      <enumeration value="Område med landformer fra løsmasseskredavsetninger"/>
+      <enumeration value="Område med landformer fra kvikkleireskredsavsetninger"/>
+      <enumeration value="Vifte, uspesifisert">
+        <annotation>
+          <documentation>Uspesifisert dannelsesmåte</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Område som er bakkeplanert"/>
+      <enumeration value="Deltaflate"/>
+      <enumeration value="Elveslette"/>
+      <enumeration value="Karst område"/>
+      <enumeration value="Sandbølgefelt"/>
+      <enumeration value="Område med pløyespor">
+        <annotation>
+          <documentation>Område med furer på havbunnen som dannes når isfjell driver vilkårlig med havstrømmene og skraper ned i havbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredvifte"/>
+      <enumeration value="Gjel">
+        <annotation>
+          <documentation>Trang dal med bratte sider som er oppstått ved at en elv eller undersjøiske strømmer har gravd seg ned i berggrunnen eller i harde sedimenter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Grop dannet av isfjell">
+        <annotation>
+          <documentation>Forsenkning i løsmasser. Dannet ved at et grunnstøtt isfjell blir liggende i ro.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasitektonisk haug"/>
+      <enumeration value="Glasitektonisk grop">
+        <annotation>
+          <documentation>Forsenkning som dannes når isbreen beveger seg framover underlaget og drar med seg store flak av underlaget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredområde">
+        <annotation>
+          <documentation>Skredpåvirket område, kan bl.a. omfatte skredgrop, skredløp og skredvifte</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Parallellfuret overflate">
+        <annotation>
+          <documentation>Område med furer dannet av isbreer parallelt med den tidligere isbevegelsen. Også kalt &lt;i&gt;fluted surface.&lt;/i&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Mudringsmasser"/>
+      <enumeration value="Mudringsområde"/>
+      <enumeration value="Dumpeplass"/>
+      <enumeration value="Massetak"/>
+      <enumeration value="Fylling"/>
+      <enumeration value="Sedimentbølger">
+        <annotation>
+          <documentation>Område med sedimentbølger</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Område med rygger">
+        <annotation>
+          <documentation>Område med rygger av uspesifisert opprinnelse</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Korallrev">
+        <annotation>
+          <documentation>Enkelt rev eller område med flere rev på havbunnen, dannet av koraller og andre organismer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Randmorene">
+        <annotation>
+          <documentation>Ryggformet moreneavsetning dannet langs ytterkanten av en bre. Omfatter ende- og sidemorener.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Israndavsetning">
+        <annotation>
+          <documentation>Landform av morenemateriale og/eller breelvmateriale dannet langs breranden</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morenerygg">
+        <annotation>
+          <documentation>Ryggformet moreneavsetning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rygg, uspesifisert">
+        <annotation>
+          <documentation>Klar ryggform på havbunnen med uspesifisert opprinnelse</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KvFormFlatetypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KvFormLinjetypeType">
+    <annotation>
+      <documentation>kvartærgeologiske formelementlinjer
+
+Merknad: Linjetema på kvartærgeologiske kart. Viser former skapt under isavsmeltingen, elve-/bekkeformer, strandformer eller skredformer mm. Ved flere av linjesymbolene må en ta hensyn til digitaliseringsretningen for å få symbolet riktig</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:KvFormLinjetypeEnumerationType datasettbasertpasosidatamodell:KvFormLinjetypeOtherType"/>
+  </simpleType>
+  <simpleType name="KvFormLinjetypeEnumerationType">
+    <annotation>
+      <documentation>kvartærgeologiske formelementlinjer
+
+Merknad: Linjetema på kvartærgeologiske kart. Viser former skapt under isavsmeltingen, elve-/bekkeformer, strandformer eller skredformer mm. Ved flere av linjesymbolene må en ta hensyn til digitaliseringsretningen for å få symbolet riktig</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ikke angitt"/>
+      <enumeration value="Drumlin">
+        <annotation>
+          <documentation>Strømlinjeformet rygg i løsmasser og/eller berggrunn, orientert parallelt med isbevegelsesretningen. Hvis løsmasseryggen er akkumulert i le av oppstikkende berggrunn kan formen kalles knaus og hale.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Drumlinoid rygg">
+        <annotation>
+          <documentation>Utydelig strømlinjeformet rygg i løsmasser og/eller berggrunn, orientert parallelt med isbevegelsesretningen. Hvis løsmasseryggen er akkumulert i le av oppstikkende berggrunn kan formen kalles knaus og hale.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Randmorene">
+        <annotation>
+          <documentation>Ryggformet moreneavsetning dannet langs ytterkanten av en bre. Omfatter ende- og sidemorener.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Parallelle rygger og furer i overflaten">
+        <annotation>
+          <documentation>Langstrakte strømlinjeformede rygger og furer i overflaten. Formene er orientert parallelt med tidligere isbevegelsesretning og er dannet under en isbre. Lavt relieff og liten bredde i forhold til lengde.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sprekkefyllrygg">
+        <annotation>
+          <documentation>Ryggform som dannes ved at løsmasser blir presset opp i sprekk i sålen av en isbre. Forbindes med stagnasjon av breen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tilbaketrekningsmorene">
+        <annotation>
+          <documentation>Morenerygger avsatt foran breen ved lite fremstøt eller stillstand av brefronten, i en periode med generell tilbaketrekning av breen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morenerygg">
+        <annotation>
+          <documentation>Ryggformet moreneavsetning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Esker (ryggformet breelvavsetning)">
+        <annotation>
+          <documentation>Klar ryggform i løsmasser. Angir at materialet er avsatt i tunneler eller sprekker i eller under en bre. Dersom den ryggformete breelvavsetningen er stor nok til å danne figur på kartet brukes fargen for breelvavsetninger til å angi utbredelsen og eskersymbolet til å angi ryggformen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Breelvnedskjæring">
+        <annotation>
+          <documentation>Erosjonskant dannet av breelv</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bre-lateralt smeltevannsløp (spylerenne, venstre side) (2)">
+        <annotation>
+          <documentation>Smeltevannsløp dannet langs kanten av en bre (venstre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Smeltevannsløp (spylerenne)">
+        <annotation>
+          <documentation>Kanal i løsmasser dannet av smeltevann fra isbreer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bre-lateralt smeltevannsløp (spylerenne, høyre side) (1)">
+        <annotation>
+          <documentation>Smeltevannsløp dannet langs kanten av en bre (høyre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Smeltevannsløp over passpunkt">
+        <annotation>
+          <documentation>Smeltevannsspor dannet ved overløp mellom to høyder (passpunkt)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Side av smeltevannsgjel (1)">
+        <annotation>
+          <documentation>Tørrlagt gjel utformet i fast fjell av smeltevann fra en isbre (venstre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Side av smeltevannsgjel (2)">
+        <annotation>
+          <documentation>Tørrlagt gjel utformet i fast fjell av smeltevann fra en isbre (høyre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Smeltevannsgjel">
+        <annotation>
+          <documentation>Tørrlagt gjel, utformet i fast fjell av smeltevann fra en isbre</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Spylefelt">
+        <annotation>
+          <documentation>Fjelloverflate avspylt av smeltevann fra en isbre</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Iskontaktskråning">
+        <annotation>
+          <documentation>Bratt skråning utformet i løsmasser avsatt med støtte mot en brekant</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandlinje fra bredemt sjø">
+        <annotation>
+          <documentation>Horisontal linje i landskapet som markerer ytterkanten av en tidligere bredemt sjø. Kan være utformet både i løsmasser og i fast fjell. Blir også kalt sete.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandvoll fra bredemt sjø">
+        <annotation>
+          <documentation>Voll av sorterte løsmasser. Dannet av bølgeaktivitet langs strandsonen i en bredemt sjø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Pløyespor fra isfjell">
+        <annotation>
+          <documentation>Avlange grøfter i løsmasser. Dannet av drivende isfjell i kontakt med bunnen av hav eller innsjø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stor dødisgrop">
+        <annotation>
+          <documentation>Stor forsenkning i løsmasser. Dannet ved smelting av begravde isrester. Kalles også grytehull.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Grop dannet av isfjell">
+        <annotation>
+          <documentation>Forsenkning i løsmasser. Dannet ved at et grunnstøtt isfjell blir liggende i ro.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Breelvvifte">
+        <annotation>
+          <documentation>Vifteformet løsmasseavsetning, hovedsaklig formet av rennende smeltevann fra en isbre.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nivasjonskant">
+        <annotation>
+          <documentation>Skrent dannet i bakkant av snøleie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrassekant, glasial">
+        <annotation>
+          <documentation>Bratt kant/skråning som avgrenser en terrasseflate i sorterte løsmasser. Dannet i brenært miljø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasitektonisk skrent">
+        <annotation>
+          <documentation>Bratt skråning dannet der en isbre har dratt med seg et flak av underlaget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Elve-/bekkenedskjæring">
+        <annotation>
+          <documentation>Kant dannet av rennende vann som har erodert ned i underlaget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tidligere elve-/bekkeløp">
+        <annotation>
+          <documentation>Inaktiv kanal/løp, formet av rennende vann</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomløp">
+        <annotation>
+          <documentation>Kanal formet av fluvial erosjon under ekstremt stor vannføring</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gjel, elv/bekk">
+        <annotation>
+          <documentation>Gjel utformet i fast fjell av vann</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vifteform">
+        <annotation>
+          <documentation>Vifteformet løsmasseavsetning, hovedsaklig formet av rennende vann</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ravine">
+        <annotation>
+          <documentation>Dypt nedskåret, v-formet kanal i løsmasser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrassekant">
+        <annotation>
+          <documentation>Bratt kant/skråning som avgrenser en terrasseflate i sorterte løsmasser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nedskåret bekkeløp, vannførende"/>
+      <enumeration value="Nedskåret bekkeløp, sjeldent vannførende"/>
+      <enumeration value="Stor gjel utformet av elv og/eller breelv (venstre side)">
+        <annotation>
+          <documentation>Stort gjel (eller canyon) utformet av vann, i fast fjell (venstre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stor gjel utformet av elv og/eller breelv (høyre side)">
+        <annotation>
+          <documentation>Stort gjel (eller canyon) utformet av vann, i fast fjell (høyre side)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strømgrop">
+        <annotation>
+          <documentation>Erosjonsgroper som dannes i elvebunn og på elvesletter i flomperioder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kanal, uspesifisert (under vann)">
+        <annotation>
+          <documentation>Kanal på sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fjellkløft (under vann)">
+        <annotation>
+          <documentation>Kløft eller sprekk i fast fjell på sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kanalside (under vann)">
+        <annotation>
+          <documentation>Side av en kanal på sjøbunnen, som definerer bredden av kanalen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandvoll">
+        <annotation>
+          <documentation>Voll av sorterte løsmasser. Dannet av bølgeaktivitet langs en strandsone.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandlinje utformet i løsmasser">
+        <annotation>
+          <documentation>Horisontal linje i landskapet som markerer en tidligere strandlinje. Utformet i løsmasser.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandlinje utformet i fastFjell">
+        <annotation>
+          <documentation>Horisontal linje i landskapet som markerer en tidligere strandlinje. Utformet i fast fjell.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Abrasjonskant">
+        <annotation>
+          <documentation>Tydelig skrent i løsmasse eller fast fjell. Erodert av bølgeaktivitet i strandsone.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredvifte, ytterkant">
+        <annotation>
+          <documentation>Ytre grense av vifteformet skredavsetning. Ikke knyttet til en spesifikk skredprosess.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredløp, tydelig">
+        <annotation>
+          <documentation>Kanal i bratt skråning dannet av gjentatte skred av forskjellig type (snøskred, jordskred, steinsprang)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snøskredvoll"/>
+      <enumeration value="Snøskredtunge"/>
+      <enumeration value="Front av fjellskredavsetning">
+        <annotation>
+          <documentation>Ytre grense av fjellskredavsetning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredkant">
+        <annotation>
+          <documentation>Bratt skrent som markerer løsnekant av et skred. Kan være dannet av forskjellige typer skred i både løsmasser og fast fjell.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jord- og flomskredløp">
+        <annotation>
+          <documentation>Kanal i løsmasser dannet som følge av jord- eller flomskred</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nedslagsgrop (maringeologi)">
+        <annotation>
+          <documentation>Grop dannet ved foten av skråning i sjøen pga. skred</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredkant, flak (maringeologi)">
+        <annotation>
+          <documentation>Bakkant av flakformet skred på sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredfront (maringeologi)">
+        <annotation>
+          <documentation>Front av et løsmasseskred. Viser utstrekning av en skredvifte på sjøbunnen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snøskredløp">
+        <annotation>
+          <documentation>Tydelig løp, erodert gjennom gjentatte snøskred</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jord- og flomskredslevée">
+        <annotation>
+          <documentation>Små rygger langs jord- og flomskredløp</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skrederosjonskant">
+        <annotation>
+          <documentation>Kant i løsmassedekket langs skredløp. Dannet av gjentatte skred langs samme løp.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinstriper">
+        <annotation>
+          <documentation>Rekker av steiner orientert nedover en skråning grunnet gjentatte fryse- og tineprosesser. Fremstår som striper nedover fjellsider.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rygg">
+        <annotation>
+          <documentation>Ryggform i løsmasser. Primært brukt for rygger dannet ved avsetning eller deformasjon, ikke for ryggformer som har oppstått som følge av erosjon.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Deflasjonsgrop">
+        <annotation>
+          <documentation>Fordypning i løsmasser dannet ved vinderosjon. Kan være flere meter bred og dyp.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Markert haug eller rygg">
+        <annotation>
+          <documentation>Avgrensning av en enkelt haug eller rygg i løsmasser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nedskjæring i løsmasser (maringeologi)">
+        <annotation>
+          <documentation>Nedskjæring i løsmasser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lineament (maringeologi)">
+        <annotation>
+          <documentation>Regionalt utstrakt, linjeformet landskapstrekk som antas å avspeile svakhetsstrukturer eller inhomogeniteter i jordskorpen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sandbølge (maringeologi)">
+        <annotation>
+          <documentation>Sandbølge eller sanddyne dannet av strømmende vann eller vind</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kildehorisont">
+        <annotation>
+          <documentation>Horisont med grunnvannsutslag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forkastningslinje med antatt glasial og/eller postglasial aktivitet">
+        <annotation>
+          <documentation>Rettlinjet form i landoverflaten, som oftest synlig som en bratt skrent. Tolket som en forkastning med antatt aktivitet i glasial eller postglasial tid, basert på påvist deformasjon og skred/utglidninger av glasiale eller postglasiale løsmasser.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasitektonisk haug (maringeologi)">
+        <annotation>
+          <documentation>Haug- og ryggformet terreng som dannes når isbreen drar med seg og senere legger igjen store flak av underlaget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasitektonisk grop (maringeologi)">
+        <annotation>
+          <documentation>Forsenkning som dannes når isbreen beveger seg framover underlaget og drar med seg store flak av underlaget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rygg, uspesifisert (maringeologi)">
+        <annotation>
+          <documentation>Rygg, uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strømrenne (maringeologi)">
+        <annotation>
+          <documentation>Renner på havbunnen dannet av bunnstrømmer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Renne, uspesifisert (maringeologi)">
+        <annotation>
+          <documentation>Renne, uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sedimentbølge (maringeologi)">
+        <annotation>
+          <documentation>Stor, bølgelignende landform på havbunnen dannet av bunnstrømmer. Toppen av bølgen er vanligvis orientert vinkelrett på strømretningen. Sedimentbølger består oftest av en blanding av slam, silt og sand, men kan og inneholde grus.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Korallrev (maringeologi)">
+        <annotation>
+          <documentation>Korallrev</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forkastning (maringeologi)">
+        <annotation>
+          <documentation>Bruddflate der det har foregått målbar/visuell forskyving av bergartene. Bevegelsesretningen på forskyvningen mellom forkastningsblokkene definerer betegnelsen for forkastningstypen, deriblant normal-, revers-, skrå- og sidelengsforkastning.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sprekk (maringeologi)">
+        <annotation>
+          <documentation>Smal fordypning i havbunnen, som dannes ved nedsynkning av sedimenter pga. forkastning, utslipp av gass fra oppløsning av gasshydrater, eller svekket stabilitet av skråning etter utglidning av et skred.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kant, uspesifisert (maringeologi)">
+        <annotation>
+          <documentation>Kant av usikker opprinnelse i løsmasser (f.eks. pga. skred, strøm eller en kombinasjon)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ankerspor (maringeologi)">
+        <annotation>
+          <documentation>Ankerspor på sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kabel (maringeologi)">
+        <annotation>
+          <documentation>Kabel</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rørledning (maringeologi)">
+        <annotation>
+          <documentation>Rørledning</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KvFormLinjetypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="LosmasseGrense" substitutionGroup="gml:AbstractFeature" type="datasettbasertpasosidatamodell:LosmasseGrenseType">
+    <annotation>
+      <documentation>avgrensning av ulike typer løsmasser (jordarter)</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LosmasseGrenseType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geolPavisningstype" type="datasettbasertpasosidatamodell:GeolPavisningstypeType">
+            <annotation>
+              <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOPÅVISNINGTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="geolPavisningstypeNavn" type="string">
+            <annotation>
+              <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen.
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOPÅVISNINGTYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="temakvalitet" type="datasettbasertpasosidatamodell:TemaKvalitetType">
+            <annotation>
+              <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">TEMAKVAL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LosmasseGrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datasettbasertpasosidatamodell:LosmasseGrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LosmasseOverflateform" substitutionGroup="datasettbasertpasosidatamodell:FellesegenskaperLosmasse" type="datasettbasertpasosidatamodell:LosmasseOverflateformType">
+    <annotation>
+      <documentation>areal med formelement i løsmassenes overflate</documentation>
+    </annotation>
+  </element>
+  <complexType name="LosmasseOverflateformType">
+    <complexContent>
+      <extension base="datasettbasertpasosidatamodell:FellesegenskaperLosmasseType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Flate</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="identifikasjon" type="datasettbasertpasosidatamodell:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+          <element name="kvFormFlatetype" type="datasettbasertpasosidatamodell:KvFormFlatetypeType">
+            <annotation>
+              <documentation>område med bestemte formelementer</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FORMELFLATE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvFormFlatetypeNavn" type="string">
+            <annotation>
+              <documentation>navn på område med bestemte formelementer</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVFORMFLATETYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="losmassetype" type="datasettbasertpasosidatamodell:LosmassetypeType">
+            <annotation>
+              <documentation>kvartærgeologiske løsmassetyper (jordartstyper)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">JORDART</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="losmassetypeNavn" type="string">
+            <annotation>
+              <documentation>navn på kvartærgeologiske løsmassetyper (jordartstyper)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LOSMASSETYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensning" type="datasettbasertpasosidatamodell:FiktivDelelinjePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LosmasseOverflateformPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datasettbasertpasosidatamodell:LosmasseOverflateform"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LosmasseOverflateformLinje" substitutionGroup="datasettbasertpasosidatamodell:FellesegenskaperLosmasse" type="datasettbasertpasosidatamodell:LosmasseOverflateformLinjeType">
+    <annotation>
+      <documentation>observert overflateform med lineær utstrekning
+
+Eksempel: Terrassekant, vifte, haug, rygg</documentation>
+    </annotation>
+  </element>
+  <complexType name="LosmasseOverflateformLinjeType">
+    <complexContent>
+      <extension base="datasettbasertpasosidatamodell:FellesegenskaperLosmasseType">
+        <sequence>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="identifikasjon" type="datasettbasertpasosidatamodell:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+          <element name="kvFormLinjetype" type="datasettbasertpasosidatamodell:KvFormLinjetypeType">
+            <annotation>
+              <documentation>kvartærgeologiske formelementlinjer</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FORMELLIN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvFormLinjetypeNavn" type="string">
+            <annotation>
+              <documentation>navn på kvartærgeologiske formelementlinjer</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVFORMLINJETYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LosmasseOverflateformLinjePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datasettbasertpasosidatamodell:LosmasseOverflateformLinje"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="LosmassetypeType">
+    <annotation>
+      <documentation>kvartærgeologiske løsmassetyper (jordartstyper)
+
+Merknad: Nærmere forklaring til definisjoner og dannelsesmåte er å finne i heftet; Kvartærgeologisk kart over Norge, 1:1 mill., tema jordarter (Thoresen M, Norges geologiske undersøkelse, 1991) og i NGU intern-rapport 2001.018 (Bergstrøm m.fl.).</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:LosmassetypeEnumerationType datasettbasertpasosidatamodell:LosmassetypeOtherType"/>
+  </simpleType>
+  <simpleType name="LosmassetypeEnumerationType">
+    <annotation>
+      <documentation>kvartærgeologiske løsmassetyper (jordartstyper)
+
+Merknad: Nærmere forklaring til definisjoner og dannelsesmåte er å finne i heftet; Kvartærgeologisk kart over Norge, 1:1 mill., tema jordarter (Thoresen M, Norges geologiske undersøkelse, 1991) og i NGU intern-rapport 2001.018 (Bergstrøm m.fl.).</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Løsmasser/berggrunn under vann, uspesifisert">
+        <annotation>
+          <documentation>Brukes for en avsetning der genetisk opprinnelse ikke er påvist, og det er heller ikke bestemt  om sedimentet er av marin opprinnelse.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morenemateriale, uspesifisert">
+        <annotation>
+          <documentation>Materiale plukket opp, transportert og avsatt av isbreen. Det er vanligvis dårlig sortert og kan inneholde alt fra leir til stein og blokk. Mektighet, morenetype og overflateform kan variere. Benyttes ved kartframstilling i svært små målestokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morenemateriale, sammenhengende dekke, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av isbreer. Materialet er dårlig sortert, ofte kompakt og kan inneholde alle kornstørrelser, alt fra leir til stein og store blokker. Avsetningens tykkelse kan variere fra noen desimeter til mange titalls meter. Eventuelle fjellblotninger er markert som punktsymboler.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morenemateriale, usammenhengende eller tynt dekke over berggrunnen">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av isbreer. Materialet er dårlig sortert, ofte kompakt og kan inneholde alle kornstørrelser, alt fra leir til stein og store blokker. Avsetningen er normalt usammenhengende med hyppige fjellblotninger. Den er sjelden mer enn 0.5 m tykk, men kan enkelte steder være mektigere.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Moreneleire">
+        <annotation>
+          <documentation>Morenemateriale med særlig høyt leir- og siltinnhold, oftest meget kompakt.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avsmeltningsmorene (Ablasjonsmorene)">
+        <annotation>
+          <documentation>Løst lagret, delvis sortert morenemateriale. Forekommer ofte som tilfeldig orienterte hauger og rygger, dannet ved passiv isnedsmelting (dødis).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Randmorene/randmorenesone">
+        <annotation>
+          <documentation>Enkeltrygger eller større områder med morenemateriale som er avsatt langs en brefront. Materialet er usortert og kan inneholde alle kornstørrelser fra leir til stein og store blokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Drumlin">
+        <annotation>
+          <documentation>Strømlinjeformet løsmasserygg. Vanligvis utformet i morenemateriale, men kan også bestå av sorterte sedimenter. Hvis løsmasseavsetningen er akkumulert på lesiden av oppstikkende fjell, kan formen kalles knaus-og-hale. Ryggformen orientert parallelt med tidligere isbevegelsesretning.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rogenmorene">
+        <annotation>
+          <documentation>Område med bølgende rygger av hovedsakelig morenemateriale, orientert på tvers av brebevegelsen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Breelvavsetning (Glasifluvial avsetning)">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av breelver. Sedimentet består av sorterte, ofte lagdelte avsetninger av forskjellig kornstørrelse fra fin sand til stein og blokk. Breelvavsetninger har ofte tydelige overflateformer som tørrlagte kanaler, terrasser og rygger. Mektigheten er ofte flere ti-talls meter.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Breelv- og elveavsetning">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av elver eller breelver. Sedimentet består av sorterte lag av forskjellig kornstørrelse fra fin sand til grus og stein. Det er ikke skilt mellom breelv- og elveavsetninger. Brukes kun i spesielle tilfeller.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ryggformet breelvavsetning (Esker)">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av breelver. Sorterte og lagdelte sedimenter, vesentlig sand, grus og stein, avsatt i tunneler eller sprekker i isbreer. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og linjesymbolet for esker til å angi ryggformer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Haugformet breelvavsetning (Kame)">
+        <annotation>
+          <documentation>Område med hauger av breelvmateriale, opprinnelig avsatt i hulrom i en bre eller langs en brekant. Kan ha terrasseform hvis materialet ble avsatt langs en iskant. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og punktsymbolet for kame til å angi haugformer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bresjø- eller brekammeravsetning (Glasilakustrin avsetning)">
+        <annotation>
+          <documentation>Sortert, ofte finkornet materiale avsatt i bresjø eller vannfylt brekammer, hvor tykkelsen er mer enn 0,5 m. Mektigheten kan være flere ti-talls meter.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Breelv- og bresjø-/brekammeravsetning (Glasifluvial og glasilakustrin avsetning)">
+        <annotation>
+          <documentation>Materiale avsatt av breelv eller i bredemte sjøer eller brekammer. Det er ikke skilt mellom breelv- og bresjø-/kammeravsetninger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Innsjøavsetning (Lakustrin avsetning)">
+        <annotation>
+          <documentation>Sortert, ofte finkornet og organisk-rikt materiale avsatt i innsjø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bresjø-/brekammer og innsjøavsetning (Glasilakustrin og lakustrin avsetning)">
+        <annotation>
+          <documentation>Brukt der de to avsetningstypene bresjø-/brekammer og innsjøavsetning ikke separeres.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Strandavsetning innsjø og/eller bresjø">
+        <annotation>
+          <documentation>Avsetning av sortert og godt rundet materiale dannet ved bølgeaktivitet i strandsonen i innsjø eller bredemt sjø. Kornstørrelse varierer, men grus og stein er vanlig.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Hav- og fjordavsetning, uspesifisert">
+        <annotation>
+          <documentation>Finkornet, marin avsetning. Brukt for kart i små målestokker der avsetningen ikke er inndelt etter mektighet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Hav- og fjordavsetning, sammenhengende dekke, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Sammenhengende, finkornet marin avsetning med mektighet opp til mange ti-talls meter. Avsetningstypen kan også omfatteskredmasser fra kvikkleireskred, ofte angitt med tilleggssymbol.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marin strandavsetning, sammenhengende dekke">
+        <annotation>
+          <documentation>Sammenhengende avsetning av strandvaskede, marine sedimenter, dannet av bølge- og strømaktivitet i strandsonen. Avsetningen danner ofte strandvoller. Materialet er ofte rundet og godt sortert. Kornstørrelsen varierer fra sand til blokk, men sand, grus og stein er vanligst. Strandavsetninger ligger som et forholdsvis tynt dekke over berggrunn eller andre sedimenter. Der avsetningen er stor nok til å danne figur på kartet brukes løsmassetypen til å angi utbredelsen og linjesymbolet for strandvoll til å angi ryggformer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Hav-, fjord- og strandavsetning, usammenhengende eller tynt dekke over berggrunnen">
+        <annotation>
+          <documentation>Område med ulike typer marine avsetninger. Tykkelsen på avsetningene er normalt mindre enn 0,5 m, men den kan helt lokalt være noe større. Kornstørrelser angis normalt ikke, men kan være alt fra leir til blokk.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skjellsand (maringeologi)">
+        <annotation>
+          <documentation>Avsetning som i stor grad består av knuste skall av kalkutskillende organismer. Er en type av bioklastisk materiale. Kornstørrelse varierer fra nesten hele skall til sand. Det kan være ansamlet store mengder av skjellsand i umiddelbar nærhet av gode skjellvekstområder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marin gytje">
+        <annotation>
+          <documentation>Avsetning som består av finkornet materiale med høyt organisk innhold. Det organiske materialet er primærprodusert i saltvann.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Elve- og bekkeavsetning (Fluvial avsetning)">
+        <annotation>
+          <documentation>Materiale som er transportert og avsatt av elver og bekker. Sortert sand og grus dominerer og partiklene er ofte godt rundet. Avsetningene kan ha meget varierende mektigheter. Typiske overflateformer er elvesletter, terrasser og vifter.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Elveavsetning, sammenhengende dekke">
+        <annotation>
+          <documentation>Materiale som er transportert og avsatt av elver og bekker. De mest typiske formene er elvesletter, terrasser og vifter. Sand og grus dominerer, og materialet er sortert og rundet. Brukes kun i spesielle tilfeller.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Elve- og bekkeavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale som er transportert og avsatt av elver og bekker. Sortert sand og grus dominerer og partiklene er ofte godt rundet. Tykkelsen på avsetningene er normalt mindre enn 0,5 m, men den kan helt lokalt være noe større.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomavsetning bresjøtapping (uspesifisert)">
+        <annotation>
+          <documentation>Brukes for spesielle sedimenter avsatt ved plutselig uttapning av bresjøer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomavsetning fra bresjøtapping, sammenhengende">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av vann ved katastrofal tapping av bresjø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomavsetning fra bresjøtapping, usammenhengende eller tynt dekke over berggrunnen">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av vann ved katastrofal tapping av bresjø. Tykkelse mindre enn 0,5 m.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomavsetning">
+        <annotation>
+          <documentation>Materiale som er transportert og avsatt fra elver og bekker ved unormalt høy vannføring. I flate områder (elvesletter) vil avsetningen være finkornet (silt og sand), mens i brattere vassdrag vil relativt grovt materiale bli avsatt i vifteform der terrenget flater ut.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flomavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale som er transportert og avsatt fra elver og bekker ved unormalt høy vannføring. I flate områder (elvesletter) vil avsetningen være finkornet (silt og sand), mens i brattere vassdrag vil relativt grovt materiale bli avsatt i vifteform der terrenget flater ut.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vindavsetning (Eolisk avsetning)">
+        <annotation>
+          <documentation>Godt sortert sand og grov silt, transportert og avsatt av vind. Ofte kalt flygesand.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forvitringsmateriale, ikke inndelt etter mektighet">
+        <annotation>
+          <documentation>Løsmasser dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell. Brukes når en ikke skiller mellom sammenhengende og usammenhengende dekke av denne avsetningstypen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forvitringsmateriale">
+        <annotation>
+          <documentation>Usorterte løsmasser av varierende kornstrørrelse. Materalet er dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell. Tykkelsen er mer enn 0,5 m.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forvitringsmateriale, usammenhengende eller tynt dekke over berggrunnen">
+        <annotation>
+          <documentation>Usorterte løsmasser av varierende kornstrørrelse. Materalet er dannet på stedet ved fysisk eller kjemisk nedbryting av berggrunnen. Gradvis overgang til underliggende fast fjell.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forvitringsmateriale, stein- og blokkrikt (blokkhav)">
+        <annotation>
+          <documentation>Blokkrike avsetninger, ofte kalt blokkhav. Mest vanlig i høyfjellsområder. Dannet på stedet, primært ved frostforvitring av berggrunnen over lange tidsrom. Materialet er mer finkornet under overflaten.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale, ikke inndelt etter mektighet">
+        <annotation>
+          <documentation>Avsetninger dannet ved steinsprang, fjellskred, snø- eller løsmasseskred fra bratte dalsider. Uspesifisert tykkelse</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale, sammenhengende dekke">
+        <annotation>
+          <documentation>Avsetninger dannet ved steinsprang, fjellskred, snøskred eller løsmasseskred fra bratte dalsider. Materialet kan inneholde alle kornstørrelser og ha varierende sorteringsgrad. Punktsymbol viser dominerende skredtype.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Avsetninger dannet ved steinsprang, fjellskred, snø- og løsmasseskred fra bratte dalsider. Materialet kan inneholde alle kornstørrelser og ha varierende sorteringsgrad. Punktsymbol viser dominerende skredtype.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinbreavsetning">
+        <annotation>
+          <documentation>Tungeformet masse av usortert materiale som inneholder, eller har inneholdt is og derfor er, eller har vært i bevegelse. Bevegelsen skyldes intern deformasjon av isen under påvirkning av tyngdekraften. Avsetningstypen dannes under permafrostforhold. De fleste steinbreer i Norge er i dag inaktive uten bevegelse.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Torv og myr">
+        <annotation>
+          <documentation>Organisk materiale dannet av ikke nedbrutte planterester, akkumulert gjennom perioden etter siste istid. Det skilles ikke mellom ulike torvtyper.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tynt dekke av organisk materiale over berggrunn">
+        <annotation>
+          <documentation>Område med tynt dekke av bakkevegetasjon og delvis nedbrutte planterester, som ligger direkte på berggrunn. Fjellblotninger opptrer hyppig innen slike områder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Usammenhengende eller tynt løsmassedekke over berggrunnen, flere løsmassetyper, uspesifisert">
+        <annotation>
+          <documentation>Forskjellige sedimenter som danner et tynt eller usammenhengende dekke over berggrunnen. Denne betegnelsen brukes bare når en ikke velger å skille mellom ulike typer av løsmasser.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sammenhengende løsmassedekke av flere jordarter">
+        <annotation>
+          <documentation>Vanligvis skredmateriale med morenemateriale, forvitringsmateriale, torv og humus sterkt blanda ved skråningsprosesser. Brukes kun i spesielle tilfeller der det er meget vanskelig å skille mellom opprinnelige løsmassetyper.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bart fjell/fjell med tynt torvdekke, uspesifisert">
+        <annotation>
+          <documentation>Brukes når en ikke velger å skille mellom bart fjell og humusdekke eller tynt torvdekke over berggrunnen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fyllmasse (antropogent materiale)">
+        <annotation>
+          <documentation>Løsmasser som i hovedsak er transportert og avsatt av mennesker. Løsmassetypen finnes ofte i områder med nyere bygningsmasse og ved store veganlegg.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steintipp">
+        <annotation>
+          <documentation>Masser av sprengt fjell, transportert og avsatt av mennesker. Ofte knyttet til gruvedrift.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Menneskepåvirket materiale, ikke nærmere spesifisert">
+        <annotation>
+          <documentation>Dominerende stedegne masser, omarbeidet i overflaten slik at opprinnelig løsmassetype ikke er gjenkjennelig.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bart fjell">
+        <annotation>
+          <documentation>Fjelloverflate uten løsmassedekke.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bart fjell/fjell med usammenhengende eller tynt løsmassedekke">
+        <annotation>
+          <documentation>Brukes på oversiktskart der bart fjell slås sammen med alle typer tynt eller usammenhengende løsmassedekke.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Harde sedimenter eller sedimentære bergarter (maringeologi)">
+        <annotation>
+          <documentation>Blotning av konsoliderte sedimenter eller sedimentære bergarter på havbunnen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marin suspensjonsavsetning (maringeologi)">
+        <annotation>
+          <documentation>Finkornete (leire, silt) sedimenter transportert og avsatt fra suspensjon. Draperer vanligvis underliggende sedimenter eller fjell og er oftest lagdelt.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marin bunnstrømavsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter som består av hovedsaklig sand og grus transportert og avsatt fra bunnstrømmer. Dekker bunnen av undersjøiske kanaler laget av bunnstrømmer. Har ofte kryss-sjiktet og lentikulær- sjiktet indre struktur.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasimarin avsetning (maringeologi)">
+        <annotation>
+          <documentation>Hovedsakelig finkornete suspensjonsavsetninger (silt, leire) avsatt i nærhet av is/isbreer. Kan være påvirket av bunnstrømmer og utjevner topografien mer enn draperer. Forekommer i mektige lag i områder på kontinentalhyllen langs kysten og i fjorder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Iskontaktavsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter avsatt i kontakt med is. Kan være morene, glasifluvialt materiale, eller en blanding av glasialt avsatte sedimenter. Kornstørrelsen veksler mellom leire og grus alt etter hvilke prosesser som virket.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Utvaskingslag (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter bestående av sand, grus og bergartsfragmenter etter at finstoffet er vasket vekk av bølger og strøm. Danner et dekkende lag over morene eller andre jordarter med stor variasjon i kornstørrelser.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Glasifluvial deltaavsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter transportert av breelver og avsatt i hav, bresjø eller innsjø.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fluvial deltaavsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter avsatt ved utløpet av en elv i en fjord, innsjø eller i havet. Kornstørrelsen er ofte i sandfraksjonen nær elveutløpet og mer finkornete på dypere vann. Har typisk skrålaging med helling i strømretningen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tidevannsavsetning (maringeologi)">
+        <annotation>
+          <documentation>Avsetning dannet i kystnære områder ved tidevannstransport. Sedimentene er sandige til leirholdige med typiske strukturer som sanddyner, rifler, kryss-sjikting, mikro-kryss-sjikting, flasersjikting og lentikulær sjikting.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Estuarin avsetning (maringeologi)">
+        <annotation>
+          <documentation>Et sediment avsatt i brakkvann i et estuarie. Sedimentet er karakterisert av finkornet materiale (silt, leire) av marin og fluvial opprinnelse blandet med en høy andel rester av terrestrisk organisk materiale.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Levé avsetning (maringeologi)">
+        <annotation>
+          <documentation>Avsetning dannet som en forhøyning av sedimenter langs en eller begge sidene  av en undersjøisk kanal (kløft, viftedal eller dyphavskanal). Avsetningen kan ha varierende kornstørrelse, fra finkornet (leir) til nokså grovt materiale (sand).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Grunnmarin avsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter avsatt i turbulent grunt marint miljø der det fineste materialet er vasket ut og transportert til dypere vann av strømmer og bølger. Består av sand, grus og stein. I områder med mye sand kan sandbølger bygges med en karakteristisk kryss-sjikting og skrålaging.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Konturittavsetning (maringeologi)">
+        <annotation>
+          <documentation>Klastiske sedimenter transportert og avsatt av kontur-strømmer langs egga kanten. Består av fint, velsortert materiale (silt og leir). Avsetningene har vanligvis horisontal- eller kryss-sjiktning og normal- eller omvendt gradering.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Turbidittavsetning (maringeologi)">
+        <annotation>
+          <documentation>Avsetninger dannet ved sedimenttransport og utfelling fra en turbidittstrøm.  Består av materiale i kornstørrelse fra leire til sand og er ofte karakterisert ved normalgradert lagning og moderat til dårlig sortering. Finnes oftest ved foten av skråninger med stor mektighet av løse sedimenter (for eksempel langs kontinentalskråningen).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Debrisstrømavsetning (maringeologi)">
+        <annotation>
+          <documentation>Avsetning fra en flytende masse av stein, jord og slam. Den består av usortert materiale der mer enn halvparten av partiklene er større enn sandstørrelse.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Undersjøisk vifteavsetning (maringeologi)">
+        <annotation>
+          <documentation>En konisk eller vifteformet avsetning beliggende ved munningen av en undersjøisk kløft. Består for det meste av fine sedimenter (leire, silt). Viften har en finlaget indre struktur med en svak helling av lagene mot dyphavet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kanalsavsetning (maringeologi)">
+        <annotation>
+          <documentation>Sedimenter avsatt i en kanal. Avsetningene vil vanligvis bestå av relativt grove sedimenter (sand, grus)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dypmarin avsetning (maringeologi)">
+        <annotation>
+          <documentation>Samlebetegnelse på dyphavssedimenter. Kan være både konturittisk, hemipelagisk, eupelagisk osv. Dette er fine sedimenter bunnfelt utenfor kontinentalmarginen. Består i stor grad av leire og rester av pelagiske organismer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bioklastisk avsetning (maringeologi)">
+        <annotation>
+          <documentation>Sediment som for en stor del består av små partikler av biologisk opprinnelse (skjell, korall). Kornstørrelsen kan variere fra sand til hele skjell eller korallkolonier. Forekommer i begrensete områder der vekstforholdene har vært optimale over lengre tid og mengden av annet klastisk materiale liten.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vulkanosedimentær avsetning (maringeologi)">
+        <annotation>
+          <documentation>Avsetning som består av materiale av vulkansk opprinnelse. Alt etter kornstørrelse kan sedimentene deles inn i vulkansk aske, lapilli (2-64 mm) og breksje (&gt;64mm).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lagdelte sedimenter (&gt;1 m) over debrisstrøm (maringeologi)">
+        <annotation>
+          <documentation>Lagdelte sedimenter (&gt;1m) over debrisstrømavsetning.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Karbonatskorpe (maringeologi)">
+        <annotation>
+          <documentation>Forekomster av karbonatsementerte sedimenter som danner opp til flere desimeter tykke skorper på havbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morene med tynt dekke av glasimarine sedimenter">
+        <annotation>
+          <documentation>Morene med tynt dekke (mindre enn 1-2 m) av glasimarine sedimenter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Morene med tynt dekke av finkornige sedimenter">
+        <annotation>
+          <documentation>Morene med tynt dekke (mindre enn 1-2 m) av finkornige sedimenter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale, dekket av yngre sedimenter (maringeologi)">
+        <annotation>
+          <documentation>Skredmateriale, dekket av yngre sedimenter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale, delvis dekket av yngre sedimenter (maringeologi)">
+        <annotation>
+          <documentation>Skredmateriale, delvis dekket av yngre sedimenter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skredmateriale og hemipelagiske avsetninger (maringeologi)">
+        <annotation>
+          <documentation>Veksling mellom skredavsetninger og hemipelagiske avsetninger. Hemipelagiske avsetninger består stort sett av finkornet materiale, delvis produsert i vannmassene lokalt, og delvis tilført utenifra.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Uspesifisert marin avsetning (maringeologi)">
+        <annotation>
+          <documentation>Marin avsetning med ukjent opprinnelse</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jord- og flomskredavsetning">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av løsmasseskred (ikke leirskred). Avsetningene danner gjerne rygger, lober eller vifteformer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jord- og flomskredavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av løsmasseskred (ikke leirskred). Avsetningene danner gjerne rygger, lober eller vifteformer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Leirskredavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Avsetning som dannes når leirholdige sedimenter løsner og glir ut.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Leirskredavsetning, usammenhengende eller tynt dekke over berggrunnen">
+        <annotation>
+          <documentation>Avsetning som dannes når leirholdige sedimenter løsner og glir ut.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fjellskredavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av fjellskred. Fjellskred har stort volum og svært lang utløpslengde og avsetningen har derfor typisk stor utstrekning. Avsetningens overflate er ofte dominert av kantete blokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fjellskredavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av fjellskred. Fjellskred har stort volum og svært lang utløpslengde og avsetningen har derfor typisk stor utstrekning. Avsetningens overflate er ofte dominert av kantete blokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinsprangavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Avsetning bestående av usortert materiale nedenfor en bratt kant i fast fjell, hvor stein og blokk over tid har løsnet og falt ned til skråningsfoten. Materialet varierer i kornstørrelse fra sand til blokk, med generelt økende kornstørrelse med lengre avstand fra løsneområdet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinsprangavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Avsetning bestående av usortert materiale nedenfor en bratt kant i fast fjell, hvor stein og blokk over tid har løsnet og falt ned til skråningsfoten. Materialet varierer i kornstørrelse fra sand til blokk, med generelt økende kornstørrelse med lengre avstand fra løsneområdet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snøskredavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred. Kan omfatte alle kornstørrelser og er usortert. Gjentatt snøskredaktivitet over tid kan bygge store vifteformete avsetninger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snøskredavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred. Kan omfatte alle kornstørrelser og er usortert.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinskredavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av steinskred. Steinskred har mindre volum og kortere utløpslengde enn fjellskred, men består hovedsakelig av større blokker enn nærliggende steinsprangavsetninger. Avsetningens overflate er ofte dominert av kantete blokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinskredavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av steinskred. Steinskred har mindre volum og kortere utløpslengde enn fjellskred, men består hovedsakelig av større blokker enn nærliggende steinsprangavsetninger. Avsetningens overflate er ofte dominert av kantete blokker.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snø- og jordskredavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred og jordskred. Begge prosessene er aktive ulike tider på året. Materialet omfatter alle kornstørrelser og er usortert. Gjentatt skredaktivitet over tid kan bygge store vifteformete avsetninger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snø- og jordskredavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred og jordskred. Begge prosessene er aktive ulike tider på året. Materialet omfatter alle kornstørrelser og er usortert.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jordskred- og steinsprangavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av jordskred og steinsprang. Sorteringsgraden er varierende i avsetningen. Gjentatt skredaktivitet over tid kan danne tykke avsetninger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jordskred- og steinsprangavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av jordskred og steinsprang. Sorteringsgraden er varierende i avsetningen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snø- og steinsprangavsetning, stedvis med stor mektighet">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred og steinsprang. Sorteringsgraden er varierende i avsetningen. Gjentatt skredaktivitet over tid kan danne tykke avsetninger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Snø- og steinsprangavsetning, usammenhengende eller tynt dekke">
+        <annotation>
+          <documentation>Materiale transportert og avsatt av snøskred og steinsprang. Sorteringsgraden er varierende i avsetningen.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sigejord med høyt organisk innhold">
+        <annotation>
+          <documentation>Sterkt frostpåvirket blandingsmateriale som beveger seg sakte nedover en slak skråning. Materialet har opprinnelse i en eller flere finstoffholdige løsmassetyper, ofte morene.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Steinrikt, sigende skråningsmateriale">
+        <annotation>
+          <documentation>Grovkornet, frostpåvirket blandingsmateriale som beveger seg sakte nedover en skråning. Materialet har opprinnelse i forvitret fjell eller skredmateriale.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LosmassetypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MediumType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:MediumEnumerationType datasettbasertpasosidatamodell:MediumOtherType"/>
+  </simpleType>
+  <simpleType name="MediumEnumerationType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Alltid i vann"/>
+      <enumeration value="I bygning/bygningsmessig anlegg"/>
+      <enumeration value="I luft"/>
+      <enumeration value="På isbre"/>
+      <enumeration value="På sjøbunnen"/>
+      <enumeration value="På terrenget/på bakkenivå">
+        <annotation>
+          <documentation>default</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="På vannoverflaten"/>
+      <enumeration value="Tidvis under vann"/>
+      <enumeration value="Under isbre"/>
+      <enumeration value="Under sjøbunnen"/>
+      <enumeration value="Under terrenget"/>
+      <enumeration value="Ukjent">
+        <annotation>
+          <documentation>ukjent</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MediumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:MålemetodeEnumerationType datasettbasertpasosidatamodell:MålemetodeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeEnumerationType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Terrengmålt: Uspesifisert måleinstrument">
+        <annotation>
+          <documentation>Målt i terrenget , uspesifisert metode/måleinstrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Totalstasjon">
+        <annotation>
+          <documentation>Målt i terrenget med totalstasjon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Teodolitt og el avstandsmåler">
+        <annotation>
+          <documentation>Målt i terrenget med teodolitt og elektronisk avstandsmåler</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Teodolitt og målebånd">
+        <annotation>
+          <documentation>Målt i terrenget med teodolitt og målebånd</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Ortogonalmetoden">
+        <annotation>
+          <documentation>Målt i terrenget, ortogonalmetoden</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Utmål">
+        <annotation>
+          <documentation>Punkt beregnet på bakgrunn av måling mot andre punkter, slik som to avstander eller avstand og retning
+
+-- Definition --
+Point calculated on the basis of other items, such as two distances or distance + direction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tatt fra plan">
+        <annotation>
+          <documentation>Tatt fra plan eller godkjent tiltak</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Annet  (denne har ingen mening, bør fjernes?)">
+        <annotation>
+          <documentation>Annet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument">
+        <annotation>
+          <documentation>Målt i stereoinstrument, uspesifisert instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Aerotriangulert">
+        <annotation>
+          <documentation>Punkt beregnet ved aerotriangulering
+
+-- Definition --
+Point calculated by aerotriangulation</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Analytisk plotter">
+        <annotation>
+          <documentation>Målt i stereoinstrument, analytisk plotter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Autograf">
+        <annotation>
+          <documentation>Målt i stereoinstrument, autograf, analogt instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Digitalt">
+        <annotation>
+          <documentation>Målt i stereoinstrument, digitalt instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Scannet fra kart">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner, uspesifisert kartmedium</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Blyantoriginal">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er blyantoriginal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Rissefolie">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er rissefolie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Transparent folie, god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av  god kvalitet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Transparent folie, mindre god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av mindre god kvalitet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Papirkopi">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er papirkopi.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flybåren laserscanner">
+        <annotation>
+          <documentation>Målt med laserskanner fra fly</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bilbåren laser">
+        <annotation>
+          <documentation>Målt med laserskanner plassert i kjøretøy</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lineær referanse">
+        <annotation>
+          <documentation>brukes for objekter som er stedfestet med lineær referanse, enten disse leveres med stedfesting kun som lineære referanser, eller med koordinatgeometri avledet fra lineære referanser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto eller flybilde">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto eller flybilde ved hjelp av manuell registrering på et digitaliseringsbord, uspesifisert bildemedium</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto, film">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto, fotokopi">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Flybilde, film">
+        <annotation>
+          <documentation>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Flybilde, fotokopi">
+        <annotation>
+          <documentation>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra ortofoto">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på skjerm</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra satellittbilde">
+        <annotation>
+          <documentation>Geometri overført fra satellittbilde ved hjelp av manuell registrering på skjerm</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra andre digitale rasterdata"/>
+      <enumeration value="Digitalisert på skjerm fra tolkning av seismikk"/>
+      <enumeration value="Vektorisering av laserdata">
+        <annotation>
+          <documentation>Vektorisering fra laserdata, brukes også der vektoriseringen støttes av ortofoto</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord, medium uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, blyantoriginal">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er blyantoriginal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, rissefoile">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er rissefolie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, transparent foile, god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av god kvalitet, samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, transparent foile, mindre god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av mindre god kvalitet, samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, papirkopi">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er papirkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra skannet kart">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på skjerm, medium skannet kart (raster), samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon)">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode. Ikke nærmere spesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon): Terrengmodell">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode, fra terrengmodell</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon): Vektet middel">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode, vektet middel</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data: Fra annen geometri">
+        <annotation>
+          <documentation>Genererte data: Sirkelgeometri, korridor eller annen geometri generert ut fra f.eks et punkt eller en linje (f.eks midtlinje veg)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data: Generalisering"/>
+      <enumeration value="Genererte data: Sentralpunkt"/>
+      <enumeration value="Genererte data: Sammenknytningspunkt, randpunkt">
+        <annotation>
+          <documentation>Genererte data: Sammenknytningspunkt (f.eks mellom ulike kartlegginger), randpunkt (f.eks mellom ulike kilder til kart)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Koordinater hentet fra GAB">
+        <annotation>
+          <documentation>Koordinater hentet fra GAB, forløperen til registerdelen av matrikkelen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Koordinater hentet fra JREG">
+        <annotation>
+          <documentation>Koordinater hentet fra JREG, jordregisteret</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Beregnet">
+        <annotation>
+          <documentation>Beregnet, uspesifisert hvordan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Spesielle metoder">
+        <annotation>
+          <documentation>Spesielle metoder, uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Spesielle metoder: Målt med stikkstang"/>
+      <enumeration value="Spesielle metoder: Målt med waterstang"/>
+      <enumeration value="Spesielle metoder: Målt med målehjul"/>
+      <enumeration value="Spesielle metoder: Målt med stigningsmåler"/>
+      <enumeration value="Fastsatt punkt">
+        <annotation>
+          <documentation>Punkt fastsatt ut fra et grunnlag (kart, bilde), f.eks ved partenes enighet ved en oppmålingsforretning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fastsatt ved dom eller kongelig resolusjon">
+        <annotation>
+          <documentation>Geometri fastsatt ved dom, lov, traktat eller kongelig resolusjon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Annet (spesifiseres i filhode) ( bør vel fjernes, blir borte ved overføring mellom systemer)">
+        <annotation>
+          <documentation>Annet (spesifiseres i filhode)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning">
+        <annotation>
+          <documentation>Digitalisert ut fra frihåndstegning.  Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning på kart">
+        <annotation>
+          <documentation>Digitalisert fra krokering på kart, dvs grovt skissert på kart</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning på skjerm">
+        <annotation>
+          <documentation>Digitalisert ut fra frihåndstegning (direkte på skjerm). Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Treghetsstedfesting"/>
+      <enumeration value="GNSS: Kodemåling, relative målinger">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, relative målinger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Kodemåling, enkle målinger">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, enkle målinger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling, statisk måling">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling statisk måling.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling, andre metoder">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling andre metoder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kombinasjon av GNSS/Treghet">
+        <annotation>
+          <documentation>Kombinasjon av GPS/Treghet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling RTK">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO).: Fasemåling RTK (realtids kinematisk måling)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling , float-løsning">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO). Fasemåling float-løsning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ukjent målemetode">
+        <annotation>
+          <documentation>Målemetode er ukjent</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="datasettbasertpasosidatamodell:PosisjonskvalitetType"/>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="datasettbasertpasosidatamodell:MålemetodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+        </annotation>
+      </element>
+      <element name="målemetodeNavn" type="string">
+        <annotation>
+          <documentation>navn på metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">MÅLEMETODENAVN</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighet" type="integer">
+        <annotation>
+          <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NØYAKTIGHET</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="datasettbasertpasosidatamodell:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+  <simpleType name="TemaKvalitetType">
+    <annotation>
+      <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</documentation>
+    </annotation>
+    <union memberTypes="datasettbasertpasosidatamodell:TemaKvalitetEnumerationType datasettbasertpasosidatamodell:TemaKvalitetOtherType"/>
+  </simpleType>
+  <simpleType name="TemaKvalitetEnumerationType">
+    <annotation>
+      <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Høyest mulig posisjonell og tematisk nøyaktighet">
+        <annotation>
+          <documentation>Den geologiske observasjonen/registreringen er stedfestet med høyest mulig posisjonell og tematisk nøyaktighet for direkte bruk i kommunenes reguleringsplaner (Målestokk under 1:20.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Høy posisjonell- og tematisk nøyaktighet, høy oppløsning, lite generalisering">
+        <annotation>
+          <documentation>Registrering basert på det som for naturinformasjon må anses å være av høy posisjonell- og tematisk nøyaktighet (+/- 20 m). Høy oppløsning og lite generalisering. Kan anvendes i kommuneplanens arealdel. Minste arealenhet er 0.5-1 dekar (~M 1: 20.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="God posisjonell- og tematisk nøyaktighet, god oppløsning, noe generalisert">
+        <annotation>
+          <documentation>Registrering stedfestet med nøyaktighet i terrenget på +/- 50m, akseptabelt for oversiktsinformasjon på kommunenivå (arealplan). Minste arealenhet er ca. 2 dekar for viktige tema, ca. 5 dekar for øvrige (~M 1:50.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lav posisjonell- og tematisk nøyaktighet, lav oppløsning, med generalisering">
+        <annotation>
+          <documentation>Registrering med lav oppløsning (+/- 100 m) og hvor det er gjort generalisering, ofte basert på flyfototolkning. Minste gjengitte arealenhet ca. 10 dekar for viktige tema, ca 20 dekar for de øvrige. Kan med forbehold benyttes som oversiktsinformasjon på kommunenivå (~M 1:100.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Meget lav posisjonell- og tematisk nøyaktighet, meget lav oppløsning, stor grad generalisert">
+        <annotation>
+          <documentation>Registrering basert på oversiktskartlegging i liten målestokk. Meget lav oppløsning (+/- 250 m) og kan inneholde stor grad av generalisering. Minste arealenhet er ca. 60 dekar. Bør kun anvendes til regionale oversikter (~M 1:250.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Meget lav posisjonell- og tematisk nøyaktighet, sterkt generalisert">
+        <annotation>
+          <documentation>Beregnet for oversiktskart i meget små målestokker. Minste arealenhet er ca. 1000 dekar. Anvendelsesområdet er landsoversikter og oversikt over store regioner (~M &gt; 250.000).</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TemaKvalitetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
