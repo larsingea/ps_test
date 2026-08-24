@@ -1,0 +1,87 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title Marine landformer - Datasett basert på SOSI-datamodell - Objekttyper
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Objekttyper" {
+
+  class LosmasseOverflateformLinje <<featureType>> {
+    + senterlinje [1] : Kurve
+    + identifikasjon [1] : Identifikasjon
+    + kvFormLinjetype [1] : KvFormLinjetype
+    + kvFormLinjetypeNavn [1] : CharacterString
+  }
+
+  class FiktivDelelinje <<featureType>> {
+    + grense [1] : Kurve
+  }
+
+  abstract class FellesegenskaperLosmasse <<featureType>> {
+    + datauttaksdato [1] : Date
+    + førsteDigitaliseringsdato [1] : Date
+    + oppdateringsdato [0..1] : Date
+    + kvalitet [1] : Posisjonskvalitet
+    + medium [1] : Medium
+    + mediumNavn [1] : CharacterString
+    + opphav [0..1] : CharacterString
+  }
+
+  abstract class LosmasseGrense <<featureType>> {
+    + geolPavisningstype [1] : GeolPavisningstype
+    + geolPavisningstypeNavn [1] : CharacterString
+    + temakvalitet [0..1] : TemaKvalitet
+  }
+
+  class LosmasseOverflateform <<featureType>> {
+    + område [1] : Flate
+    + identifikasjon [1] : Identifikasjon
+    + kvFormFlatetype [1] : KvFormFlatetype
+    + kvFormFlatetypeNavn [1] : CharacterString
+    + losmassetype [0..1] : Losmassetype
+    + losmassetypeNavn [0..1] : CharacterString
+  }
+
+  class Identifikasjon <<dataType>> {
+    + lokalId [1] : CharacterString
+    + navnerom [1] : CharacterString
+    + versjonId [1] : CharacterString
+  }
+
+  class Posisjonskvalitet <<dataType>> {
+    + målemetode [1] : Målemetode
+    + målemetodeNavn [1] : CharacterString
+    + nøyaktighet [0..1] : Integer
+  }
+}
+
+  FellesegenskaperLosmasse <|-- LosmasseOverflateformLinje
+  LosmasseGrense <|-- FellesegenskaperLosmasse
+  FellesegenskaperLosmasse <|-- LosmasseOverflateform
+  LosmasseOverflateform --> FiktivDelelinje : avgrensning [0..*]
+
+@enduml
