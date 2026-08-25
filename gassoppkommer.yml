@@ -1,0 +1,9 @@
+metadataId: 0947f0ef-8c0e-472f-8652-b4e5108a213b
+output_directory: produktspesifikasjon
+product_slug: gassoppkommer
+updated: '2026-08-25'
+scopes:
+- name: Gassoppkommer
+  url: https://geo.ngu.no/api/features/gassoppkommer
+  generator: ogc_feature_api
+  description: OGC API-Features fra Norges geologiske undersøkelse
