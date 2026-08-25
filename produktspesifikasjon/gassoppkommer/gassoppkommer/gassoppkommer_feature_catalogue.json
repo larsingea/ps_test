@@ -1,0 +1,319 @@
+[
+  {
+    "name": "MarinGassoppkommePkt",
+    "description": "Datasettet viser eller indikerer gassoppkommer fra havbunnen. Detaljnivået på datasettet tilsier bruk innenfor kartmålestokken: 1:5 000 - 1:500 000.\n",
+    "geometry": {
+      "itemType": "feature",
+      "type": "geometry-point",
+      "crs": [
+        "#/crs",
+        "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      ],
+      "storageCrs": "http://www.opengis.net/def/crs/EPSG/0/4258",
+      "format": "geometry-point",
+      "ogcRole": "primary-geometry"
+    },
+    "attributes": [
+      {
+        "name": "lokalid",
+        "type": "string",
+        "cardinality": "0..1",
+        "description": "lokalid",
+        "ogcRole": "id"
+      },
+      {
+        "name": "identifikasjon",
+        "type": "Identifikasjon",
+        "cardinality": "1..1",
+        "attributes": [
+          {
+            "name": "lokalId",
+            "type": "string",
+            "cardinality": "0..1",
+            "description": "Lokal identifikator av et objekt<br/>Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet."
+          },
+          {
+            "name": "navnerom",
+            "type": "string",
+            "cardinality": "0..1",
+            "description": "Navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI<br/>Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0\r\n<br/>Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no"
+          },
+          {
+            "name": "versjonId",
+            "type": "string",
+            "cardinality": "0..1",
+            "description": "Identifikasjon av en spesiell versjon av et geografisk objekt (instans)"
+          }
+        ]
+      },
+      {
+        "name": "datafangstdato",
+        "type": "date-time (string)",
+        "cardinality": "1..1",
+        "description": "Dato når objektet siste gang ble registrert/observert/målt i terrenget<br/>Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.<br/>Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.",
+        "ogcRole": "primary-instant"
+      },
+      {
+        "name": "oppdateringsdato",
+        "type": "date-time (string)",
+        "cardinality": "0..1",
+        "description": "Tidspunkt for siste endring på objektet <br/>Merknad: <br/>Oppdateringsdato kan være forskjellig fra datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen)."
+      },
+      {
+        "name": "datauttaksdato",
+        "type": "date-time (string)",
+        "cardinality": "0..1",
+        "description": "Dato for uttak fra en database<br/>Merknad:<br/>Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase."
+      },
+      {
+        "name": "kvalitet",
+        "type": "Posisjonskvalitet",
+        "cardinality": "1..1",
+        "attributes": [
+          {
+            "name": "målemetode",
+            "type": "string",
+            "cardinality": "0..1",
+            "description": "Metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss"
+          },
+          {
+            "name": "nøyaktighet",
+            "type": "integer",
+            "cardinality": "0..1",
+            "description": "Punktstandardavviket i grunnriss for punkter samt tverravvik for linjer<br/>Merknad:<br/>Oppgitt i cm"
+          }
+        ]
+      },
+      {
+        "name": "medium",
+        "type": "Medium",
+        "cardinality": "1..1",
+        "description": "Objektets beliggenhet i forhold til jordoverflaten<br/>Eksempel:\r\nPå bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+        "valueDomain": {
+          "type": "enumeration",
+          "listedValues": [
+            {
+              "value": "alltidIVann",
+              "label": "alltidIVann"
+            },
+            {
+              "value": "iBygning",
+              "label": "iBygning"
+            },
+            {
+              "value": "iLuft",
+              "label": "iLuft"
+            },
+            {
+              "value": "påIsbre",
+              "label": "påIsbre"
+            },
+            {
+              "value": "påSjøbunnen",
+              "label": "påSjøbunnen"
+            },
+            {
+              "value": "påTerrenget",
+              "label": "påTerrenget"
+            },
+            {
+              "value": "påVannoverflaten",
+              "label": "påVannoverflaten"
+            },
+            {
+              "value": "tidvisUnderVann",
+              "label": "tidvisUnderVann"
+            },
+            {
+              "value": "ukjent",
+              "label": "ukjent"
+            },
+            {
+              "value": "underIsbre",
+              "label": "underIsbre"
+            },
+            {
+              "value": "underSjøbunnen",
+              "label": "underSjøbunnen"
+            },
+            {
+              "value": "underTerrenget",
+              "label": "underTerrenget"
+            }
+          ]
+        }
+      },
+      {
+        "name": "opphav",
+        "type": "string",
+        "cardinality": "1..1",
+        "description": "Referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde\r\n<br/>Merknad: <br/>Kan også beskrive navn på person og årsak til oppdatering"
+      },
+      {
+        "name": "toktNummer",
+        "type": "string",
+        "cardinality": "1..1",
+        "description": "Unikt navn på måleoppdrag"
+      },
+      {
+        "name": "linjeNummer",
+        "type": "string",
+        "cardinality": "1..1",
+        "description": "Linjenummer i et tokt. Sammen med toktnummer gir denne et unikt navn for linjen"
+      },
+      {
+        "name": "datafangsttid",
+        "type": "string",
+        "cardinality": "0..1",
+        "description": "Klokkeslett når objektet ble registrert/observert/målt i felt"
+      },
+      {
+        "name": "vanndyp",
+        "type": "string",
+        "cardinality": "1..1",
+        "description": "Vanndyp der prøven er tatt.<br/>-- Definition – <br/>Water depth where the sample is taken."
+      },
+      {
+        "name": "gassøyleHøyde",
+        "type": "integer",
+        "cardinality": "1..1",
+        "description": "Estimert høyde på en gassøyle i vann"
+      },
+      {
+        "name": "styrke",
+        "type": "integer",
+        "cardinality": "1..1",
+        "description": "Relativ styrke på akustisk signal i en gassøyle"
+      },
+      {
+        "name": "pålitelighetProsent",
+        "type": "integer",
+        "cardinality": "1..1",
+        "description": "Pålitelighet i prosent (10-100) som viser hvor stor sannsynligheten er for at signaler i vannkolonnedata viser et gassoppkomme"
+      },
+      {
+        "name": "geolPavisningstype",
+        "type": "GeolPavisningstype",
+        "cardinality": "1..1",
+        "description": "Hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen\r\n-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based",
+        "valueDomain": {
+          "type": "enumeration",
+          "listedValues": [
+            {
+              "value": "0",
+              "label": "0"
+            },
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "3",
+              "label": "3"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            },
+            {
+              "value": "32",
+              "label": "32"
+            },
+            {
+              "value": "33",
+              "label": "33"
+            },
+            {
+              "value": "4",
+              "label": "4"
+            },
+            {
+              "value": "5",
+              "label": "5"
+            },
+            {
+              "value": "6",
+              "label": "6"
+            },
+            {
+              "value": "7",
+              "label": "7"
+            },
+            {
+              "value": "8",
+              "label": "8"
+            },
+            {
+              "value": "9",
+              "label": "9"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
