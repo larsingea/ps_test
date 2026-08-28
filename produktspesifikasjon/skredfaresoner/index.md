@@ -24,14 +24,14 @@ logo: "https://register.geonorge.no/data/organizations/970205039_NVE_liten.png"
 
 - **Tidsperiode**:
   - **Fra**: 2014-02-28
-  - **Til**: 2026-08-23
+  - **Til**: 2026-08-27
 
 ## Om spesifikasjonen
 
 
 > **Denne versjonen av produktspesifikasjonen:** <br>
 > **Opprettet dato:** 2014-02-28<br>
-> **Endret dato:** 2026-08-23<br>
+> **Endret dato:** 2026-08-27<br>
 > **Språk:** nor<br>
 > **Kontaktinformasjon:** Norges vassdrags- og energidirektorat, [gisstotte@nve.no](mailto:gisstotte@nve.no)
 
@@ -170,6 +170,9 @@ Dataene egner seg for bruk innen planlegging, samfunnssikkerhet og beredskap.\\n
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Skredfaresoner_AtomFeedPostGIS.xml) | W3C:AtomFeed | PostGIS | fylkesvis, kommunevis, landsfiler |
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Skredfaresoner_AtomFeedSOSI.xml) | W3C:AtomFeed | SOSI | fylkesvis, kommunevis, landsfiler |
 | Skredfaresoner WMS | [Lenke](https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer?request=GetCapabilities&service=WMS) | WMS-tjeneste | wms |  |
+| GeoPackage: dataleveranse-basert-pa-sosi-datamodell | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/dataleveranse-basert-pa-sosi-datamodell.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: dataleveranse-basert-pa-sosi-datamodell | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/schema/xsd/INPUT/dataleveranse-basert-pa-sosi-datamodell.xsd) | Nedlasting | XSD |  |
+| JSON Schema: dataleveranse-basert-pa-sosi-datamodell | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/schema/jsonschema/INPUT/dataleveransebasertpasosidatamodell/dataleveranse-basert-pa-sosi-datamodell.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 
@@ -177,7 +180,7 @@ Dataene egner seg for bruk innen planlegging, samfunnssikkerhet og beredskap.\\n
 
 **Metadatastandardversjon**: 2003
 
-**Metadatadato**: 2026-08-24
+**Metadatadato**: 2026-08-28
 
 **språk**: nor
 
@@ -198,3 +201,6 @@ Dataene egner seg for bruk innen planlegging, samfunnssikkerhet og beredskap.\\n
 ## Tilleggsinformasjon
 
 NVEs kartlegging retter seg først og fremst mot eksisterende bebyggelse. Ved identifisering og prioritering av områder er det derfor lagt vekt på hvor det bor og oppholder seg mennesker innenfor potensielt skredfareutsatte områder.For hver skredtype er det utarbeidet prioriteringslister for farekartlegging, jfr Plan for skredfarekartlegging kap 6. Ved faresonekartlegging vil områdene med prioritet 1 normalt bli kartlagt først, deretter områdene med prioritet 2. For områder med høy prioritet for flere skredtyper, vil dette også kunne gi samlet høyere prioritet. Områder som skulle vise seg allerede kartlagt eller tilstrekkelig sikret, vil kunne nedrangeres eller også fjernes fra prioriteringslisten. På samme vis vil nye skredhendelser og registreringer kunne føre til en høyere prioritet.
+
+- **Produktark:** [https://register.geonorge.no/register/versjoner/produktark/norges-vassdrags-og-energidirektorat/skredfaresoner](https://register.geonorge.no/register/versjoner/produktark/norges-vassdrags-og-energidirektorat/skredfaresoner)
+- **Produktside:** [https://www.nve.no/naturfare/utredning-av-naturfare/om-kart-og-kartlegging-av-naturfare/om-kartlegging-av-skredfare-i-bratt-terreng/](https://www.nve.no/naturfare/utredning-av-naturfare/om-kart-og-kartlegging-av-naturfare/om-kartlegging-av-skredfare-i-bratt-terreng/)

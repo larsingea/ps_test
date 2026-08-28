@@ -4,7 +4,7 @@
   "format": "text/html",
   "date": {
     "creation": "2014-02-28",
-    "revision": "2026-08-23"
+    "revision": "2026-08-27"
   },
   "language": "nor",
   "contact": {
@@ -91,14 +91,14 @@
       "temporalElement": {
         "timePeriod": {
           "beginPosition": "2014-02-28",
-          "endPosition": "2026-08-23"
+          "endPosition": "2026-08-27"
         }
       }
     },
     "date": {
       "creation": "2014-02-28",
       "publication": "2014-02-28",
-      "revision": "2026-08-23"
+      "revision": "2026-08-27"
     },
     "language": "nor"
   },
@@ -320,12 +320,69 @@
         ],
         "deliveryScope": "Tjeneste"
       }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: dataleveranse-basert-pa-sosi-datamodell",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/dataleveranse-basert-pa-sosi-datamodell.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: dataleveranse-basert-pa-sosi-datamodell",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/schema/xsd/INPUT/dataleveranse-basert-pa-sosi-datamodell.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "JSON Schema: dataleveranse-basert-pa-sosi-datamodell",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/skredfaresoner/dataleveranse-basert-pa-sosi-datamodell/schema/jsonschema/INPUT/dataleveransebasertpasosidatamodell/dataleveranse-basert-pa-sosi-datamodell.json",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "JSON Schema"
+          }
+        ]
+      }
     }
   ],
   "metadataSection": {
     "metadataStandard": "ISO19115",
     "metadataStandardVersion": "2003",
-    "metadataDate": "2026-08-24",
+    "metadataDate": "2026-08-28",
     "language": "nor",
     "contact": {
       "organizationName": "Norges vassdrags- og energidirektorat",
@@ -339,5 +396,15 @@
       "codeSpace": "https://kartkatalog.geonorge.no/metadata/",
       "metadataLinkage": "https://kartkatalog.geonorge.no/metadata/b2d5aaf8-79ac-40f3-9cd6-fdc30bc42ea1"
     }
-  }
+  },
+  "additionalReferences": [
+    {
+      "title": "Produktark",
+      "href": "https://register.geonorge.no/register/versjoner/produktark/norges-vassdrags-og-energidirektorat/skredfaresoner"
+    },
+    {
+      "title": "Produktside",
+      "href": "https://www.nve.no/naturfare/utredning-av-naturfare/om-kart-og-kartlegging-av-naturfare/om-kartlegging-av-skredfare-i-bratt-terreng/"
+    }
+  ]
 }
