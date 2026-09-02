@@ -357,6 +357,63 @@
         ],
         "deliveryScope": "Tjeneste"
       }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: bunnfellingsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/bunnfellingsomrader.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: bunnfellingsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/schema/xsd/INPUT/bunnfellingsomrader.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "JSON Schema: bunnfellingsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/schema/jsonschema/INPUT/bunnfellingsomrader/bunnfellingsomrader.json",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "JSON Schema"
+          }
+        ]
+      }
     }
   ],
   "metadataSection": {
