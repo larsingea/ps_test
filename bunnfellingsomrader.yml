@@ -2,6 +2,7 @@ metadataId: 901afb33-8897-40fb-80a5-f4e4e799ae68
 output_directory: produktspesifikasjon
 product_slug: bunnfellingsomrader
 updated: '2026-09-02'
+outputs: geopackage,xsd,jsonschema,odcs
 scopes:
 - name: Bunnfellingsomrader
   url: https://geo.ngu.no/api/features/bunnfellingsomrader
