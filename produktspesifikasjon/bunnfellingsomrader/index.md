@@ -171,6 +171,9 @@ Datasettet kan blant annet anvendes som underlag i overordnet areal- og miljøpl
 | Geonorge nedlastning | [Lenke](https://nedlasting.ngu.no/api/capabilities/) | GEONORGE:DOWNLOAD | FGDB, GML, SOSI | fylkesvis, landsfiler |
 | Atom Feed | [Lenke](https://nedlasting.ngu.no/api/atom/901afb33-8897-40fb-80a5-f4e4e799ae68) | W3C:AtomFeed | FGDB, GML, SOSI | landsfiler |
 | Bunnfellingsområder | [Lenke](https://geo.ngu.no/mapserver/MarineGrunnkartWMS/?request=getcapabilities&service=wms) | Tjenestelag | image/png |  |
+| GeoPackage: bunnfellingsomrader | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/bunnfellingsomrader.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: bunnfellingsomrader | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/schema/xsd/INPUT/bunnfellingsomrader.xsd) | Nedlasting | XSD |  |
+| JSON Schema: bunnfellingsomrader | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bunnfellingsomrader/bunnfellingsomrader/schema/jsonschema/INPUT/bunnfellingsomrader/bunnfellingsomrader.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 
