@@ -8,3 +8,7 @@ scopes:
   url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/VrakOgHefterSj%c3%b8kart-20260415.xml
   generator: xmi
   description: Geopackage med struktur og definisjoner generert fra SOSI-datamodell
+- name: Dagens:GPKG
+  url: https://nedlasting.geonorge.no/geonorge/Forurensning/VrakogHefterSjokart/GPKG/Forurensning_5055_Heim_25832_VrakogHefterSjokart_GPKG.zip
+  generator: geopackage
+  description: ''
