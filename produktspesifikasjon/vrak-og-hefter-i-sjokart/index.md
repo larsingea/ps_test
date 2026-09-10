@@ -156,6 +156,7 @@ Riksantikvaren, Kystverket og Forsvaret er andre etater som kan ha ytterligere i
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/VrakogHefterSjokart_AtomFeedGML.xml) | W3C:AtomFeed | GML | fylkesvis, kommunevis, landsfiler |
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/VrakogHefterSjokart_AtomFeedGPKG.xml) | W3C:AtomFeed | GPKG | fylkesvis, kommunevis, landsfiler |
 | Vrak og hefter i sjøkart (WMS) | [Lenke](https://wms.geonorge.no/skwms1/wms.vrak_hefter?version=1.3.0&service=wms&request=getcapabilities) | WMS-tjeneste | WMS |  |
+| GeoPackage: vrak-og-hefter-filleveranse-som-gpkg | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/vrak-og-hefter-i-sjokart/vrak-og-hefter-filleveranse-som-gpkg/vrak-og-hefter-filleveranse-som-gpkg.gpkg) | Nedlasting | GPKG |  |
 
 ## Metadata
 

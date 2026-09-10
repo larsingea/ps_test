@@ -280,6 +280,25 @@
         ],
         "deliveryScope": "Tjeneste"
       }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: vrak-og-hefter-filleveranse-som-gpkg",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/vrak-og-hefter-i-sjokart/vrak-og-hefter-filleveranse-som-gpkg/vrak-og-hefter-filleveranse-som-gpkg.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
     }
   ],
   "metadataSection": {
