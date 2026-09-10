@@ -2,6 +2,7 @@ metadataId: a5821b74-096d-4923-aa3c-387cfa0e6218
 output_directory: produktspesifikasjon
 product_slug: vrak_og_hefter_i_sjokart
 updated: '2026-09-10'
+outputs: geopackage
 scopes:
 - name: Vrak og hefter - Filleveranse som GPKG
   url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/VrakOgHefterSj%c3%b8kart-20260415.xml
