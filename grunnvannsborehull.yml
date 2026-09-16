@@ -2,6 +2,7 @@ metadataId: 82cd33ef-52dd-4c83-b2d6-e55a0941b33b
 output_directory: produktspesifikasjon
 product_slug: grunnvannsborehull
 updated: '2026-09-16'
+outputs: geopackage,xsd,jsonschema,odcs,ldproxy
 scopes:
 - name: Grunnvannborehull
   url: https://geo.ngu.no/api/features/grunnvannborehull
