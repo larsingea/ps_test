@@ -1,0 +1,509 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/datamodellumlgunnvann/datamodell-uml-gunnvann.json",
+  "definitions": {
+    "AkviferType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "BrønnBrukOmfangType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "BrønnHelningType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "BrønnPark": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperGrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "brønnParkNr": {
+              "type": "integer"
+            },
+            "brønnpOmrNavn": {
+              "type": "string"
+            },
+            "geolMedium": {
+              "$ref": "#/definitions/GeolMediumType"
+            },
+            "antallEnergiBrønner": {
+              "type": "integer"
+            },
+            "brønnpKommentar": {
+              "type": "string"
+            },
+            "brønnpVEffekt": {
+              "type": "integer"
+            },
+            "brønnpVEnergi": {
+              "type": "integer"
+            },
+            "brønnpKEffekt": {
+              "type": "integer"
+            },
+            "brønnpKEnergi": {
+              "type": "integer"
+            },
+            "brønnpFrikjøling": {
+              "type": "string"
+            },
+            "brønnpKollVæske": {
+              "$ref": "#/definitions/BrønnparkKollVæske"
+            },
+            "brønnpFiler": {},
+            "energibrønn": {
+              "type": "array",
+              "minItems": 5,
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "antallEnergiBrønner",
+            "brønnParkNr",
+            "energibrønn",
+            "geolMedium"
+          ]
+        }
+      ]
+    },
+    "BrønnparkKollVæske": {
+      "type": "string",
+      "format": "uri"
+    },
+    "EnergiBrønn": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "brønnParkNr": {
+              "type": "integer"
+            },
+            "brønnpark": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      ]
+    },
+    "FellesegenskaperGrunnvannBorehull": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato"
+      ]
+    },
+    "ForingsrørMaterialType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "GeolMediumType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "GrunnvannBorehull": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperGrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "brønnNr": {
+              "type": "integer"
+            },
+            "geolMedium": {
+              "$ref": "#/definitions/GeolMediumType"
+            },
+            "stedfestelseMetodeInfo": {
+              "type": "string"
+            },
+            "oppdragstaker": {
+              "type": "string"
+            },
+            "brønnBrukOmfang": {
+              "$ref": "#/definitions/BrønnBrukOmfangType"
+            },
+            "boreDato": {
+              "type": "string",
+              "format": "date"
+            },
+            "konsulentFirma": {
+              "type": "string"
+            },
+            "rapport": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "boretLengde": {
+              "type": "number"
+            },
+            "boretLengdeTilBerg": {
+              "type": "number"
+            },
+            "vannstandBorehull": {
+              "type": "number"
+            },
+            "datoVannstandBorehull": {
+              "type": "string",
+              "format": "date"
+            },
+            "brønnHelningType": {
+              "$ref": "#/definitions/BrønnHelningType"
+            },
+            "diameterBorehull": {
+              "type": "integer"
+            },
+            "boretHelningsgrad": {
+              "type": "integer"
+            },
+            "boretAzimuth": {
+              "type": "integer"
+            },
+            "materialForingsrør": {
+              "$ref": "#/definitions/ForingsrørMaterialType"
+            },
+            "lengdeForingsrør": {
+              "type": "number"
+            },
+            "boretKapasitet": {
+              "type": "number"
+            },
+            "kapasMålemet": {
+              "$ref": "#/definitions/KapasitetMålemetode"
+            },
+            "kapasØkningType": {
+              "$ref": "#/definitions/KapasitetØkningType"
+            },
+            "øktKapasitet": {
+              "type": "number"
+            },
+            "beskrivelse": {
+              "type": "string"
+            },
+            "brønnFiler": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "brønnNr",
+            "geolMedium",
+            "oppdragstaker",
+            "stedfestelseMetodeInfo"
+          ]
+        }
+      ]
+    },
+    "GrunnvannBrønn": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GrunnvannBorehull"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "GrunnvannOppkomme": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperGrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "oppkomNr": {
+              "type": "integer"
+            },
+            "geolMedium": {
+              "$ref": "#/definitions/GeolMediumType"
+            },
+            "oppkomVannføring": {
+              "type": "number"
+            },
+            "oppkomBruk": {
+              "$ref": "#/definitions/OppkomBruk"
+            },
+            "oppkomBrukOmfang": {
+              "$ref": "#/definitions/BrønnBrukOmfangType"
+            },
+            "oppkomUtforming": {
+              "$ref": "#/definitions/OppkomUtforming"
+            },
+            "oppkomBeskyttelse": {
+              "$ref": "#/definitions/OppkomBeskyttelse"
+            },
+            "oppkomFareForurensing": {
+              "$ref": "#/definitions/OppkomFareForurensing"
+            },
+            "oppkomTypeForurensing": {
+              "$ref": "#/definitions/OppkomTypeForurensing"
+            },
+            "oppkomFiler": {},
+            "konsulentFirma": {
+              "type": "string"
+            },
+            "rapport": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "oppkomRegDato": {
+              "type": "string",
+              "format": "date"
+            },
+            "oppkomKommentar": {
+              "type": "string"
+            },
+            "stedfestelseMetodeInfo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "geolMedium",
+            "oppkomNr"
+          ]
+        }
+      ]
+    },
+    "KapasitetMålemetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "KapasitetØkningType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "LGNBrønn": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "målePunktNr": {
+              "type": "string"
+            },
+            "måleFrekvens": {
+              "type": "string"
+            },
+            "kjemiskeAnalyser": {},
+            "driftStartMåling": {
+              "type": "string"
+            },
+            "driftStoppMåling": {
+              "type": "string"
+            },
+            "lgnNummer": {
+              "type": "integer"
+            },
+            "referansepunkt": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "lgnNummer",
+            "målePunktNr",
+            "referansepunkt"
+          ]
+        }
+      ]
+    },
+    "LGNGrunnvannOppkomme": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GrunnvannOppkomme"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "målePunktNr": {
+              "type": "string"
+            },
+            "måleFrekvens": {
+              "type": "string"
+            },
+            "kjemiskeAnalyser": {},
+            "driftStartMåling": {
+              "type": "string"
+            },
+            "driftStoppMåling": {
+              "type": "string"
+            },
+            "lgnNummer": {
+              "type": "integer"
+            },
+            "referansepunkt": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "lgnNummer",
+            "målePunktNr",
+            "referansepunkt"
+          ]
+        }
+      ]
+    },
+    "LGNOmrådeRefPkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperGrunnvannBorehull"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "antallBrønnerKilder": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "integer"
+              },
+              "uniqueItems": true
+            },
+            "geolMedium": {
+              "$ref": "#/definitions/GeolMediumType"
+            },
+            "posisjonHøyde": {
+              "type": "string"
+            },
+            "lgnNummer": {
+              "type": "integer"
+            },
+            "nveNummer": {
+              "type": "string"
+            },
+            "lgnOmrNavn": {
+              "type": "string"
+            },
+            "akviferType": {
+              "$ref": "#/definitions/AkviferType"
+            },
+            "omrEtableringDato": {
+              "type": "string"
+            },
+            "lgnOmrFiler": {},
+            "nedbørÅrMin": {
+              "type": "integer"
+            },
+            "nedbørÅrMid": {
+              "type": "integer"
+            },
+            "nedbørÅrMaks": {
+              "type": "integer"
+            },
+            "tempÅrMiddel": {
+              "type": "integer"
+            },
+            "navnPåVassdrag": {
+              "type": "string"
+            },
+            "vassdragsnummer": {
+              "type": "string"
+            },
+            "kommentar": {
+              "type": "string"
+            },
+            "lgnbrønn": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "lgngrunnvannoppkomme": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "antallBrønnerKilder",
+            "lgnNummer",
+            "lgnbrønn"
+          ]
+        }
+      ]
+    },
+    "OppkomBeskyttelse": {
+      "type": "string",
+      "format": "uri"
+    },
+    "OppkomBruk": {
+      "type": "string",
+      "format": "uri"
+    },
+    "OppkomFareForurensing": {
+      "type": "string",
+      "format": "uri"
+    },
+    "OppkomTypeForurensing": {
+      "type": "string",
+      "format": "uri"
+    },
+    "OppkomUtforming": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Sonderboring": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GrunnvannBorehull"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    }
+  }
+}

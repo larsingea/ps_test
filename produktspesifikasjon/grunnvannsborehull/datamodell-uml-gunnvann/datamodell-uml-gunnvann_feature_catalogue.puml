@@ -1,0 +1,167 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title Grunnvannsborehull - Datamodell UML Gunnvann - Objekttyper
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Objekttyper" {
+
+  class "LGNBrønn" as LGNBr_nn <<featureType>> {
+    + målePunktNr [1] : CharacterString
+    + måleFrekvens [0..1] : CharacterString
+    + kjemiskeAnalyser [0..1] : Link
+    + driftStartMåling [0..1] : CharacterString
+    + driftStoppMåling [0..1] : CharacterString
+    + lgnNummer [1] : Integer
+  }
+
+  abstract class GrunnvannBorehull <<featureType>> {
+    + posisjon [1] : Punkt
+    + brønnNr [1] : Integer
+    + geolMedium [1] : GeolMediumType
+    + stedfestelseMetodeInfo [1] : CharacterString
+    + oppdragstaker [1] : CharacterString
+    + brønnBrukOmfang [0..1] : BrønnBrukOmfangType
+    + boreDato [0..1] : Date
+    + konsulentFirma [0..1] : CharacterString
+    + rapport [0..*] : CharacterString
+    + boretLengde [0..1] : Real
+    + boretLengdeTilBerg [0..1] : Real
+    + vannstandBorehull [0..1] : Real
+    + datoVannstandBorehull [0..1] : Date
+    + brønnHelningType [0..1] : BrønnHelningType
+    + diameterBorehull [0..1] : Integer
+    + boretHelningsgrad [0..1] : Integer
+    + boretAzimuth [0..1] : Integer
+    + materialForingsrør [0..1] : ForingsrørMaterialType
+    + lengdeForingsrør [0..1] : Real
+    + boretKapasitet [0..1] : Real
+    + kapasMålemet [0..1] : KapasitetMålemetode
+    + kapasØkningType [0..1] : KapasitetØkningType
+    + øktKapasitet [0..1] : Real
+    + beskrivelse [0..1] : CharacterString
+    + brønnFiler [0..1] : CharacterString
+  }
+
+  class "EnergiBrønn" as EnergiBr_nn <<featureType>> {
+    + brønnParkNr [0..1] : Integer
+  }
+
+  class GrunnvannOppkomme <<featureType>> {
+    + posisjon [1] : Punkt
+    + oppkomNr [1] : Integer
+    + geolMedium [1] : GeolMediumType
+    + oppkomVannføring [0..1] : Real
+    + oppkomBruk [0..1] : OppkomBruk
+    + oppkomBrukOmfang [0..1] : BrønnBrukOmfangType
+    + oppkomUtforming [0..1] : OppkomUtforming
+    + oppkomBeskyttelse [0..1] : OppkomBeskyttelse
+    + oppkomFareForurensing [0..1] : OppkomFareForurensing
+    + oppkomTypeForurensing [0..1] : OppkomTypeForurensing
+    + oppkomFiler [0..1] : Link
+    + konsulentFirma [0..1] : CharacterString
+    + rapport [0..*] : CharacterString
+    + oppkomRegDato [0..1] : Date
+    + oppkomKommentar [0..1] : CharacterString
+    + stedfestelseMetodeInfo [0..1] : CharacterString
+  }
+
+  class Sonderboring <<featureType>> {
+    ' Ingen attributter
+  }
+
+  abstract class FellesegenskaperGrunnvannBorehull <<featureType>> {
+    + datauttaksdato [1] : Date
+  }
+
+  class LGNGrunnvannOppkomme <<featureType>> {
+    + målePunktNr [1] : CharacterString
+    + måleFrekvens [0..1] : CharacterString
+    + kjemiskeAnalyser [0..1] : Link
+    + driftStartMåling [0..1] : CharacterString
+    + driftStoppMåling [0..1] : CharacterString
+    + lgnNummer [1] : Integer
+  }
+
+  class "BrønnPark" as Br_nnPark <<featureType>> {
+    + posisjon [1] : Punkt
+    + brønnParkNr [1] : Integer
+    + brønnpOmrNavn [0..1] : CharacterString
+    + geolMedium [1] : GeolMediumType
+    + antallEnergiBrønner [1] : Integer
+    + brønnpKommentar [0..1] : CharacterString
+    + brønnpVEffekt [0..1] : Integer
+    + brønnpVEnergi [0..1] : Integer
+    + brønnpKEffekt [0..1] : Integer
+    + brønnpKEnergi [0..1] : Integer
+    + brønnpFrikjøling [0..1] : CharacterString
+    + brønnpKollVæske [0..1] : BrønnparkKollVæske
+    + brønnpFiler [0..1] : Link
+  }
+
+  class "LGNOmrådeRefPkt" as LGNOmr_deRefPkt <<featureType>> {
+    + posisjon [1] : Punkt
+    + antallBrønnerKilder [1..*] : Integer
+    + geolMedium [0..1] : GeolMediumType
+    + posisjonHøyde [0..1] : CharacterString
+    + lgnNummer [1] : Integer
+    + nveNummer [0..1] : CharacterString
+    + lgnOmrNavn [0..1] : CharacterString
+    + akviferType [0..1] : AkviferType
+    + omrEtableringDato [0..1] : CharacterString
+    + lgnOmrFiler [0..1] : Link
+    + nedbørÅrMin [0..1] : Integer
+    + nedbørÅrMid [0..1] : Integer
+    + nedbørÅrMaks [0..1] : Integer
+    + tempÅrMiddel [0..1] : Integer
+    + navnPåVassdrag [0..1] : CharacterString
+    + vassdragsnummer [0..1] : CharacterString
+    + kommentar [0..1] : CharacterString
+  }
+
+  class "GrunnvannBrønn" as GrunnvannBr_nn <<featureType>> {
+    ' Ingen attributter
+  }
+}
+
+  GrunnvannBorehull <|-- LGNBr_nn
+  LGNBr_nn --> LGNOmr_deRefPkt : referansepunkt [1]
+  FellesegenskaperGrunnvannBorehull <|-- GrunnvannBorehull
+  GrunnvannBorehull <|-- EnergiBr_nn
+  EnergiBr_nn --> Br_nnPark : brønnpark [0..1]
+  FellesegenskaperGrunnvannBorehull <|-- GrunnvannOppkomme
+  GrunnvannBorehull <|-- Sonderboring
+  GrunnvannOppkomme <|-- LGNGrunnvannOppkomme
+  LGNGrunnvannOppkomme --> LGNOmr_deRefPkt : referansepunkt [1]
+  FellesegenskaperGrunnvannBorehull <|-- Br_nnPark
+  Br_nnPark --> EnergiBr_nn : energibrønn [5..*]
+  FellesegenskaperGrunnvannBorehull <|-- LGNOmr_deRefPkt
+  LGNOmr_deRefPkt --> LGNBr_nn : lgnbrønn [1..*]
+  LGNOmr_deRefPkt --> LGNGrunnvannOppkomme : lgngrunnvannoppkomme [0..*]
+  GrunnvannBorehull <|-- GrunnvannBr_nn
+
+@enduml

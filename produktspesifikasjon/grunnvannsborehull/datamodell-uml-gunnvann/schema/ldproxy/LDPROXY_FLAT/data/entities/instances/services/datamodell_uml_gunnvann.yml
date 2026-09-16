@@ -1,0 +1,39 @@
+---
+id: datamodell_uml_gunnvann
+label: FIXME
+description: FIXME
+enabled: true
+serviceType: OGC_API
+collections:
+  brønnpark:
+    id: brønnpark
+    label: brønnpark
+    enabled: true
+  energibrønn:
+    id: energibrønn
+    label: energibrønn
+    enabled: true
+  grunnvannbrønn:
+    id: grunnvannbrønn
+    label: grunnvannbrønn
+    enabled: true
+  grunnvannoppkomme:
+    id: grunnvannoppkomme
+    label: grunnvannoppkomme
+    enabled: true
+  lgnbrønn:
+    id: lgnbrønn
+    label: lgnbrønn
+    enabled: true
+  lgngrunnvannoppkomme:
+    id: lgngrunnvannoppkomme
+    label: lgngrunnvannoppkomme
+    enabled: true
+  lgnområderefpkt:
+    id: lgnområderefpkt
+    label: lgnområderefpkt
+    enabled: true
+  sonderboring:
+    id: sonderboring
+    label: sonderboring
+    enabled: true

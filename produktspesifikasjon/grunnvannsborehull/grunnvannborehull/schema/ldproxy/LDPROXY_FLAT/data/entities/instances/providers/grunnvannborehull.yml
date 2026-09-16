@@ -1,0 +1,957 @@
+---
+id: grunnvannborehull
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  brønnpark:
+    sourcePath: /brønnpark
+    type: OBJECT
+    objectType: BrønnPark
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      brønnParkNr:
+        sourcePath: brønnparknr
+        type: INTEGER
+        constraints:
+          required: true
+      brønnpOmrNavn:
+        sourcePath: brønnpomrnavn
+        type: STRING
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      antallEnergiBrønner:
+        sourcePath: antallenergibrønner
+        type: INTEGER
+        constraints:
+          required: true
+      brønnpKommentar:
+        sourcePath: brønnpkommentar
+        type: STRING
+      brønnpVEffekt:
+        sourcePath: brønnpveffekt
+        type: INTEGER
+      brønnpVEnergi:
+        sourcePath: brønnpvenergi
+        type: INTEGER
+      brønnpKEffekt:
+        sourcePath: brønnpkeffekt
+        type: INTEGER
+      brønnpKEnergi:
+        sourcePath: brønnpkenergi
+        type: INTEGER
+      brønnpFrikjøling:
+        sourcePath: brønnpfrikjøling
+        type: STRING
+      brønnpKollVæske:
+        sourcePath: brønnpkollvæske
+        type: STRING
+        constraints:
+          codelist: Br_nnpKollV_ske
+      energibrønn_rel:
+        sourcePath: energibrønn_rel
+        type: STRING
+      energibrønn_type:
+        sourcePath: energibrønn_type
+        type: STRING
+      energibrønn_title:
+        sourcePath: energibrønn_title
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  energibrønn:
+    sourcePath: /energibrønn
+    type: OBJECT
+    objectType: EnergiBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      brønnNr:
+        sourcePath: brønnnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+        constraints:
+          required: true
+      oppdragstaker:
+        sourcePath: oppdragstaker
+        type: STRING
+        constraints:
+          required: true
+      brønnBrukOmfang:
+        sourcePath: brønnbrukomfang
+        type: STRING
+        constraints:
+          codelist: Br_nnBrukOmfang
+      boreDato:
+        sourcePath: boredato
+        type: DATE
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      boretLengde:
+        sourcePath: boretlengde
+        type: FLOAT
+      boretLengdeTilBerg:
+        sourcePath: boretlengdetilberg
+        type: FLOAT
+      vannstandBorehull:
+        sourcePath: vannstandborehull
+        type: FLOAT
+      datoVannstandBorehull:
+        sourcePath: datovannstandborehull
+        type: DATE
+      brønnHelningType:
+        sourcePath: brønnhelningtype
+        type: STRING
+        constraints:
+          codelist: Br_nnHelningType
+      diameterBorehull:
+        sourcePath: diameterborehull
+        type: INTEGER
+      boretHelningsgrad:
+        sourcePath: borethelningsgrad
+        type: INTEGER
+      boretAzimuth:
+        sourcePath: boretazimuth
+        type: INTEGER
+      materialForingsrør:
+        sourcePath: materialforingsrør
+        type: STRING
+        constraints:
+          codelist: MaterialForingsr_r
+      lengdeForingsrør:
+        sourcePath: lengdeforingsrør
+        type: FLOAT
+      boretKapasitet:
+        sourcePath: boretkapasitet
+        type: FLOAT
+      kapasMålemet:
+        sourcePath: kapasmålemet
+        type: STRING
+        constraints:
+          codelist: KapasM_lemet
+      kapasØkningType:
+        sourcePath: kapasøkningtype
+        type: STRING
+        constraints:
+          codelist: Kapas_kningType
+      øktKapasitet:
+        sourcePath: øktkapasitet
+        type: FLOAT
+      beskrivelse:
+        sourcePath: beskrivelse
+        type: STRING
+      brønnParkNr:
+        sourcePath: brønnparknr
+        type: INTEGER
+      brønnpark_rel:
+        sourcePath: brønnpark_rel
+        type: STRING
+      brønnpark_type:
+        sourcePath: brønnpark_type
+        type: STRING
+      brønnpark_title:
+        sourcePath: brønnpark_title
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  grunnvannbrønn:
+    sourcePath: /grunnvannbrønn
+    type: OBJECT
+    objectType: GrunnvannBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      brønnNr:
+        sourcePath: brønnnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+        constraints:
+          required: true
+      oppdragstaker:
+        sourcePath: oppdragstaker
+        type: STRING
+        constraints:
+          required: true
+      brønnBrukOmfang:
+        sourcePath: brønnbrukomfang
+        type: STRING
+        constraints:
+          codelist: Br_nnBrukOmfang
+      boreDato:
+        sourcePath: boredato
+        type: DATE
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      boretLengde:
+        sourcePath: boretlengde
+        type: FLOAT
+      boretLengdeTilBerg:
+        sourcePath: boretlengdetilberg
+        type: FLOAT
+      vannstandBorehull:
+        sourcePath: vannstandborehull
+        type: FLOAT
+      datoVannstandBorehull:
+        sourcePath: datovannstandborehull
+        type: DATE
+      brønnHelningType:
+        sourcePath: brønnhelningtype
+        type: STRING
+        constraints:
+          codelist: Br_nnHelningType
+      diameterBorehull:
+        sourcePath: diameterborehull
+        type: INTEGER
+      boretHelningsgrad:
+        sourcePath: borethelningsgrad
+        type: INTEGER
+      boretAzimuth:
+        sourcePath: boretazimuth
+        type: INTEGER
+      materialForingsrør:
+        sourcePath: materialforingsrør
+        type: STRING
+        constraints:
+          codelist: MaterialForingsr_r
+      lengdeForingsrør:
+        sourcePath: lengdeforingsrør
+        type: FLOAT
+      boretKapasitet:
+        sourcePath: boretkapasitet
+        type: FLOAT
+      kapasMålemet:
+        sourcePath: kapasmålemet
+        type: STRING
+        constraints:
+          codelist: KapasM_lemet
+      kapasØkningType:
+        sourcePath: kapasøkningtype
+        type: STRING
+        constraints:
+          codelist: Kapas_kningType
+      øktKapasitet:
+        sourcePath: øktkapasitet
+        type: FLOAT
+      beskrivelse:
+        sourcePath: beskrivelse
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  grunnvannoppkomme:
+    sourcePath: /grunnvannoppkomme
+    type: OBJECT
+    objectType: GrunnvannOppkomme
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      oppkomNr:
+        sourcePath: oppkomnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      oppkomVannføring:
+        sourcePath: oppkomvannføring
+        type: FLOAT
+      oppkomBruk:
+        sourcePath: oppkombruk
+        type: STRING
+        constraints:
+          codelist: OppkomBruk
+      oppkomBrukOmfang:
+        sourcePath: oppkombrukomfang
+        type: STRING
+        constraints:
+          codelist: OppkomBrukOmfang
+      oppkomUtforming:
+        sourcePath: oppkomutforming
+        type: STRING
+        constraints:
+          codelist: OppkomUtforming
+      oppkomBeskyttelse:
+        sourcePath: oppkombeskyttelse
+        type: STRING
+        constraints:
+          codelist: OppkomBeskyttelse
+      oppkomFareForurensing:
+        sourcePath: oppkomfareforurensing
+        type: STRING
+        constraints:
+          codelist: OppkomFareForurensing
+      oppkomTypeForurensing:
+        sourcePath: oppkomtypeforurensing
+        type: STRING
+        constraints:
+          codelist: OppkomTypeForurensing
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      oppkomRegDato:
+        sourcePath: oppkomregdato
+        type: DATE
+      oppkomKommentar:
+        sourcePath: oppkomkommentar
+        type: STRING
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  lgnbrønn:
+    sourcePath: /lgnbrønn
+    type: OBJECT
+    objectType: LGNBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      lgnBrønnNr:
+        sourcePath: lgnbrønnnr
+        type: STRING
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      brønnNr:
+        sourcePath: brønnnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+        constraints:
+          required: true
+      oppdragstaker:
+        sourcePath: oppdragstaker
+        type: STRING
+        constraints:
+          required: true
+      brønnBrukOmfang:
+        sourcePath: brønnbrukomfang
+        type: STRING
+        constraints:
+          codelist: Br_nnBrukOmfang
+      boreDato:
+        sourcePath: boredato
+        type: DATE
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      boretLengde:
+        sourcePath: boretlengde
+        type: FLOAT
+      boretLengdeTilBerg:
+        sourcePath: boretlengdetilberg
+        type: FLOAT
+      vannstandBorehull:
+        sourcePath: vannstandborehull
+        type: FLOAT
+      datoVannstandBorehull:
+        sourcePath: datovannstandborehull
+        type: DATE
+      brønnHelningType:
+        sourcePath: brønnhelningtype
+        type: STRING
+        constraints:
+          codelist: Br_nnHelningType
+      diameterBorehull:
+        sourcePath: diameterborehull
+        type: INTEGER
+      boretHelningsgrad:
+        sourcePath: borethelningsgrad
+        type: INTEGER
+      boretAzimuth:
+        sourcePath: boretazimuth
+        type: INTEGER
+      materialForingsrør:
+        sourcePath: materialforingsrør
+        type: STRING
+        constraints:
+          codelist: MaterialForingsr_r
+      lengdeForingsrør:
+        sourcePath: lengdeforingsrør
+        type: FLOAT
+      boretKapasitet:
+        sourcePath: boretkapasitet
+        type: FLOAT
+      kapasMålemet:
+        sourcePath: kapasmålemet
+        type: STRING
+        constraints:
+          codelist: KapasM_lemet
+      kapasØkningType:
+        sourcePath: kapasøkningtype
+        type: STRING
+        constraints:
+          codelist: Kapas_kningType
+      øktKapasitet:
+        sourcePath: øktkapasitet
+        type: FLOAT
+      beskrivelse:
+        sourcePath: beskrivelse
+        type: STRING
+      målePunktNr:
+        sourcePath: målepunktnr
+        type: STRING
+        constraints:
+          required: true
+      måleFrekvens:
+        sourcePath: målefrekvens
+        type: STRING
+      driftStartMåling:
+        sourcePath: driftstartmåling
+        type: STRING
+      driftStoppMåling:
+        sourcePath: driftstoppmåling
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      referansepunkt_rel:
+        sourcePath: referansepunkt_rel
+        type: STRING
+      referansepunkt_type:
+        sourcePath: referansepunkt_type
+        type: STRING
+      referansepunkt_title:
+        sourcePath: referansepunkt_title
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  lgngrunnvannoppkomme:
+    sourcePath: /lgngrunnvannoppkomme
+    type: OBJECT
+    objectType: LGNGrunnvannOppkomme
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      oppkomNr:
+        sourcePath: oppkomnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      oppkomVannføring:
+        sourcePath: oppkomvannføring
+        type: FLOAT
+      oppkomBruk:
+        sourcePath: oppkombruk
+        type: STRING
+        constraints:
+          codelist: OppkomBruk
+      oppkomBrukOmfang:
+        sourcePath: oppkombrukomfang
+        type: STRING
+        constraints:
+          codelist: OppkomBrukOmfang
+      oppkomUtforming:
+        sourcePath: oppkomutforming
+        type: STRING
+        constraints:
+          codelist: OppkomUtforming
+      oppkomBeskyttelse:
+        sourcePath: oppkombeskyttelse
+        type: STRING
+        constraints:
+          codelist: OppkomBeskyttelse
+      oppkomFareForurensing:
+        sourcePath: oppkomfareforurensing
+        type: STRING
+        constraints:
+          codelist: OppkomFareForurensing
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      oppkomRegDato:
+        sourcePath: oppkomregdato
+        type: DATE
+      oppkomKommentar:
+        sourcePath: oppkomkommentar
+        type: STRING
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+      målePunktNr:
+        sourcePath: målepunktnr
+        type: STRING
+        constraints:
+          required: true
+      måleFrekvens:
+        sourcePath: målefrekvens
+        type: STRING
+      driftStartMåling:
+        sourcePath: driftstartmåling
+        type: STRING
+      driftStoppMåling:
+        sourcePath: driftstoppmåling
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      referansepunkt_rel:
+        sourcePath: referansepunkt_rel
+        type: STRING
+      referansepunkt_type:
+        sourcePath: referansepunkt_type
+        type: STRING
+      referansepunkt_title:
+        sourcePath: referansepunkt_title
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING
+  lgnområderefpkt:
+    sourcePath: /lgnområderefpkt
+    type: OBJECT
+    objectType: LGNOmrådeRefPkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+      posisjonHøyde:
+        sourcePath: posisjonhøyde
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      nveNummer:
+        sourcePath: nvenummer
+        type: STRING
+      lgnOmrNavn:
+        sourcePath: lgnomrnavn
+        type: STRING
+      akviferType:
+        sourcePath: akvifertype
+        type: STRING
+        constraints:
+          codelist: AkviferType
+      omrEtableringDato:
+        sourcePath: omretableringdato
+        type: STRING
+      nedbørÅrMin:
+        sourcePath: nedbørårmin
+        type: INTEGER
+      nedbørÅrMid:
+        sourcePath: nedbørårmid
+        type: INTEGER
+      nedbørÅrMaks:
+        sourcePath: nedbørårmaks
+        type: INTEGER
+      tempÅrMiddel:
+        sourcePath: tempårmiddel
+        type: INTEGER
+      navnPåVassdrag:
+        sourcePath: navnpåvassdrag
+        type: STRING
+      vassdragsnummer:
+        sourcePath: vassdragsnummer
+        type: STRING
+      kommentar:
+        sourcePath: kommentar
+        type: STRING
+      lgngrunnvannoppkomme_rel:
+        sourcePath: lgngrunnvannoppkomme_rel
+        type: STRING
+      lgngrunnvannoppkomme_type:
+        sourcePath: lgngrunnvannoppkomme_type
+        type: STRING
+      lgngrunnvannoppkomme_title:
+        sourcePath: lgngrunnvannoppkomme_title
+        type: STRING
+      lgnbrønn_rel:
+        sourcePath: lgnbrønn_rel
+        type: STRING
+      lgnbrønn_type:
+        sourcePath: lgnbrønn_type
+        type: STRING
+      lgnbrønn_title:
+        sourcePath: lgnbrønn_title
+        type: STRING
+  sonderboring:
+    sourcePath: /sonderboring
+    type: OBJECT
+    objectType: Sonderboring
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      brønnNr:
+        sourcePath: brønnnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMedium
+          required: true
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+        constraints:
+          required: true
+      oppdragstaker:
+        sourcePath: oppdragstaker
+        type: STRING
+        constraints:
+          required: true
+      brønnBrukOmfang:
+        sourcePath: brønnbrukomfang
+        type: STRING
+        constraints:
+          codelist: Br_nnBrukOmfang
+      boreDato:
+        sourcePath: boredato
+        type: DATE
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      boretLengde:
+        sourcePath: boretlengde
+        type: FLOAT
+      boretLengdeTilBerg:
+        sourcePath: boretlengdetilberg
+        type: FLOAT
+      vannstandBorehull:
+        sourcePath: vannstandborehull
+        type: FLOAT
+      datoVannstandBorehull:
+        sourcePath: datovannstandborehull
+        type: DATE
+      brønnHelningType:
+        sourcePath: brønnhelningtype
+        type: STRING
+        constraints:
+          codelist: Br_nnHelningType
+      diameterBorehull:
+        sourcePath: diameterborehull
+        type: INTEGER
+      boretHelningsgrad:
+        sourcePath: borethelningsgrad
+        type: INTEGER
+      boretAzimuth:
+        sourcePath: boretazimuth
+        type: INTEGER
+      materialForingsrør:
+        sourcePath: materialforingsrør
+        type: STRING
+        constraints:
+          codelist: MaterialForingsr_r
+      lengdeForingsrør:
+        sourcePath: lengdeforingsrør
+        type: FLOAT
+      boretKapasitet:
+        sourcePath: boretkapasitet
+        type: FLOAT
+      kapasMålemet:
+        sourcePath: kapasmålemet
+        type: STRING
+        constraints:
+          codelist: KapasM_lemet
+      kapasØkningType:
+        sourcePath: kapasøkningtype
+        type: STRING
+        constraints:
+          codelist: Kapas_kningType
+      øktKapasitet:
+        sourcePath: øktkapasitet
+        type: FLOAT
+      beskrivelse:
+        sourcePath: beskrivelse
+        type: STRING
+      rapport-HTML_rel:
+        sourcePath: rapport-html_rel
+        type: STRING
+      rapport-HTML_type:
+        sourcePath: rapport-html_type
+        type: STRING
+      rapport-HTML_title:
+        sourcePath: rapport-html_title
+        type: STRING
+      rapport-JSON_rel:
+        sourcePath: rapport-json_rel
+        type: STRING
+      rapport-JSON_type:
+        sourcePath: rapport-json_type
+        type: STRING
+      rapport-JSON_title:
+        sourcePath: rapport-json_title
+        type: STRING

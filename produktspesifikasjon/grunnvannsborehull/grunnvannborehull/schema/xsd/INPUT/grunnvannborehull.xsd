@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:grunnvannborehull="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0" version="1.0">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AkviferTypeType">
+    <restriction base="string">
+      <enumeration value="Artesisk"/>
+      <enumeration value="Lukket"/>
+      <enumeration value="Åpen"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BrønnBrukOmfangType">
+    <restriction base="string">
+      <enumeration value="Annen industri"/>
+      <enumeration value="Enkelthusholdning"/>
+      <enumeration value="Forskning"/>
+      <enumeration value="Gårdsbruk"/>
+      <enumeration value="Hytte/fritidsbolig"/>
+      <enumeration value="Miljøundersøkelser/overvåkning"/>
+      <enumeration value="Næringsmiddelproduksjon"/>
+      <enumeration value="Større anlegg"/>
+      <enumeration value="Turistnæring"/>
+      <enumeration value="Ukjent"/>
+      <enumeration value="Undersøkelse for energibrønn/anlegg"/>
+      <enumeration value="Undersøkelse for vannforsyning"/>
+      <enumeration value="Vannforsyning"/>
+      <enumeration value="Vanningsanlegg"/>
+      <enumeration value="Vannverk"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BrønnHelningTypeType">
+    <restriction base="string">
+      <enumeration value="Horisontal"/>
+      <enumeration value="Loddrett"/>
+      <enumeration value="Skrå"/>
+    </restriction>
+  </simpleType>
+  <element name="BrønnPark" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:BrønnParkType">
+    <annotation>
+      <documentation>Anlegg for uttak og/eller deponering av grunnvarme. Anlegg må ha tilsluttet minst fem energibrønner for å falle inn under NGUs definisjon av "Brønnpark".</documentation>
+    </annotation>
+  </element>
+  <complexType name="BrønnParkType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="brønnParkNr" type="integer">
+            <annotation>
+              <documentation>Brønnparknummer  i NGUs database</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpOmrNavn" type="string">
+            <annotation>
+              <documentation>Lokalt stedsnavn der brønnparken ligger.</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+&lt;br/&gt;I dette tilfellet definerer den om brønnpark er basert på boringer kun i løsmasse (vanligvis for oppumping av varmt grunnvann) eller også er  boret videre ned i berggrunn (vanligvis varmeuttak via kollektorslanger).</documentation>
+            </annotation>
+          </element>
+          <element name="antallEnergiBrønner" type="integer">
+            <annotation>
+              <documentation>Beskriver antall energibrønner i brønnparken (minimum 5 for å defineres som brønnpark)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKommentar" type="string">
+            <annotation>
+              <documentation>Brønnboreres kommentarer om brønnparken</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpVEffekt" type="integer">
+            <annotation>
+              <documentation>Brønnparkens maksimale varmeeffekt i kW</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpVEnergi" type="integer">
+            <annotation>
+              <documentation>Brønnparkens maksimale varmeenergi i kWh/år</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKEffekt" type="integer">
+            <annotation>
+              <documentation>Brønnparkens maksimale kjøleeffekt i kW</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKEnergi" type="integer">
+            <annotation>
+              <documentation>Brønnparkens maksimale kjøleeffekt i kWh/år</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpFrikjøling" type="string">
+            <annotation>
+              <documentation>Beskriver om brønnparken benyttes til frikjøling (ja/nei)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKollVæske" type="grunnvannborehull:BrønnpKollVæskeType">
+            <annotation>
+              <documentation>Beskriver type kollektorvæske (Metanol osv)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="energibrønn" type="string"/>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BrønnParkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:BrønnPark"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="BrønnpKollVæskeType">
+    <restriction base="string">
+      <enumeration value="Etanol"/>
+      <enumeration value="Etylenglykol"/>
+      <enumeration value="Kaliumformiat"/>
+      <enumeration value="Kaliumklorid"/>
+      <enumeration value="Metanol"/>
+      <enumeration value="Propylenglykol"/>
+      <enumeration value="Vann"/>
+    </restriction>
+  </simpleType>
+  <element name="EnergiBrønn" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:EnergiBrønnType">
+    <annotation>
+      <documentation>Grunnvannborehull som helt eller delvis er dedikert for uttak eller deponering av grunnvarme, enten gjennom kollektorslanger eller pumping av grunnvann hvis temperatur benyttes til oppvarming eller avkjøling.</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergiBrønnType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="brønnNr" type="integer">
+            <annotation>
+              <documentation>Brønnummer i NGUs database</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).</documentation>
+            </annotation>
+          </element>
+          <element name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.</documentation>
+            </annotation>
+          </element>
+          <element name="oppdragstaker" type="string">
+            <annotation>
+              <documentation>Navn på borefirma som har utført boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnBrukOmfang" type="grunnvannborehull:BrønnBrukOmfangType">
+            <annotation>
+              <documentation>Hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boreDato" type="date">
+            <annotation>
+              <documentation>Dato for boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengde" type="double">
+            <annotation>
+              <documentation>Total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengdeTilBerg" type="double">
+            <annotation>
+              <documentation>Dybde til berg som ikke er målt men basert på tolkning</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannstandBorehull" type="double">
+            <annotation>
+              <documentation>Stabil vannstand etter boring målt fra overflaten i meter.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoVannstandBorehull" type="date">
+            <annotation>
+              <documentation>Dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnHelningType" type="grunnvannborehull:BrønnHelningTypeType">
+            <annotation>
+              <documentation>Hvilken type helning borehullet kan ha (grovinndeling)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="diameterBorehull" type="integer">
+            <annotation>
+              <documentation>Borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretHelningsgrad" type="integer">
+            <annotation>
+              <documentation>Borehullets hellning målt som avvik i grader fra loddlinje</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretAzimuth" type="integer">
+            <annotation>
+              <documentation>Helning hvor  90 grader er vertikalt , 0 grader er horisontalt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materialForingsrør" type="grunnvannborehull:MaterialForingsrørType">
+            <annotation>
+              <documentation>Foringsrørets materialtype</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeForingsrør" type="double">
+            <annotation>
+              <documentation>Foringsrørets lengde i meter</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasMålemet" type="grunnvannborehull:KapasMålemetType">
+            <annotation>
+              <documentation>Beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasØkningType" type="grunnvannborehull:KapasØkningTypeType">
+            <annotation>
+              <documentation>Beskriver om brønnen er sprengt eller trykket for å øke kapasiteten</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øktKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>Forklaring til objektet og undersøkelser utført på lokaliteten.
+Brønnborers generelle kommentarer til boringen, gitt på brønnskjema</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnParkNr" type="integer">
+            <annotation>
+              <documentation>Brønnparknummer  i NGUs databaser</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpark" type="string"/>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EnergiBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:EnergiBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="GeolMediumType">
+    <restriction base="string">
+      <enumeration value="Fjell"/>
+      <enumeration value="Løsmasse"/>
+    </restriction>
+  </simpleType>
+  <element name="GrunnvannBrønn" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:GrunnvannBrønnType">
+    <annotation>
+      <documentation>Boret brønn for uttak av grunnvann til vannforsyning</documentation>
+    </annotation>
+  </element>
+  <complexType name="GrunnvannBrønnType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="brønnNr" type="integer">
+            <annotation>
+              <documentation>Brønnummer i NGUs database</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).</documentation>
+            </annotation>
+          </element>
+          <element name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.</documentation>
+            </annotation>
+          </element>
+          <element name="oppdragstaker" type="string">
+            <annotation>
+              <documentation>Navn på borefirma som har utført boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnBrukOmfang" type="grunnvannborehull:BrønnBrukOmfangType">
+            <annotation>
+              <documentation>Hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boreDato" type="date">
+            <annotation>
+              <documentation>Dato for boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengde" type="double">
+            <annotation>
+              <documentation>Total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengdeTilBerg" type="double">
+            <annotation>
+              <documentation>Dybde til berg som ikke er målt men basert på tolkning</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannstandBorehull" type="double">
+            <annotation>
+              <documentation>Stabil vannstand etter boring målt fra overflaten i meter.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoVannstandBorehull" type="date">
+            <annotation>
+              <documentation>Dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnHelningType" type="grunnvannborehull:BrønnHelningTypeType">
+            <annotation>
+              <documentation>Hvilken type helning borehullet kan ha (grovinndeling)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="diameterBorehull" type="integer">
+            <annotation>
+              <documentation>Borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretHelningsgrad" type="integer">
+            <annotation>
+              <documentation>Borehullets hellning målt som avvik i grader fra loddlinje</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretAzimuth" type="integer">
+            <annotation>
+              <documentation>Helning hvor  90 grader er vertikalt , 0 grader er horisontalt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materialForingsrør" type="grunnvannborehull:MaterialForingsrørType">
+            <annotation>
+              <documentation>Foringsrørets materialtype</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeForingsrør" type="double">
+            <annotation>
+              <documentation>Foringsrørets lengde i meter</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasMålemet" type="grunnvannborehull:KapasMålemetType">
+            <annotation>
+              <documentation>Beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasØkningType" type="grunnvannborehull:KapasØkningTypeType">
+            <annotation>
+              <documentation>Beskriver om brønnen er sprengt eller trykket for å øke kapasiteten</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øktKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>Forklaring til objektet og undersøkelser utført på lokaliteten.
+Brønnborers generelle kommentarer til boringen, gitt på brønnskjema</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnvannBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:GrunnvannBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="GrunnvannOppkomme" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:GrunnvannOppkommeType">
+    <annotation>
+      <documentation>Forekomst av oppkomme/kilde/ naturlig utstrømmende grunnvann</documentation>
+    </annotation>
+  </element>
+  <complexType name="GrunnvannOppkommeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="oppkomNr" type="integer">
+            <annotation>
+              <documentation>Oppkommets nummer i Nasjonal Grunnvannsdatabase</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+&lt;br/&gt;I dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller i fjell</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomVannføring" type="double">
+            <annotation>
+              <documentation>Oppkommets vanngiverevne målt i liter/time målt ved registrering. (vil variere)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBruk" type="grunnvannborehull:OppkomBrukType">
+            <annotation>
+              <documentation>Overordnet bruksområde for naturlig oppkomme (kilde)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBrukOmfang" type="grunnvannborehull:OppkomBrukOmfangType">
+            <annotation>
+              <documentation>Underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomUtforming" type="grunnvannborehull:OppkomUtformingType">
+            <annotation>
+              <documentation>Beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBeskyttelse" type="grunnvannborehull:OppkomBeskyttelseType">
+            <annotation>
+              <documentation>Beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde, overbygg)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomFareForurensing" type="grunnvannborehull:OppkomFareForurensingType">
+            <annotation>
+              <documentation>Inndeler forurensningsfaren for oppkommet til liten/middels/stor</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomTypeForurensing" type="grunnvannborehull:OppkomTypeForurensingType">
+            <annotation>
+              <documentation>Definerer om eventuell forurensningsfare stammer fra bebyggelse, industri, jordbruk etc</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Navn på konsulentfirma som evnt har utredet kilden/oppkommet.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomRegDato" type="date">
+            <annotation>
+              <documentation>Dato når oppkomme ble registrert</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomKommentar" type="string">
+            <annotation>
+              <documentation>Beskriver formål, historikk, referanser og kontakt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Metoden brukt for å stedfeste lokaliteten</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnvannOppkommePropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:GrunnvannOppkomme"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="KapasMålemetType">
+    <restriction base="string">
+      <enumeration value="Blåsing"/>
+      <enumeration value="Prøvepumping"/>
+      <enumeration value="Stigningstest"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KapasØkningTypeType">
+    <restriction base="string">
+      <enumeration value="Sprengning"/>
+      <enumeration value="Trykking"/>
+      <enumeration value="Ukjent"/>
+    </restriction>
+  </simpleType>
+  <element name="LGNBrønn" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:LGNBrønnType">
+    <annotation>
+      <documentation>Brønn som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNBrønnType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element minOccurs="0" name="lgnBrønnNr" type="string">
+            <annotation>
+              <documentation>lgnBrønnNr</documentation>
+            </annotation>
+          </element>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="brønnNr" type="integer">
+            <annotation>
+              <documentation>Brønnummer i NGUs database</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).</documentation>
+            </annotation>
+          </element>
+          <element name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.</documentation>
+            </annotation>
+          </element>
+          <element name="oppdragstaker" type="string">
+            <annotation>
+              <documentation>Navn på borefirma som har utført boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnBrukOmfang" type="grunnvannborehull:BrønnBrukOmfangType">
+            <annotation>
+              <documentation>Hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boreDato" type="date">
+            <annotation>
+              <documentation>Dato for boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengde" type="double">
+            <annotation>
+              <documentation>Total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengdeTilBerg" type="double">
+            <annotation>
+              <documentation>Dybde til berg som ikke er målt men basert på tolkning</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannstandBorehull" type="double">
+            <annotation>
+              <documentation>Stabil vannstand etter boring målt fra overflaten i meter.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoVannstandBorehull" type="date">
+            <annotation>
+              <documentation>Dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnHelningType" type="grunnvannborehull:BrønnHelningTypeType">
+            <annotation>
+              <documentation>Hvilken type helning borehullet kan ha (grovinndeling)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="diameterBorehull" type="integer">
+            <annotation>
+              <documentation>Borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretHelningsgrad" type="integer">
+            <annotation>
+              <documentation>Borehullets hellning målt som avvik i grader fra loddlinje</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretAzimuth" type="integer">
+            <annotation>
+              <documentation>Helning hvor  90 grader er vertikalt , 0 grader er horisontalt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materialForingsrør" type="grunnvannborehull:MaterialForingsrørType">
+            <annotation>
+              <documentation>Foringsrørets materialtype</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeForingsrør" type="double">
+            <annotation>
+              <documentation>Foringsrørets lengde i meter</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasMålemet" type="grunnvannborehull:KapasMålemetType">
+            <annotation>
+              <documentation>Beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasØkningType" type="grunnvannborehull:KapasØkningTypeType">
+            <annotation>
+              <documentation>Beskriver om brønnen er sprengt eller trykket for å øke kapasiteten</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øktKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>Forklaring til objektet og undersøkelser utført på lokaliteten.
+Brønnborers generelle kommentarer til boringen, gitt på brønnskjema</documentation>
+            </annotation>
+          </element>
+          <element name="målePunktNr" type="string">
+            <annotation>
+              <documentation>Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).&lt;br/&gt;En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="måleFrekvens" type="string">
+            <annotation>
+              <documentation>Hvor hyppig det blir utført målinger/ kjemiske analyser</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStartMåling" type="string">
+            <annotation>
+              <documentation>Startmåned/år for innsamling av kjemiske data</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStoppMåling" type="string">
+            <annotation>
+              <documentation>Sluttmåned/år for innsamling av kjemiske analyser</documentation>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>Angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="referansepunkt" type="string"/>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:LGNBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LGNGrunnvannOppkomme" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:LGNGrunnvannOppkommeType">
+    <annotation>
+      <documentation>Forekomst av oppkomme/ naturlig utstrømmende grunnvann som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNGrunnvannOppkommeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="oppkomNr" type="integer">
+            <annotation>
+              <documentation>Oppkommets nummer i Nasjonal Grunnvannsdatabase</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+&lt;br/&gt;I dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller i fjell</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomVannføring" type="double">
+            <annotation>
+              <documentation>Oppkommets vanngiverevne målt i liter/time målt ved registrering. (vil variere)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBruk" type="grunnvannborehull:OppkomBrukType">
+            <annotation>
+              <documentation>Overordnet bruksområde for naturlig oppkomme (kilde)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBrukOmfang" type="grunnvannborehull:OppkomBrukOmfangType">
+            <annotation>
+              <documentation>Underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomUtforming" type="grunnvannborehull:OppkomUtformingType">
+            <annotation>
+              <documentation>Beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBeskyttelse" type="grunnvannborehull:OppkomBeskyttelseType">
+            <annotation>
+              <documentation>Beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde, overbygg)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomFareForurensing" type="grunnvannborehull:OppkomFareForurensingType">
+            <annotation>
+              <documentation>Inndeler forurensningsfaren for oppkommet til liten/middels/stor</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Navn på konsulentfirma som evnt har utredet kilden/oppkommet.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomRegDato" type="date">
+            <annotation>
+              <documentation>Dato når oppkomme ble registrert</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomKommentar" type="string">
+            <annotation>
+              <documentation>Beskriver formål, historikk, referanser og kontakt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Metoden brukt for å stedfeste lokaliteten</documentation>
+            </annotation>
+          </element>
+          <element name="målePunktNr" type="string">
+            <annotation>
+              <documentation>Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).&lt;br/&gt;En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="måleFrekvens" type="string">
+            <annotation>
+              <documentation>Hvor hyppig det utføres målinger/kjemiske analyser</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStartMåling" type="string">
+            <annotation>
+              <documentation>Startmåned/år for innsamling av kjemiske data</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStoppMåling" type="string">
+            <annotation>
+              <documentation>Sluttmåned/år for innsamling av kjemiske analyser</documentation>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>Angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="referansepunkt" type="string"/>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNGrunnvannOppkommePropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:LGNGrunnvannOppkomme"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LGNOmrådeRefPkt" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:LGNOmrådeRefPktType">
+    <annotation>
+      <documentation>Cirka plassert senterpunkt i lokalt "LGN-område" bestående av en eller flere brønner/oppkommer som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNOmrådeRefPktType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="antallBrønnerKilder">
+            <annotation>
+              <documentation>Antall brønner og kilder i LGNområdet</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+&lt;br/&gt;I dette tilfellet definerer den om LGN-området består av løsmassebrønner eller fjellbrønner</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjonHøyde" type="string">
+            <annotation>
+              <documentation>LGN områdets høyde over havet målt i meter</documentation>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>Angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nveNummer" type="string">
+            <annotation>
+              <documentation>Angir NVEs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lgnOmrNavn" type="string">
+            <annotation>
+              <documentation>Stasjonsnavn i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="akviferType" type="grunnvannborehull:AkviferTypeType">
+            <annotation>
+              <documentation>Beskriver akvifertype i LGN-området.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="omrEtableringDato" type="string">
+            <annotation>
+              <documentation>Beskriver når LGN-området ble etablert</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMin" type="integer">
+            <annotation>
+              <documentation>Angir LGN-områdets minste årlige nedbør i perioden 1960 til 1990</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMid" type="integer">
+            <annotation>
+              <documentation>Angir LGN-områdets gjennomsnittlig årlig nedbør i perioden 1960 til 1990</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMaks" type="integer">
+            <annotation>
+              <documentation>Angir LGN-områdets høyeste årlige nedbør i perioden 1960 til 1990</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tempÅrMiddel" type="integer">
+            <annotation>
+              <documentation>Angir LGN-områdets gjennomsnittlig årlig temperatur 1960 til 1990</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navnPåVassdrag" type="string">
+            <annotation>
+              <documentation>Vassdragsnavn jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vassdragsnummer" type="string">
+            <annotation>
+              <documentation>Unik identifikasjon på nedbørsfelt som et hierarkisk system i henhold til NVEs REGINE (REGIster over NEdbørsfelt (T15).&lt;br/&gt;Vassdragsnummer jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kommentar" type="string">
+            <annotation>
+              <documentation>Beskriver formål, historikk, referanser og kontakt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lgngrunnvannoppkomme" type="string"/>
+          <element minOccurs="0" name="lgnbrønn" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNOmrådeRefPktPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:LGNOmrådeRefPkt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Link" substitutionGroup="gml:AbstractObject" type="grunnvannborehull:LinkType"/>
+  <complexType name="LinkType">
+    <sequence>
+      <element minOccurs="0" name="href"/>
+      <element minOccurs="0" name="rel" type="string"/>
+      <element minOccurs="0" name="type" type="string"/>
+      <element minOccurs="0" name="title" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="LinkPropertyType">
+    <sequence>
+      <element ref="grunnvannborehull:Link"/>
+    </sequence>
+  </complexType>
+  <simpleType name="MaterialForingsrørType">
+    <restriction base="string">
+      <enumeration value="Damprør"/>
+      <enumeration value="PE"/>
+      <enumeration value="PVC"/>
+      <enumeration value="Plast"/>
+      <enumeration value="Rustfritt stål"/>
+      <enumeration value="Stål"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomBeskyttelseType">
+    <restriction base="string">
+      <enumeration value="Drensledning/-grøft"/>
+      <enumeration value="Gjerde"/>
+      <enumeration value="Overbygg"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomBrukType">
+    <restriction base="string">
+      <enumeration value="Ukjent"/>
+      <enumeration value="Undersøkelse"/>
+      <enumeration value="Vannforsyning"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomBrukOmfangType">
+    <restriction base="string">
+      <enumeration value="Annen industri"/>
+      <enumeration value="Enkelthusholdning"/>
+      <enumeration value="Forskning"/>
+      <enumeration value="Gårdsbruk"/>
+      <enumeration value="Hytte/fritidsbolig"/>
+      <enumeration value="Miljøundersøkelser/overvåkning"/>
+      <enumeration value="Næringsmiddelproduksjon"/>
+      <enumeration value="Større anlegg"/>
+      <enumeration value="Turistnæring"/>
+      <enumeration value="Ukjent"/>
+      <enumeration value="Undersøkelse for energibrønn/anlegg"/>
+      <enumeration value="Undersøkelse for vannforsyning"/>
+      <enumeration value="Vannforsyning"/>
+      <enumeration value="Vanningsanlegg"/>
+      <enumeration value="Vannverk"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomFareForurensingType">
+    <restriction base="string">
+      <enumeration value="Liten"/>
+      <enumeration value="Middels"/>
+      <enumeration value="Stor"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomTypeForurensingType">
+    <restriction base="string">
+      <enumeration value="Annen"/>
+      <enumeration value="Bebyggelse"/>
+      <enumeration value="Beitemark"/>
+      <enumeration value="Industri"/>
+      <enumeration value="Jordbruk"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppkomUtformingType">
+    <restriction base="string">
+      <enumeration value="Kum"/>
+      <enumeration value="Naturlig"/>
+      <enumeration value="Rør"/>
+    </restriction>
+  </simpleType>
+  <element name="Sonderboring" substitutionGroup="gml:AbstractFeature" type="grunnvannborehull:SonderboringType">
+    <annotation>
+      <documentation>Undersøkelsesboring benyttet til å karakterisere løsmassenes egenskaper, vanligvis for å estimere om massene er grove og velsorterte nok til å kunne levere grunnvann til vannforsyning. Før ca år 2000   var håndholdt borutstyr vanligst, etter hvert mer vanlig med utstyr tilsvarende det som benyttes under geotekniske boringer.</documentation>
+    </annotation>
+  </element>
+  <complexType name="SonderboringType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="brønnNr" type="integer">
+            <annotation>
+              <documentation>Brønnummer i NGUs database</documentation>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="grunnvannborehull:GeolMediumType">
+            <annotation>
+              <documentation>Definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).</documentation>
+            </annotation>
+          </element>
+          <element name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>Stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.</documentation>
+            </annotation>
+          </element>
+          <element name="oppdragstaker" type="string">
+            <annotation>
+              <documentation>Navn på borefirma som har utført boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnBrukOmfang" type="grunnvannborehull:BrønnBrukOmfangType">
+            <annotation>
+              <documentation>Hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boreDato" type="date">
+            <annotation>
+              <documentation>Dato for boringen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>Konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengde" type="double">
+            <annotation>
+              <documentation>Total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengdeTilBerg" type="double">
+            <annotation>
+              <documentation>Dybde til berg som ikke er målt men basert på tolkning</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannstandBorehull" type="double">
+            <annotation>
+              <documentation>Stabil vannstand etter boring målt fra overflaten i meter.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoVannstandBorehull" type="date">
+            <annotation>
+              <documentation>Dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnHelningType" type="grunnvannborehull:BrønnHelningTypeType">
+            <annotation>
+              <documentation>Hvilken type helning borehullet kan ha (grovinndeling)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="diameterBorehull" type="integer">
+            <annotation>
+              <documentation>Borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretHelningsgrad" type="integer">
+            <annotation>
+              <documentation>Borehullets hellning målt som avvik i grader fra loddlinje</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretAzimuth" type="integer">
+            <annotation>
+              <documentation>Helning hvor  90 grader er vertikalt , 0 grader er horisontalt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materialForingsrør" type="grunnvannborehull:MaterialForingsrørType">
+            <annotation>
+              <documentation>Foringsrørets materialtype</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeForingsrør" type="double">
+            <annotation>
+              <documentation>Foringsrørets lengde i meter</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasMålemet" type="grunnvannborehull:KapasMålemetType">
+            <annotation>
+              <documentation>Beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasØkningType" type="grunnvannborehull:KapasØkningTypeType">
+            <annotation>
+              <documentation>Beskriver om brønnen er sprengt eller trykket for å øke kapasiteten</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øktKapasitet" type="double">
+            <annotation>
+              <documentation>Brønnens kapasitet ("vannføring") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>Forklaring til objektet og undersøkelser utført på lokaliteten.
+Brønnborers generelle kommentarer til boringen, gitt på brønnskjema</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rapport-HTML" type="string"/>
+          <element minOccurs="0" name="rapport-JSON" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SonderboringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="grunnvannborehull:Sonderboring"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

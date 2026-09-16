@@ -1,0 +1,413 @@
+---
+id: datamodell_uml_gunnvann
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  brønnpark:
+    sourcePath: /brønnpark
+    type: OBJECT
+    objectType: BrønnPark
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      brønnParkNr:
+        sourcePath: brønnparknr
+        type: INTEGER
+        constraints:
+          required: true
+      brønnpOmrNavn:
+        sourcePath: brønnpomrnavn
+        type: STRING
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMediumType
+          required: true
+      antallEnergiBrønner:
+        sourcePath: antallenergibrønner
+        type: INTEGER
+        constraints:
+          required: true
+      brønnpKommentar:
+        sourcePath: brønnpkommentar
+        type: STRING
+      brønnpVEffekt:
+        sourcePath: brønnpveffekt
+        type: INTEGER
+      brønnpVEnergi:
+        sourcePath: brønnpvenergi
+        type: INTEGER
+      brønnpKEffekt:
+        sourcePath: brønnpkeffekt
+        type: INTEGER
+      brønnpKEnergi:
+        sourcePath: brønnpkenergi
+        type: INTEGER
+      brønnpFrikjøling:
+        sourcePath: brønnpfrikjøling
+        type: STRING
+      brønnpKollVæske:
+        sourcePath: brønnpkollvæske
+        type: STRING
+        constraints:
+          codelist: Br_nnparkKollV_ske
+      energibrønn:
+        sourcePath: "[objid=brønnparkobjid]BrønnPark_energibrønn/[energibrønnobjid=objid]energibrønn"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          required: true
+          minOccurrence: 5
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: EnergiBrønn-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: EnergiBrønn-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/energibrønn/items/{{value}}"
+  energibrønn:
+    sourcePath: /energibrønn
+    type: OBJECT
+    objectType: EnergiBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      brønnParkNr:
+        sourcePath: brønnparknr
+        type: INTEGER
+      brønnpark:
+        type: OBJECT
+        objectType: Link
+        properties:
+          title:
+            sourcePath: brønnpark
+            type: STRING
+            label: BrønnPark-title
+          href:
+            sourcePath: brønnpark
+            type: STRING
+            label: BrønnPark-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/brønnpark/items/{{value}}"
+  grunnvannbrønn:
+    sourcePath: /grunnvannbrønn
+    type: OBJECT
+    objectType: GrunnvannBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  grunnvannoppkomme:
+    sourcePath: /grunnvannoppkomme
+    type: OBJECT
+    objectType: GrunnvannOppkomme
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      oppkomNr:
+        sourcePath: oppkomnr
+        type: INTEGER
+        constraints:
+          required: true
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMediumType
+          required: true
+      oppkomVannføring:
+        sourcePath: oppkomvannføring
+        type: FLOAT
+      oppkomBruk:
+        sourcePath: oppkombruk
+        type: STRING
+        constraints:
+          codelist: OppkomBruk
+      oppkomBrukOmfang:
+        sourcePath: oppkombrukomfang
+        type: STRING
+        constraints:
+          codelist: Br_nnBrukOmfangType
+      oppkomUtforming:
+        sourcePath: oppkomutforming
+        type: STRING
+        constraints:
+          codelist: OppkomUtforming
+      oppkomBeskyttelse:
+        sourcePath: oppkombeskyttelse
+        type: STRING
+        constraints:
+          codelist: OppkomBeskyttelse
+      oppkomFareForurensing:
+        sourcePath: oppkomfareforurensing
+        type: STRING
+        constraints:
+          codelist: OppkomFareForurensing
+      oppkomTypeForurensing:
+        sourcePath: oppkomtypeforurensing
+        type: STRING
+        constraints:
+          codelist: OppkomTypeForurensing
+      konsulentFirma:
+        sourcePath: konsulentfirma
+        type: STRING
+      rapport:
+        sourcePath: "[objid=grunnvannoppkommeobjid]GrunnvannOppkomme_rapport/rapport"
+        type: VALUE_ARRAY
+        valueType: STRING
+        constraints:
+          minOccurrence: 0
+      oppkomRegDato:
+        sourcePath: oppkomregdato
+        type: DATE
+        role: PRIMARY_INSTANT
+      oppkomKommentar:
+        sourcePath: oppkomkommentar
+        type: STRING
+      stedfestelseMetodeInfo:
+        sourcePath: stedfestelsemetodeinfo
+        type: STRING
+  lgnbrønn:
+    sourcePath: /lgnbrønn
+    type: OBJECT
+    objectType: LGNBrønn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      målePunktNr:
+        sourcePath: målepunktnr
+        type: STRING
+        constraints:
+          required: true
+      måleFrekvens:
+        sourcePath: målefrekvens
+        type: STRING
+      driftStartMåling:
+        sourcePath: driftstartmåling
+        type: STRING
+      driftStoppMåling:
+        sourcePath: driftstoppmåling
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      referansepunkt:
+        type: OBJECT
+        objectType: Link
+        constraints:
+          required: true
+        properties:
+          title:
+            sourcePath: referansepunkt
+            type: STRING
+            label: LGNOmrådeRefPkt-title
+          href:
+            sourcePath: referansepunkt
+            type: STRING
+            label: LGNOmrådeRefPkt-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/lgnområderefpkt/items/{{value}}"
+  lgngrunnvannoppkomme:
+    sourcePath: /lgngrunnvannoppkomme
+    type: OBJECT
+    objectType: LGNGrunnvannOppkomme
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      målePunktNr:
+        sourcePath: målepunktnr
+        type: STRING
+        constraints:
+          required: true
+      måleFrekvens:
+        sourcePath: målefrekvens
+        type: STRING
+      driftStartMåling:
+        sourcePath: driftstartmåling
+        type: STRING
+      driftStoppMåling:
+        sourcePath: driftstoppmåling
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      referansepunkt:
+        type: OBJECT
+        objectType: Link
+        constraints:
+          required: true
+        properties:
+          title:
+            sourcePath: referansepunkt
+            type: STRING
+            label: LGNOmrådeRefPkt-title
+          href:
+            sourcePath: referansepunkt
+            type: STRING
+            label: LGNOmrådeRefPkt-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/lgnområderefpkt/items/{{value}}"
+  lgnområderefpkt:
+    sourcePath: /lgnområderefpkt
+    type: OBJECT
+    objectType: LGNOmrådeRefPkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      antallBrønnerKilder:
+        sourcePath: "[objid=lgnområderefpktobjid]LGNOmrådeRefPkt_antallBrønnerKilder/antallbrønnerkilder"
+        type: VALUE_ARRAY
+        valueType: INTEGER
+        constraints:
+          required: true
+          minOccurrence: 1
+      geolMedium:
+        sourcePath: geolmedium
+        type: STRING
+        constraints:
+          codelist: GeolMediumType
+      posisjonHøyde:
+        sourcePath: posisjonhøyde
+        type: STRING
+      lgnNummer:
+        sourcePath: lgnnummer
+        type: INTEGER
+        constraints:
+          required: true
+      nveNummer:
+        sourcePath: nvenummer
+        type: STRING
+      lgnOmrNavn:
+        sourcePath: lgnomrnavn
+        type: STRING
+      akviferType:
+        sourcePath: akvifertype
+        type: STRING
+        constraints:
+          codelist: AkviferType
+      omrEtableringDato:
+        sourcePath: omretableringdato
+        type: STRING
+      nedbørÅrMin:
+        sourcePath: nedbørårmin
+        type: INTEGER
+      nedbørÅrMid:
+        sourcePath: nedbørårmid
+        type: INTEGER
+      nedbørÅrMaks:
+        sourcePath: nedbørårmaks
+        type: INTEGER
+      tempÅrMiddel:
+        sourcePath: tempårmiddel
+        type: INTEGER
+      navnPåVassdrag:
+        sourcePath: navnpåvassdrag
+        type: STRING
+      vassdragsnummer:
+        sourcePath: vassdragsnummer
+        type: STRING
+      kommentar:
+        sourcePath: kommentar
+        type: STRING
+      lgnbrønn:
+        sourcePath: "[objid=lgnområderefpktobjid]LGNOmrådeRefPkt_lgnbrønn/[lgnbrønnobjid=objid]lgnbrønn"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          required: true
+          minOccurrence: 1
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: LGNBrønn-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: LGNBrønn-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/lgnbrønn/items/{{value}}"
+      lgngrunnvannoppkomme:
+        sourcePath: "[objid=lgnområderefpktobjid]LGNOmrådeRefPkt_lgngrunnvannoppkomme/[lgngrunnvannoppkommeobjid=objid]lgngrunnvannoppkomme"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: LGNGrunnvannOppkomme-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: LGNGrunnvannOppkomme-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/lgngrunnvannoppkomme/items/{{value}}"
+  sonderboring:
+    sourcePath: /sonderboring
+    type: OBJECT
+    objectType: Sonderboring
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID

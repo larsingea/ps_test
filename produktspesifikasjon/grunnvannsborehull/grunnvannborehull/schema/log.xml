@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/schema/shapechange-config.xml" end="Wed Sep 16 08:18:17 UTC 2026" resultCode="0" start="Wed Sep 16 08:18:11 UTC 2026" version="4.0.0">
+  <Messages>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
+    <Info message="Validating input parameters."/>
+    <Info message="Validation of input parameters completed."/>
+    <Info message="Validating log parameters."/>
+    <Info message="Validation of log parameters completed."/>
+    <ProcessFlowInfo message="--- Validating transformer with @id 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' and @inputs 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
+    <Warning message="The type 'Sequence' of property 'LGNOmrådeRefPkt.antallBrønnerKilder' was not found.">
+      <Detail message="Context: Property 'grunnvannborehull::LGNOmrådeRefPkt::antallBrønnerKilder'"/>
+    </Warning>
+    <Warning message="The type 'uri-reference (string)' of property 'Link.href' was not found.">
+      <Detail message="Context: Property 'grunnvannborehull::Link::href'"/>
+    </Warning>
+    <ProcessFlowInfo message="Application schema found, package name: 'grunnvannborehull', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
+    <Error message="The type 'Sequence' of property 'LGNOmrådeRefPkt.antallBrønnerKilder' was not found.">
+      <Detail message="Context: Property 'grunnvannborehull::LGNOmrådeRefPkt::antallBrønnerKilder'"/>
+    </Error>
+    <Error message="The type 'uri-reference (string)' of property 'Link.href' was not found.">
+      <Detail message="Context: Property 'grunnvannborehull::Link::href'"/>
+    </Error>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'grunnvannborehull', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'JSON Schema' for input 'INPUT'."/>
+    <Warning message="JSON Schema definition for type 'Sequence' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
+    <Warning message="JSON Schema definition for type 'uri-reference (string)' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Now processing transformation 'LDPROXY_FLAT' for input ID: 'INPUT'."/>
+    <ProcessFlowInfo message="========== processing phase =========="/>
+    <ProcessFlowInfo message="---------- now processing: rule-trf-prop-flatten-types ----------"/>
+    <ProcessFlowInfo message="========== postprocessing phase =========="/>
+    <ProcessFlowInfo message="---------- TransformationManager postprocessing: validating constraints ----------"/>
+    <ProcessFlowInfo message="Performed transformation for transformer ID 'LDPROXY_FLAT' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'grunnvannborehull', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'Ldproxy (v2)' for input 'LDPROXY_FLAT'."/>
+    <Info message="The target configuration does not contain advanced process configuration infos."/>
+    <Info message="Could not compute a label for codelist/enumeration 'GeolMedium'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::GeolMedium'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnpKollVæske'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnpKollVæske'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnBrukOmfang'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnBrukOmfang'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnHelningType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnHelningType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'MaterialForingsrør'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::MaterialForingsrør'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'KapasMålemet'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::KapasMålemet'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'KapasØkningType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::KapasØkningType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomBruk'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomBruk'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomBrukOmfang'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomBrukOmfang'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomUtforming'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomUtforming'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomBeskyttelse'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomBeskyttelse'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomFareForurensing'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomFareForurensing'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomTypeForurensing'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::OppkomTypeForurensing'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'AkviferType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'grunnvannborehull::AkviferType'"/>
+    </Info>
+    <Error message="The value type 'uri-reference (string)' of property 'energibrønn_href' (of class 'BrønnPark') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnPark::energibrønn_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'BrønnPark') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnPark::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'BrønnPark') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::BrønnPark::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'brønnpark_href' (of class 'EnergiBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::EnergiBrønn::brønnpark_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'EnergiBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::EnergiBrønn::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'EnergiBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::EnergiBrønn::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'GrunnvannBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::GrunnvannBrønn::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'GrunnvannBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::GrunnvannBrønn::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'GrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::GrunnvannOppkomme::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'GrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::GrunnvannOppkomme::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'referansepunkt_href' (of class 'LGNBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNBrønn::referansepunkt_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'LGNBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNBrønn::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'LGNBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNBrønn::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'referansepunkt_href' (of class 'LGNGrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNGrunnvannOppkomme::referansepunkt_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'LGNGrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNGrunnvannOppkomme::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'LGNGrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNGrunnvannOppkomme::rapport-JSON_href'"/>
+    </Error>
+    <Error message="The value type 'Sequence' of property 'antallBrønnerKilder' (of class 'LGNOmrådeRefPkt') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNOmrådeRefPkt::antallBrønnerKilder'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'lgngrunnvannoppkomme_href' (of class 'LGNOmrådeRefPkt') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNOmrådeRefPkt::lgngrunnvannoppkomme_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'lgnbrønn_href' (of class 'LGNOmrådeRefPkt') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::LGNOmrådeRefPkt::lgnbrønn_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-HTML_href' (of class 'Sonderboring') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::Sonderboring::rapport-HTML_href'"/>
+    </Error>
+    <Error message="The value type 'uri-reference (string)' of property 'rapport-JSON_href' (of class 'Sonderboring') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'grunnvannborehull::Sonderboring::rapport-JSON_href'"/>
+    </Error>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' for input ID: 'LDPROXY_FLAT'.&#10;-------------------------------------------------"/>
+  </Messages>
+  <Results>
+    <Result href="file:/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/schema/xsd/INPUT/grunnvannborehull.xsd" scope="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/1.0" target="XML Schema">grunnvannborehull.xsd</Result>
+    <Result href="file:/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/schema/jsonschema/INPUT/grunnvannborehull/grunnvannborehull.json" target="JSON Schema">grunnvannborehull.json</Result>
+  </Results>
+</ShapeChangeResult>
