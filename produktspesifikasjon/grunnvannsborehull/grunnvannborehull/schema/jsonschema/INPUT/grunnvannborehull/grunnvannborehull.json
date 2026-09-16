@@ -1,0 +1,896 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/grunnvannborehull/grunnvannborehull/grunnvannborehull.json",
+  "definitions": {
+    "AkviferType": {
+      "type": "string",
+      "enum": [
+        "Artesisk",
+        "Lukket",
+        "Åpen"
+      ]
+    },
+    "BrønnBrukOmfang": {
+      "type": "string",
+      "enum": [
+        "Annen industri",
+        "Enkelthusholdning",
+        "Forskning",
+        "Gårdsbruk",
+        "Hytte/fritidsbolig",
+        "Miljøundersøkelser/overvåkning",
+        "Næringsmiddelproduksjon",
+        "Større anlegg",
+        "Turistnæring",
+        "Ukjent",
+        "Undersøkelse for energibrønn/anlegg",
+        "Undersøkelse for vannforsyning",
+        "Vannforsyning",
+        "Vanningsanlegg",
+        "Vannverk"
+      ]
+    },
+    "BrønnHelningType": {
+      "type": "string",
+      "enum": [
+        "Horisontal",
+        "Loddrett",
+        "Skrå"
+      ]
+    },
+    "BrønnPark": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brønnParkNr": {
+          "type": "integer"
+        },
+        "brønnpOmrNavn": {
+          "type": "string"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "antallEnergiBrønner": {
+          "type": "integer"
+        },
+        "brønnpKommentar": {
+          "type": "string"
+        },
+        "brønnpVEffekt": {
+          "type": "integer"
+        },
+        "brønnpVEnergi": {
+          "type": "integer"
+        },
+        "brønnpKEffekt": {
+          "type": "integer"
+        },
+        "brønnpKEnergi": {
+          "type": "integer"
+        },
+        "brønnpFrikjøling": {
+          "type": "string"
+        },
+        "brønnpKollVæske": {
+          "$ref": "#/definitions/BrønnpKollVæske"
+        },
+        "energibrønn": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "antallEnergiBrønner",
+        "brønnParkNr",
+        "datauttaksdato",
+        "geolMedium"
+      ]
+    },
+    "BrønnpKollVæske": {
+      "type": "string",
+      "enum": [
+        "Etanol",
+        "Etylenglykol",
+        "Kaliumformiat",
+        "Kaliumklorid",
+        "Metanol",
+        "Propylenglykol",
+        "Vann"
+      ]
+    },
+    "EnergiBrønn": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brønnNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "oppdragstaker": {
+          "type": "string"
+        },
+        "brønnBrukOmfang": {
+          "$ref": "#/definitions/BrønnBrukOmfang"
+        },
+        "boreDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "boretLengde": {
+          "type": "number"
+        },
+        "boretLengdeTilBerg": {
+          "type": "number"
+        },
+        "vannstandBorehull": {
+          "type": "number"
+        },
+        "datoVannstandBorehull": {
+          "type": "string",
+          "format": "date"
+        },
+        "brønnHelningType": {
+          "$ref": "#/definitions/BrønnHelningType"
+        },
+        "diameterBorehull": {
+          "type": "integer"
+        },
+        "boretHelningsgrad": {
+          "type": "integer"
+        },
+        "boretAzimuth": {
+          "type": "integer"
+        },
+        "materialForingsrør": {
+          "$ref": "#/definitions/MaterialForingsrør"
+        },
+        "lengdeForingsrør": {
+          "type": "number"
+        },
+        "boretKapasitet": {
+          "type": "number"
+        },
+        "kapasMålemet": {
+          "$ref": "#/definitions/KapasMålemet"
+        },
+        "kapasØkningType": {
+          "$ref": "#/definitions/KapasØkningType"
+        },
+        "øktKapasitet": {
+          "type": "number"
+        },
+        "beskrivelse": {
+          "type": "string"
+        },
+        "brønnParkNr": {
+          "type": "integer"
+        },
+        "brønnpark": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "brønnNr",
+        "datauttaksdato",
+        "geolMedium",
+        "oppdragstaker",
+        "stedfestelseMetodeInfo"
+      ]
+    },
+    "GeolMedium": {
+      "type": "string",
+      "enum": [
+        "Fjell",
+        "Løsmasse"
+      ]
+    },
+    "GrunnvannBrønn": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brønnNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "oppdragstaker": {
+          "type": "string"
+        },
+        "brønnBrukOmfang": {
+          "$ref": "#/definitions/BrønnBrukOmfang"
+        },
+        "boreDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "boretLengde": {
+          "type": "number"
+        },
+        "boretLengdeTilBerg": {
+          "type": "number"
+        },
+        "vannstandBorehull": {
+          "type": "number"
+        },
+        "datoVannstandBorehull": {
+          "type": "string",
+          "format": "date"
+        },
+        "brønnHelningType": {
+          "$ref": "#/definitions/BrønnHelningType"
+        },
+        "diameterBorehull": {
+          "type": "integer"
+        },
+        "boretHelningsgrad": {
+          "type": "integer"
+        },
+        "boretAzimuth": {
+          "type": "integer"
+        },
+        "materialForingsrør": {
+          "$ref": "#/definitions/MaterialForingsrør"
+        },
+        "lengdeForingsrør": {
+          "type": "number"
+        },
+        "boretKapasitet": {
+          "type": "number"
+        },
+        "kapasMålemet": {
+          "$ref": "#/definitions/KapasMålemet"
+        },
+        "kapasØkningType": {
+          "$ref": "#/definitions/KapasØkningType"
+        },
+        "øktKapasitet": {
+          "type": "number"
+        },
+        "beskrivelse": {
+          "type": "string"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "brønnNr",
+        "datauttaksdato",
+        "geolMedium",
+        "oppdragstaker",
+        "stedfestelseMetodeInfo"
+      ]
+    },
+    "GrunnvannOppkomme": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "oppkomNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "oppkomVannføring": {
+          "type": "number"
+        },
+        "oppkomBruk": {
+          "$ref": "#/definitions/OppkomBruk"
+        },
+        "oppkomBrukOmfang": {
+          "$ref": "#/definitions/OppkomBrukOmfang"
+        },
+        "oppkomUtforming": {
+          "$ref": "#/definitions/OppkomUtforming"
+        },
+        "oppkomBeskyttelse": {
+          "$ref": "#/definitions/OppkomBeskyttelse"
+        },
+        "oppkomFareForurensing": {
+          "$ref": "#/definitions/OppkomFareForurensing"
+        },
+        "oppkomTypeForurensing": {
+          "$ref": "#/definitions/OppkomTypeForurensing"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "oppkomRegDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppkomKommentar": {
+          "type": "string"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "geolMedium",
+        "oppkomNr"
+      ]
+    },
+    "KapasMålemet": {
+      "type": "string",
+      "enum": [
+        "Blåsing",
+        "Prøvepumping",
+        "Stigningstest"
+      ]
+    },
+    "KapasØkningType": {
+      "type": "string",
+      "enum": [
+        "Sprengning",
+        "Trykking",
+        "Ukjent"
+      ]
+    },
+    "LGNBrønn": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lgnBrønnNr": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brønnNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "oppdragstaker": {
+          "type": "string"
+        },
+        "brønnBrukOmfang": {
+          "$ref": "#/definitions/BrønnBrukOmfang"
+        },
+        "boreDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "boretLengde": {
+          "type": "number"
+        },
+        "boretLengdeTilBerg": {
+          "type": "number"
+        },
+        "vannstandBorehull": {
+          "type": "number"
+        },
+        "datoVannstandBorehull": {
+          "type": "string",
+          "format": "date"
+        },
+        "brønnHelningType": {
+          "$ref": "#/definitions/BrønnHelningType"
+        },
+        "diameterBorehull": {
+          "type": "integer"
+        },
+        "boretHelningsgrad": {
+          "type": "integer"
+        },
+        "boretAzimuth": {
+          "type": "integer"
+        },
+        "materialForingsrør": {
+          "$ref": "#/definitions/MaterialForingsrør"
+        },
+        "lengdeForingsrør": {
+          "type": "number"
+        },
+        "boretKapasitet": {
+          "type": "number"
+        },
+        "kapasMålemet": {
+          "$ref": "#/definitions/KapasMålemet"
+        },
+        "kapasØkningType": {
+          "$ref": "#/definitions/KapasØkningType"
+        },
+        "øktKapasitet": {
+          "type": "number"
+        },
+        "beskrivelse": {
+          "type": "string"
+        },
+        "målePunktNr": {
+          "type": "string"
+        },
+        "måleFrekvens": {
+          "type": "string"
+        },
+        "driftStartMåling": {
+          "type": "string"
+        },
+        "driftStoppMåling": {
+          "type": "string"
+        },
+        "lgnNummer": {
+          "type": "integer"
+        },
+        "referansepunkt": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "brønnNr",
+        "datauttaksdato",
+        "geolMedium",
+        "lgnNummer",
+        "målePunktNr",
+        "oppdragstaker",
+        "stedfestelseMetodeInfo"
+      ]
+    },
+    "LGNGrunnvannOppkomme": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "oppkomNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "oppkomVannføring": {
+          "type": "number"
+        },
+        "oppkomBruk": {
+          "$ref": "#/definitions/OppkomBruk"
+        },
+        "oppkomBrukOmfang": {
+          "$ref": "#/definitions/OppkomBrukOmfang"
+        },
+        "oppkomUtforming": {
+          "$ref": "#/definitions/OppkomUtforming"
+        },
+        "oppkomBeskyttelse": {
+          "$ref": "#/definitions/OppkomBeskyttelse"
+        },
+        "oppkomFareForurensing": {
+          "$ref": "#/definitions/OppkomFareForurensing"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "oppkomRegDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppkomKommentar": {
+          "type": "string"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "målePunktNr": {
+          "type": "string"
+        },
+        "måleFrekvens": {
+          "type": "string"
+        },
+        "driftStartMåling": {
+          "type": "string"
+        },
+        "driftStoppMåling": {
+          "type": "string"
+        },
+        "lgnNummer": {
+          "type": "integer"
+        },
+        "referansepunkt": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "geolMedium",
+        "lgnNummer",
+        "målePunktNr",
+        "oppkomNr"
+      ]
+    },
+    "LGNOmrådeRefPkt": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "antallBrønnerKilder": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "posisjonHøyde": {
+          "type": "string"
+        },
+        "lgnNummer": {
+          "type": "integer"
+        },
+        "nveNummer": {
+          "type": "string"
+        },
+        "lgnOmrNavn": {
+          "type": "string"
+        },
+        "akviferType": {
+          "$ref": "#/definitions/AkviferType"
+        },
+        "omrEtableringDato": {
+          "type": "string"
+        },
+        "nedbørÅrMin": {
+          "type": "integer"
+        },
+        "nedbørÅrMid": {
+          "type": "integer"
+        },
+        "nedbørÅrMaks": {
+          "type": "integer"
+        },
+        "tempÅrMiddel": {
+          "type": "integer"
+        },
+        "navnPåVassdrag": {
+          "type": "string"
+        },
+        "vassdragsnummer": {
+          "type": "string"
+        },
+        "kommentar": {
+          "type": "string"
+        },
+        "lgngrunnvannoppkomme": {
+          "$ref": "#/definitions/Link"
+        },
+        "lgnbrønn": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "antallBrønnerKilder",
+        "datauttaksdato",
+        "lgnNummer"
+      ]
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {},
+        "rel": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "MaterialForingsrør": {
+      "type": "string",
+      "enum": [
+        "Damprør",
+        "PE",
+        "PVC",
+        "Plast",
+        "Rustfritt stål",
+        "Stål"
+      ]
+    },
+    "OppkomBeskyttelse": {
+      "type": "string",
+      "enum": [
+        "Drensledning/-grøft",
+        "Gjerde",
+        "Overbygg"
+      ]
+    },
+    "OppkomBruk": {
+      "type": "string",
+      "enum": [
+        "Ukjent",
+        "Undersøkelse",
+        "Vannforsyning"
+      ]
+    },
+    "OppkomBrukOmfang": {
+      "type": "string",
+      "enum": [
+        "Annen industri",
+        "Enkelthusholdning",
+        "Forskning",
+        "Gårdsbruk",
+        "Hytte/fritidsbolig",
+        "Miljøundersøkelser/overvåkning",
+        "Næringsmiddelproduksjon",
+        "Større anlegg",
+        "Turistnæring",
+        "Ukjent",
+        "Undersøkelse for energibrønn/anlegg",
+        "Undersøkelse for vannforsyning",
+        "Vannforsyning",
+        "Vanningsanlegg",
+        "Vannverk"
+      ]
+    },
+    "OppkomFareForurensing": {
+      "type": "string",
+      "enum": [
+        "Liten",
+        "Middels",
+        "Stor"
+      ]
+    },
+    "OppkomTypeForurensing": {
+      "type": "string",
+      "enum": [
+        "Annen",
+        "Bebyggelse",
+        "Beitemark",
+        "Industri",
+        "Jordbruk"
+      ]
+    },
+    "OppkomUtforming": {
+      "type": "string",
+      "enum": [
+        "Kum",
+        "Naturlig",
+        "Rør"
+      ]
+    },
+    "Sonderboring": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brønnNr": {
+          "type": "integer"
+        },
+        "geolMedium": {
+          "$ref": "#/definitions/GeolMedium"
+        },
+        "stedfestelseMetodeInfo": {
+          "type": "string"
+        },
+        "oppdragstaker": {
+          "type": "string"
+        },
+        "brønnBrukOmfang": {
+          "$ref": "#/definitions/BrønnBrukOmfang"
+        },
+        "boreDato": {
+          "type": "string",
+          "format": "date"
+        },
+        "konsulentFirma": {
+          "type": "string"
+        },
+        "boretLengde": {
+          "type": "number"
+        },
+        "boretLengdeTilBerg": {
+          "type": "number"
+        },
+        "vannstandBorehull": {
+          "type": "number"
+        },
+        "datoVannstandBorehull": {
+          "type": "string",
+          "format": "date"
+        },
+        "brønnHelningType": {
+          "$ref": "#/definitions/BrønnHelningType"
+        },
+        "diameterBorehull": {
+          "type": "integer"
+        },
+        "boretHelningsgrad": {
+          "type": "integer"
+        },
+        "boretAzimuth": {
+          "type": "integer"
+        },
+        "materialForingsrør": {
+          "$ref": "#/definitions/MaterialForingsrør"
+        },
+        "lengdeForingsrør": {
+          "type": "number"
+        },
+        "boretKapasitet": {
+          "type": "number"
+        },
+        "kapasMålemet": {
+          "$ref": "#/definitions/KapasMålemet"
+        },
+        "kapasØkningType": {
+          "$ref": "#/definitions/KapasØkningType"
+        },
+        "øktKapasitet": {
+          "type": "number"
+        },
+        "beskrivelse": {
+          "type": "string"
+        },
+        "rapport-HTML": {
+          "$ref": "#/definitions/Link"
+        },
+        "rapport-JSON": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "@type",
+        "brønnNr",
+        "datauttaksdato",
+        "geolMedium",
+        "oppdragstaker",
+        "stedfestelseMetodeInfo"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1546 @@
+# Open Data Contract Standard (ODCS) v3.1.0 — generert fra datamodellen.
+apiVersion: v3.1.0
+kind: DataContract
+id: urn:odcs:grunnvannsborehull-datamodell-uml-gunnvann:1.0.0
+version: 1.0.0
+status: active
+name: Grunnvannsborehull - Datamodell UML Gunnvann
+schema:
+- name: LGNBrønn
+  physicalName: lgnbr_nn
+  logicalType: object
+  physicalType: table
+  description: brønn som benyttes eller har vært benyttet under monitorering av upåvirkede
+    grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)
+  customProperties:
+  - property: sosiObjektType
+    value: LGNBrønn
+  - property: inheritsFrom
+    value: GrunnvannBorehull
+  - property: associations
+    value:
+    - role: referansepunkt
+      target: LGNOmrådeRefPkt
+      cardinality: '1'
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: brønnNr
+    logicalType: integer
+    description: brønnummer i NGUs database
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+    required: true
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca
+      2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle
+      koordinater.
+    required: true
+  - name: oppdragstaker
+    logicalType: string
+    description: navn på borefirma som har utført boringen
+    required: true
+  - name: brønnBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk
+      osv.)
+  - name: boreDato
+    logicalType: date
+    description: dato for boringen
+  - name: konsulentFirma
+    logicalType: string
+    description: konsulentfirma, som for eksempel har valgt ut borelokalitet, eller
+      som har utredet aspekter ved bruk av brønnen.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: boretLengde
+    logicalType: number
+    description: total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring
+  - name: boretLengdeTilBerg
+    logicalType: number
+    description: dybde til berg som ikke er målt men basert på tolkning
+  - name: vannstandBorehull
+    logicalType: number
+    description: stabil vannstand etter boring målt fra overflaten i meter.
+  - name: datoVannstandBorehull
+    logicalType: date
+    description: dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).
+  - name: brønnHelningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Loddrett|Skrå|Horisontal)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Loddrett
+        label: Loddrett
+      - value: Skrå
+        label: Skrå
+      - value: Horisontal
+        label: Horisontal
+    description: hvilken type helning borehullet kan ha (grovinndeling)
+  - name: diameterBorehull
+    logicalType: integer
+    description: borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende
+      diameter på borhullet nedenfor foringsrørets avslutning.
+  - name: boretHelningsgrad
+    logicalType: integer
+    description: borehullets hellning målt som avvik i grader fra loddlinje
+  - name: boretAzimuth
+    logicalType: integer
+    description: helning hvor  90 grader er vertikalt , 0 grader er horisontalt
+  - name: materialForingsrør
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Plast|Rustfritt\ stål|Stål|PVC|Damprør|PE)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Plast
+        label: Plast
+      - value: Rustfritt stål
+        label: Rustfritt stål
+      - value: Stål
+        label: Stål
+      - value: PVC
+        label: PVC
+      - value: Damprør
+        label: Damprør
+      - value: PE
+        label: PE
+    description: foringsrørets materialtype
+  - name: lengdeForingsrør
+    logicalType: number
+    description: foringsrørets lengde i meter
+  - name: boretKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende
+      trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse
+      med selve boringen.
+  - name: kapasMålemet
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Blåsing|Prøvepumping|Stigningstest)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Blåsing
+        label: Blåsing
+      - value: Prøvepumping
+        label: Prøvepumping
+      - value: Stigningstest
+        label: Stigningstest
+    description: beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne).
+      Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis
+      her den målemetoden som er brukt FØR denne kapasitetsøkningen.
+  - name: kapasØkningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Trykking|Sprengning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Trykking
+        label: Trykking
+      - value: Sprengning
+        label: Sprengning
+      - value: Ukjent
+        label: Ukjent
+    description: beskriver om brønnen er sprengt eller trykket for å øke kapasiteten
+  - name: øktKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time målt etter eventuell
+      kapsitetsøkende trykking eller sprengning.
+  - name: beskrivelse
+    logicalType: string
+    description: 'forklaring til objektet og undersøkelser utført på lokaliteten.
+
+      Brønnborers generelle kommentarer til boringen, gitt på brønnskjema'
+  - name: brønnFiler
+    logicalType: string
+    description: filer i alle formater (billedformater, pdf, excel, word m.fl.) som
+      brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).
+  - name: målePunktNr
+    logicalType: string
+    description: 'Merking av observasjonspunkter (brønner og oppkommer) som forekommer
+      i et LGNområde (LGN overvåkingsstasjon).
+
+
+      En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier
+      over 50 representerer oppkommer.'
+    required: true
+  - name: måleFrekvens
+    logicalType: string
+    description: hvor hyppig det blir utført målinger/ kjemiske analyser
+  - name: kjemiskeAnalyser
+    logicalType: string
+    description: link til kjemiske analyser
+  - name: driftStartMåling
+    logicalType: string
+    description: startmåned/år for innsamling av kjemiske data
+  - name: driftStoppMåling
+    logicalType: string
+    description: sluttmåned/år for innsamling av kjemiske analyser
+  - name: lgnNummer
+    logicalType: integer
+    description: angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende
+      grunnvannsnett" (LGN)
+    required: true
+- name: EnergiBrønn
+  physicalName: energibr_nn
+  logicalType: object
+  physicalType: table
+  description: Grunnvannborehull som helt eller delvis er dedikert for uttak eller
+    deponering av grunnvarme, enten gjennom kollektorslanger eller pumping av grunnvann
+    hvis temperatur benyttes til oppvarming eller avkjøling.
+  customProperties:
+  - property: sosiObjektType
+    value: EnergiBrønn
+  - property: inheritsFrom
+    value: GrunnvannBorehull
+  - property: associations
+    value:
+    - role: brønnpark
+      target: BrønnPark
+      cardinality: 0..1
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: brønnNr
+    logicalType: integer
+    description: brønnummer i NGUs database
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+    required: true
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca
+      2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle
+      koordinater.
+    required: true
+  - name: oppdragstaker
+    logicalType: string
+    description: navn på borefirma som har utført boringen
+    required: true
+  - name: brønnBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk
+      osv.)
+  - name: boreDato
+    logicalType: date
+    description: dato for boringen
+  - name: konsulentFirma
+    logicalType: string
+    description: konsulentfirma, som for eksempel har valgt ut borelokalitet, eller
+      som har utredet aspekter ved bruk av brønnen.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: boretLengde
+    logicalType: number
+    description: total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring
+  - name: boretLengdeTilBerg
+    logicalType: number
+    description: dybde til berg som ikke er målt men basert på tolkning
+  - name: vannstandBorehull
+    logicalType: number
+    description: stabil vannstand etter boring målt fra overflaten i meter.
+  - name: datoVannstandBorehull
+    logicalType: date
+    description: dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).
+  - name: brønnHelningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Loddrett|Skrå|Horisontal)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Loddrett
+        label: Loddrett
+      - value: Skrå
+        label: Skrå
+      - value: Horisontal
+        label: Horisontal
+    description: hvilken type helning borehullet kan ha (grovinndeling)
+  - name: diameterBorehull
+    logicalType: integer
+    description: borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende
+      diameter på borhullet nedenfor foringsrørets avslutning.
+  - name: boretHelningsgrad
+    logicalType: integer
+    description: borehullets hellning målt som avvik i grader fra loddlinje
+  - name: boretAzimuth
+    logicalType: integer
+    description: helning hvor  90 grader er vertikalt , 0 grader er horisontalt
+  - name: materialForingsrør
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Plast|Rustfritt\ stål|Stål|PVC|Damprør|PE)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Plast
+        label: Plast
+      - value: Rustfritt stål
+        label: Rustfritt stål
+      - value: Stål
+        label: Stål
+      - value: PVC
+        label: PVC
+      - value: Damprør
+        label: Damprør
+      - value: PE
+        label: PE
+    description: foringsrørets materialtype
+  - name: lengdeForingsrør
+    logicalType: number
+    description: foringsrørets lengde i meter
+  - name: boretKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende
+      trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse
+      med selve boringen.
+  - name: kapasMålemet
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Blåsing|Prøvepumping|Stigningstest)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Blåsing
+        label: Blåsing
+      - value: Prøvepumping
+        label: Prøvepumping
+      - value: Stigningstest
+        label: Stigningstest
+    description: beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne).
+      Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis
+      her den målemetoden som er brukt FØR denne kapasitetsøkningen.
+  - name: kapasØkningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Trykking|Sprengning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Trykking
+        label: Trykking
+      - value: Sprengning
+        label: Sprengning
+      - value: Ukjent
+        label: Ukjent
+    description: beskriver om brønnen er sprengt eller trykket for å øke kapasiteten
+  - name: øktKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time målt etter eventuell
+      kapsitetsøkende trykking eller sprengning.
+  - name: beskrivelse
+    logicalType: string
+    description: 'forklaring til objektet og undersøkelser utført på lokaliteten.
+
+      Brønnborers generelle kommentarer til boringen, gitt på brønnskjema'
+  - name: brønnFiler
+    logicalType: string
+    description: filer i alle formater (billedformater, pdf, excel, word m.fl.) som
+      brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).
+  - name: brønnParkNr
+    logicalType: integer
+    description: brønnparknummer  i NGUs databaser
+- name: GrunnvannOppkomme
+  physicalName: grunnvannoppkomme
+  logicalType: object
+  physicalType: table
+  description: forekomst av oppkomme/kilde/ naturlig utstrømmende grunnvann
+  customProperties:
+  - property: sosiObjektType
+    value: GrunnvannOppkomme
+  - property: inheritsFrom
+    value: FellesegenskaperGrunnvannBorehull
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: oppkomNr
+    logicalType: integer
+    description: oppkommets nummer i Nasjonal Grunnvannsdatabase
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: 'definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+
+      I dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller
+      i fjell'
+    required: true
+  - name: oppkomVannføring
+    logicalType: number
+    description: oppkommets vanngiverevne målt i liter/time målt ved registrering.
+      (vil variere)
+  - name: oppkomBruk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Vannforsyning|Undersøkelse|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Undersøkelse
+        label: Undersøkelse
+      - value: Ukjent
+        label: Ukjent
+    description: overordnet bruksområde for naturlig oppkomme (kilde)
+  - name: oppkomBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)
+  - name: oppkomUtforming
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Rør|Naturlig|Kum)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Rør
+        label: Rør
+      - value: Naturlig
+        label: Naturlig
+      - value: Kum
+        label: Kum
+    description: beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum
+  - name: oppkomBeskyttelse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Drensledning/\-grøft|Gjerde|Overbygg)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Drensledning/-grøft
+        label: Drensledning/-grøft
+      - value: Gjerde
+        label: Gjerde
+      - value: Overbygg
+        label: Overbygg
+    description: beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde,
+      overbygg)
+  - name: oppkomFareForurensing
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Liten|Middels|Stor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Liten
+        label: Liten
+      - value: Middels
+        label: Middels
+      - value: Stor
+        label: Stor
+    description: inndeler forurensningsfaren for oppkommet til liten/middels/stor
+  - name: oppkomTypeForurensing
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Bebyggelse|Beitemark|Industri|Jordbruk|Annen)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Bebyggelse
+        label: Bebyggelse
+      - value: Beitemark
+        label: Beitemark
+      - value: Industri
+        label: Industri
+      - value: Jordbruk
+        label: Jordbruk
+      - value: Annen
+        label: Annen
+    description: definerer om eventuell forurensningsfare stammer fra bebyggelse,
+      industri, jordbruk etc
+  - name: oppkomFiler
+    logicalType: string
+    description: link til eventuelle filer som er knyttet til oppkommet
+  - name: konsulentFirma
+    logicalType: string
+    description: navn på konsulentfirma som evnt har utredet kilden/oppkommet.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: oppkomRegDato
+    logicalType: date
+    description: dato når oppkomme ble registrert
+  - name: oppkomKommentar
+    logicalType: string
+    description: beskriver formål, historikk, referanser og kontakt
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: metoden brukt for å stedfeste lokaliteten
+- name: Sonderboring
+  physicalName: sonderboring
+  logicalType: object
+  physicalType: table
+  description: undersøkelsesboring benyttet til å karakterisere løsmassenes egenskaper,
+    vanligvis for å estimere om massene er grove og velsorterte nok til å kunne levere
+    grunnvann til vannforsyning. Før ca år 2000   var håndholdt borutstyr vanligst,
+    etter hvert mer vanlig med utstyr tilsvarende det som benyttes under geotekniske
+    boringer.
+  customProperties:
+  - property: sosiObjektType
+    value: Sonderboring
+  - property: inheritsFrom
+    value: GrunnvannBorehull
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: brønnNr
+    logicalType: integer
+    description: brønnummer i NGUs database
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+    required: true
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca
+      2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle
+      koordinater.
+    required: true
+  - name: oppdragstaker
+    logicalType: string
+    description: navn på borefirma som har utført boringen
+    required: true
+  - name: brønnBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk
+      osv.)
+  - name: boreDato
+    logicalType: date
+    description: dato for boringen
+  - name: konsulentFirma
+    logicalType: string
+    description: konsulentfirma, som for eksempel har valgt ut borelokalitet, eller
+      som har utredet aspekter ved bruk av brønnen.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: boretLengde
+    logicalType: number
+    description: total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring
+  - name: boretLengdeTilBerg
+    logicalType: number
+    description: dybde til berg som ikke er målt men basert på tolkning
+  - name: vannstandBorehull
+    logicalType: number
+    description: stabil vannstand etter boring målt fra overflaten i meter.
+  - name: datoVannstandBorehull
+    logicalType: date
+    description: dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).
+  - name: brønnHelningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Loddrett|Skrå|Horisontal)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Loddrett
+        label: Loddrett
+      - value: Skrå
+        label: Skrå
+      - value: Horisontal
+        label: Horisontal
+    description: hvilken type helning borehullet kan ha (grovinndeling)
+  - name: diameterBorehull
+    logicalType: integer
+    description: borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende
+      diameter på borhullet nedenfor foringsrørets avslutning.
+  - name: boretHelningsgrad
+    logicalType: integer
+    description: borehullets hellning målt som avvik i grader fra loddlinje
+  - name: boretAzimuth
+    logicalType: integer
+    description: helning hvor  90 grader er vertikalt , 0 grader er horisontalt
+  - name: materialForingsrør
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Plast|Rustfritt\ stål|Stål|PVC|Damprør|PE)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Plast
+        label: Plast
+      - value: Rustfritt stål
+        label: Rustfritt stål
+      - value: Stål
+        label: Stål
+      - value: PVC
+        label: PVC
+      - value: Damprør
+        label: Damprør
+      - value: PE
+        label: PE
+    description: foringsrørets materialtype
+  - name: lengdeForingsrør
+    logicalType: number
+    description: foringsrørets lengde i meter
+  - name: boretKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende
+      trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse
+      med selve boringen.
+  - name: kapasMålemet
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Blåsing|Prøvepumping|Stigningstest)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Blåsing
+        label: Blåsing
+      - value: Prøvepumping
+        label: Prøvepumping
+      - value: Stigningstest
+        label: Stigningstest
+    description: beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne).
+      Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis
+      her den målemetoden som er brukt FØR denne kapasitetsøkningen.
+  - name: kapasØkningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Trykking|Sprengning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Trykking
+        label: Trykking
+      - value: Sprengning
+        label: Sprengning
+      - value: Ukjent
+        label: Ukjent
+    description: beskriver om brønnen er sprengt eller trykket for å øke kapasiteten
+  - name: øktKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time målt etter eventuell
+      kapsitetsøkende trykking eller sprengning.
+  - name: beskrivelse
+    logicalType: string
+    description: 'forklaring til objektet og undersøkelser utført på lokaliteten.
+
+      Brønnborers generelle kommentarer til boringen, gitt på brønnskjema'
+  - name: brønnFiler
+    logicalType: string
+    description: filer i alle formater (billedformater, pdf, excel, word m.fl.) som
+      brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).
+- name: LGNGrunnvannOppkomme
+  physicalName: lgngrunnvannoppkomme
+  logicalType: object
+  physicalType: table
+  description: forekomst av oppkomme/ naturlig utstrømmende grunnvann som benyttes
+    eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende
+    grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)
+  customProperties:
+  - property: sosiObjektType
+    value: LGNGrunnvannOppkomme
+  - property: inheritsFrom
+    value: GrunnvannOppkomme
+  - property: associations
+    value:
+    - role: referansepunkt
+      target: LGNOmrådeRefPkt
+      cardinality: '1'
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: oppkomNr
+    logicalType: integer
+    description: oppkommets nummer i Nasjonal Grunnvannsdatabase
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: 'definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+
+      I dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller
+      i fjell'
+    required: true
+  - name: oppkomVannføring
+    logicalType: number
+    description: oppkommets vanngiverevne målt i liter/time målt ved registrering.
+      (vil variere)
+  - name: oppkomBruk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Vannforsyning|Undersøkelse|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Undersøkelse
+        label: Undersøkelse
+      - value: Ukjent
+        label: Ukjent
+    description: overordnet bruksområde for naturlig oppkomme (kilde)
+  - name: oppkomBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)
+  - name: oppkomUtforming
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Rør|Naturlig|Kum)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Rør
+        label: Rør
+      - value: Naturlig
+        label: Naturlig
+      - value: Kum
+        label: Kum
+    description: beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum
+  - name: oppkomBeskyttelse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Drensledning/\-grøft|Gjerde|Overbygg)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Drensledning/-grøft
+        label: Drensledning/-grøft
+      - value: Gjerde
+        label: Gjerde
+      - value: Overbygg
+        label: Overbygg
+    description: beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde,
+      overbygg)
+  - name: oppkomFareForurensing
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Liten|Middels|Stor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Liten
+        label: Liten
+      - value: Middels
+        label: Middels
+      - value: Stor
+        label: Stor
+    description: inndeler forurensningsfaren for oppkommet til liten/middels/stor
+  - name: oppkomTypeForurensing
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Bebyggelse|Beitemark|Industri|Jordbruk|Annen)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Bebyggelse
+        label: Bebyggelse
+      - value: Beitemark
+        label: Beitemark
+      - value: Industri
+        label: Industri
+      - value: Jordbruk
+        label: Jordbruk
+      - value: Annen
+        label: Annen
+    description: definerer om eventuell forurensningsfare stammer fra bebyggelse,
+      industri, jordbruk etc
+  - name: oppkomFiler
+    logicalType: string
+    description: link til eventuelle filer som er knyttet til oppkommet
+  - name: konsulentFirma
+    logicalType: string
+    description: navn på konsulentfirma som evnt har utredet kilden/oppkommet.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: oppkomRegDato
+    logicalType: date
+    description: dato når oppkomme ble registrert
+  - name: oppkomKommentar
+    logicalType: string
+    description: beskriver formål, historikk, referanser og kontakt
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: metoden brukt for å stedfeste lokaliteten
+  - name: målePunktNr
+    logicalType: string
+    description: 'Merking av observasjonspunkter (brønner og oppkommer) som forekommer
+      i et LGNområde (LGN overvåkingsstasjon).
+
+
+      En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier
+      over 50 representerer oppkommer.'
+    required: true
+  - name: måleFrekvens
+    logicalType: string
+    description: hvor hyppig det utføres målinger/kjemiske analyser
+  - name: kjemiskeAnalyser
+    logicalType: string
+    description: link til kjemiske analyser
+  - name: driftStartMåling
+    logicalType: string
+    description: startmåned/år for innsamling av kjemiske data
+  - name: driftStoppMåling
+    logicalType: string
+    description: sluttmåned/år for innsamling av kjemiske analyser
+  - name: lgnNummer
+    logicalType: integer
+    description: angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende
+      grunnvannsnett" (LGN)
+    required: true
+- name: BrønnPark
+  physicalName: br_nnpark
+  logicalType: object
+  physicalType: table
+  description: anlegg for uttak og/eller deponering av grunnvarme. Anlegg må ha tilsluttet
+    minst fem energibrønner for å falle inn under NGUs definisjon av "Brønnpark".
+  customProperties:
+  - property: sosiObjektType
+    value: BrønnPark
+  - property: inheritsFrom
+    value: FellesegenskaperGrunnvannBorehull
+  - property: associations
+    value:
+    - role: energibrønn
+      target: EnergiBrønn
+      cardinality: 5..*
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: brønnParkNr
+    logicalType: integer
+    description: brønnparknummer  i NGUs database
+    required: true
+  - name: brønnpOmrNavn
+    logicalType: string
+    description: lokalt stedsnavn der brønnparken ligger.
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: 'definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+
+      I dette tilfellet definerer den om brønnpark er basert på boringer kun i løsmasse
+      (vanligvis for oppumping av varmt grunnvann) eller også er  boret videre ned
+      i berggrunn (vanligvis varmeuttak via kollektorslanger).'
+    required: true
+  - name: antallEnergiBrønner
+    logicalType: integer
+    description: beskriver antall energibrønner i brønnparken (minimum 5 for å defineres
+      som brønnpark)
+    required: true
+  - name: brønnpKommentar
+    logicalType: string
+    description: brønnboreres kommentarer om brønnparken
+  - name: brønnpVEffekt
+    logicalType: integer
+    description: brønnparkens maksimale varmeeffekt i kW
+  - name: brønnpVEnergi
+    logicalType: integer
+    description: brønnparkens maksimale varmeenergi i kWh/år
+  - name: brønnpKEffekt
+    logicalType: integer
+    description: brønnparkens maksimale kjøleeffekt i kW
+  - name: brønnpKEnergi
+    logicalType: integer
+    description: brønnparkens maksimale kjøleeffekt i kWh/år
+  - name: brønnpFrikjøling
+    logicalType: string
+    description: beskriver om brønnparken benyttes til frikjøling (ja/nei)
+  - name: brønnpKollVæske
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Etylenglykol|Kaliumformiat|Kaliumklorid|Metanol|Propylenglykol|Vann|Etanol)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Etylenglykol
+        label: Etylenglykol
+      - value: Kaliumformiat
+        label: hycool
+      - value: Kaliumklorid
+        label: Kaliumklorid
+      - value: Metanol
+        label: Metanol
+      - value: Propylenglykol
+        label: Propylenglykol
+      - value: Vann
+        label: Vann
+      - value: Etanol
+        label: denaturert sprit
+    description: beskriver type kollektorvæske (Metanol osv)
+  - name: brønnpFiler
+    logicalType: string
+    description: link til eventuelle filer som er knyttet til brønnparken
+- name: LGNOmrådeRefPkt
+  physicalName: lgnomr_derefpkt
+  logicalType: object
+  physicalType: table
+  description: cirka plassert senterpunkt i lokalt "LGN-område" bestående av en eller
+    flere brønner/oppkommer som benyttes eller har vært benyttet under monitorering
+    av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)
+  customProperties:
+  - property: sosiObjektType
+    value: LGNOmrådeRefPkt
+  - property: inheritsFrom
+    value: FellesegenskaperGrunnvannBorehull
+  - property: associations
+    value:
+    - role: lgnbrønn
+      target: LGNBrønn
+      cardinality: 1..*
+    - role: lgngrunnvannoppkomme
+      target: LGNGrunnvannOppkomme
+      cardinality: 0..*
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: antallBrønnerKilder
+    logicalType: array
+    items:
+      logicalType: integer
+    description: antall brønner og kilder i LGNområdet
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: 'definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+
+      I dette tilfellet definerer den om LGN-området består av løsmassebrønner eller
+      fjellbrønner'
+  - name: posisjonHøyde
+    logicalType: string
+    description: LGN områdets høyde over havet målt i meter
+  - name: lgnNummer
+    logicalType: integer
+    description: angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende
+      grunnvannsnett" (LGN)
+    required: true
+  - name: nveNummer
+    logicalType: string
+    description: angir NVEs stasjonsnummer i overvåkningsprogrammet "Landsomfattende
+      grunnvannsnett" (LGN)
+  - name: lgnOmrNavn
+    logicalType: string
+    description: stasjonsnavn i overvåkningsprogrammet "Landsomfattende grunnvannsnett"
+      (LGN)
+  - name: akviferType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Åpen|Lukket|Artesisk)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Åpen
+        label: grunnvannsoverflaten står i direkte kontakt med atmosfæren, og dermed
+          har akvifærisk trykk
+      - value: Lukket
+        label: grunnvann under hydrostatisk trykk av overliggende tette masser
+      - value: Artesisk
+        label: lukket akvifer der den piezometriske overflaten er jordoverflaten
+    description: beskriver akvifertype i LGN-området.
+  - name: omrEtableringDato
+    logicalType: string
+    description: beskriver når LGN-området ble etablert
+  - name: lgnOmrFiler
+    logicalType: string
+    description: link til eventuelle filer som er knyttet til LGNområdet
+  - name: nedbørÅrMin
+    logicalType: integer
+    description: angir LGN-områdets minste årlige nedbør i perioden 1960 til 1990
+  - name: nedbørÅrMid
+    logicalType: integer
+    description: angir LGN-områdets gjennomsnittlig årlig nedbør i perioden 1960 til
+      1990
+  - name: nedbørÅrMaks
+    logicalType: integer
+    description: angir LGN-områdets høyeste årlige nedbør i perioden 1960 til 1990
+  - name: tempÅrMiddel
+    logicalType: integer
+    description: angir LGN-områdets gjennomsnittlig årlig temperatur 1960 til 1990
+  - name: navnPåVassdrag
+    logicalType: string
+    description: vassdragsnavn jf NVEs databaser (ved eventuelle endringer ikke oppdatert,
+      se NVEs nettsider)
+  - name: vassdragsnummer
+    logicalType: string
+    description: 'unik identifikasjon på nedbørsfelt som et hierarkisk system i henhold
+      til NVEs REGINE (REGIster over NEdbørsfelt (T15).
+
+      Vassdragsnummer jf NVEs databaser (ved eventuelle endringer ikke oppdatert,
+      se NVEs nettsider)'
+  - name: kommentar
+    logicalType: string
+    description: beskriver formål, historikk, referanser og kontakt
+- name: GrunnvannBrønn
+  physicalName: grunnvannbr_nn
+  logicalType: object
+  physicalType: table
+  description: Boret brønn for uttak av grunnvann til vannforsyning
+  customProperties:
+  - property: sosiObjektType
+    value: GrunnvannBrønn
+  - property: inheritsFrom
+    value: GrunnvannBorehull
+  properties:
+  - name: datauttaksdato
+    logicalType: timestamp
+    description: 'dato for uttak fra en database
+
+
+      Merknad:
+
+      Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase
+      eller en kopidatabase.'
+    required: true
+  - name: posisjon
+    logicalType: string
+    description: objektet har punktgeometri
+    required: true
+  - name: brønnNr
+    logicalType: integer
+    description: brønnummer i NGUs database
+    required: true
+  - name: geolMedium
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Løsmasse|Fjell)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Løsmasse
+        label: Løsmasse
+      - value: Fjell
+        label: Fjell
+    description: definerer om et borehull er boret slik at den blir permanent åpen;
+      et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+    required: true
+  - name: stedfestelseMetodeInfo
+    logicalType: string
+    description: stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca
+      2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle
+      koordinater.
+    required: true
+  - name: oppdragstaker
+    logicalType: string
+    description: navn på borefirma som har utført boringen
+    required: true
+  - name: brønnBrukOmfang
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Enkelthusholdning|Gårdsbruk|Turistnæring|Hytte/fritidsbolig|Næringsmiddelproduksjon|Annen\
+        industri|Vannverk|Vanningsanlegg|Vannforsyning|Miljøundersøkelser/overvåkning|Større\
+        anlegg|Undersøkelse\ for\ energibrønn/anlegg|Undersøkelse\ for\ vannforsyning|Forskning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Enkelthusholdning
+        label: Enkelthusholdning
+      - value: Gårdsbruk
+        label: Gårdsbruk
+      - value: Turistnæring
+        label: Turistnæring
+      - value: Hytte/fritidsbolig
+        label: Hytte/fritidsbolig
+      - value: Næringsmiddelproduksjon
+        label: Næringsmiddelproduksjon
+      - value: Annen industri
+        label: Annen industri
+      - value: Vannverk
+        label: Vannverk
+      - value: Vanningsanlegg
+        label: Vanningsanlegg
+      - value: Vannforsyning
+        label: Vannforsyning
+      - value: Miljøundersøkelser/overvåkning
+        label: Miljøundersøkelser/overvåkning
+      - value: Større anlegg
+        label: Større anlegg
+      - value: Undersøkelse for energibrønn/anlegg
+        label: Undersøkelse for energibrønn/anlegg
+      - value: Undersøkelse for vannforsyning
+        label: Undersøkelse for vannforsyning
+      - value: Forskning
+        label: Forskning
+      - value: Ukjent
+        label: Ukjent
+    description: hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk
+      osv.)
+  - name: boreDato
+    logicalType: date
+    description: dato for boringen
+  - name: konsulentFirma
+    logicalType: string
+    description: konsulentfirma, som for eksempel har valgt ut borelokalitet, eller
+      som har utredet aspekter ved bruk av brønnen.
+  - name: rapport
+    logicalType: array
+    items:
+      logicalType: string
+    description: referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert
+      til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).
+  - name: boretLengde
+    logicalType: number
+    description: total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring
+  - name: boretLengdeTilBerg
+    logicalType: number
+    description: dybde til berg som ikke er målt men basert på tolkning
+  - name: vannstandBorehull
+    logicalType: number
+    description: stabil vannstand etter boring målt fra overflaten i meter.
+  - name: datoVannstandBorehull
+    logicalType: date
+    description: dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).
+  - name: brønnHelningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Loddrett|Skrå|Horisontal)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Loddrett
+        label: Loddrett
+      - value: Skrå
+        label: Skrå
+      - value: Horisontal
+        label: Horisontal
+    description: hvilken type helning borehullet kan ha (grovinndeling)
+  - name: diameterBorehull
+    logicalType: integer
+    description: borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende
+      diameter på borhullet nedenfor foringsrørets avslutning.
+  - name: boretHelningsgrad
+    logicalType: integer
+    description: borehullets hellning målt som avvik i grader fra loddlinje
+  - name: boretAzimuth
+    logicalType: integer
+    description: helning hvor  90 grader er vertikalt , 0 grader er horisontalt
+  - name: materialForingsrør
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Plast|Rustfritt\ stål|Stål|PVC|Damprør|PE)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Plast
+        label: Plast
+      - value: Rustfritt stål
+        label: Rustfritt stål
+      - value: Stål
+        label: Stål
+      - value: PVC
+        label: PVC
+      - value: Damprør
+        label: Damprør
+      - value: PE
+        label: PE
+    description: foringsrørets materialtype
+  - name: lengdeForingsrør
+    logicalType: number
+    description: foringsrørets lengde i meter
+  - name: boretKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende
+      trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse
+      med selve boringen.
+  - name: kapasMålemet
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Blåsing|Prøvepumping|Stigningstest)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Blåsing
+        label: Blåsing
+      - value: Prøvepumping
+        label: Prøvepumping
+      - value: Stigningstest
+        label: Stigningstest
+    description: beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne).
+      Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis
+      her den målemetoden som er brukt FØR denne kapasitetsøkningen.
+  - name: kapasØkningType
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Trykking|Sprengning|Ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Trykking
+        label: Trykking
+      - value: Sprengning
+        label: Sprengning
+      - value: Ukjent
+        label: Ukjent
+    description: beskriver om brønnen er sprengt eller trykket for å øke kapasiteten
+  - name: øktKapasitet
+    logicalType: number
+    description: brønnens kapasitet ("vannføring") i liter/time målt etter eventuell
+      kapsitetsøkende trykking eller sprengning.
+  - name: beskrivelse
+    logicalType: string
+    description: 'forklaring til objektet og undersøkelser utført på lokaliteten.
+
+      Brønnborers generelle kommentarer til boringen, gitt på brønnskjema'
+  - name: brønnFiler
+    logicalType: string
+    description: filer i alle formater (billedformater, pdf, excel, word m.fl.) som
+      brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).

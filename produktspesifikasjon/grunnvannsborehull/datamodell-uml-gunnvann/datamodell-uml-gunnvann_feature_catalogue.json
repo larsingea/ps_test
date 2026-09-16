@@ -1,0 +1,1370 @@
+[
+  {
+    "name": "LGNBrønn",
+    "description": "brønn som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer (\"Landsomfattende grunnvannsnett - LGN\" -http://www.grunnvann.no/overvaking_eks.php)",
+    "attributes": [
+      {
+        "name": "målePunktNr",
+        "type": "CharacterString",
+        "description": "Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).\n\nEn slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "MALEPUNKTNR"
+        }
+      },
+      {
+        "name": "måleFrekvens",
+        "type": "CharacterString",
+        "description": "hvor hyppig det blir utført målinger/ kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "MALEFREKVENS"
+        }
+      },
+      {
+        "name": "kjemiskeAnalyser",
+        "type": "Link",
+        "description": "link til kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "KJEMISKEANALYSER"
+        }
+      },
+      {
+        "name": "driftStartMåling",
+        "type": "CharacterString",
+        "description": "startmåned/år for innsamling av kjemiske data",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DRIFTSTARTMALING"
+        }
+      },
+      {
+        "name": "driftStoppMåling",
+        "type": "CharacterString",
+        "description": "sluttmåned/år for innsamling av kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DRIFTSTOPPMALING"
+        }
+      },
+      {
+        "name": "lgnNummer",
+        "type": "Integer",
+        "description": "angir NGUs stasjonsnummer i overvåkningsprogrammet \"Landsomfattende grunnvannsnett\" (LGN)",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "LGNNUMMER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "GrunnvannBorehull"
+      ],
+      "associations": [
+        {
+          "target": "LGNOmrådeRefPkt",
+          "role": "referansepunkt",
+          "cardinality": "1"
+        }
+      ]
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "GrunnvannBorehull",
+    "description": "ett enkelt fysisk punkt der det er foretatt en boring i forbindelse med bruk eller undersøkelse av grunnvannet eller dets egenskaper, herunder alle energiboringer (til uttak av grunnvarme), boringer etter grunnvann, overvåkningsbrønner og sonderboringer som er motivert i undersøkelse av grunnvann eller potensiale for grunnvannsuttak. Geotekniske boringer inngår ikke.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "Punkt",
+        "description": "objektet har punktgeometri",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "POSISJON"
+        }
+      },
+      {
+        "name": "brønnNr",
+        "type": "Integer",
+        "description": "brønnummer i NGUs database",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNNR"
+        }
+      },
+      {
+        "name": "geolMedium",
+        "type": "GeolMediumType",
+        "description": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Løsmasse",
+              "label": "Løsmasse"
+            },
+            {
+              "value": "Fjell",
+              "label": "Fjell"
+            }
+          ],
+          "definition": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "GEOLMEDIUM"
+        }
+      },
+      {
+        "name": "stedfestelseMetodeInfo",
+        "type": "CharacterString",
+        "description": "stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "STEDFESTELSEMETODEINFO"
+        }
+      },
+      {
+        "name": "oppdragstaker",
+        "type": "CharacterString",
+        "description": "navn på borefirma som har utført boringen",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPDRAGSTAKER"
+        }
+      },
+      {
+        "name": "brønnBrukOmfang",
+        "type": "BrønnBrukOmfangType",
+        "description": "hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Enkelthusholdning",
+              "label": "Enkelthusholdning"
+            },
+            {
+              "value": "Gårdsbruk",
+              "label": "Gårdsbruk"
+            },
+            {
+              "value": "Turistnæring",
+              "label": "Turistnæring"
+            },
+            {
+              "value": "Hytte/fritidsbolig",
+              "label": "Hytte/fritidsbolig"
+            },
+            {
+              "value": "Næringsmiddelproduksjon",
+              "label": "Næringsmiddelproduksjon"
+            },
+            {
+              "value": "Annen industri",
+              "label": "Annen industri"
+            },
+            {
+              "value": "Vannverk",
+              "label": "Vannverk"
+            },
+            {
+              "value": "Vanningsanlegg",
+              "label": "Vanningsanlegg"
+            },
+            {
+              "value": "Vannforsyning",
+              "label": "Vannforsyning"
+            },
+            {
+              "value": "Miljøundersøkelser/overvåkning",
+              "label": "Miljøundersøkelser/overvåkning"
+            },
+            {
+              "value": "Større anlegg",
+              "label": "Større anlegg"
+            },
+            {
+              "value": "Undersøkelse for energibrønn/anlegg",
+              "label": "Undersøkelse for energibrønn/anlegg"
+            },
+            {
+              "value": "Undersøkelse for vannforsyning",
+              "label": "Undersøkelse for vannforsyning"
+            },
+            {
+              "value": "Forskning",
+              "label": "Forskning"
+            },
+            {
+              "value": "Ukjent",
+              "label": "Ukjent"
+            }
+          ],
+          "definition": "underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "BRONNBRUKOMFANG"
+        }
+      },
+      {
+        "name": "boreDato",
+        "type": "Date",
+        "description": "dato for boringen",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BOREDATO"
+        }
+      },
+      {
+        "name": "konsulentFirma",
+        "type": "CharacterString",
+        "description": "konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "KONSULENTFIRMA"
+        }
+      },
+      {
+        "name": "rapport",
+        "type": "CharacterString",
+        "description": "referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).",
+        "cardinality": "0..*",
+        "taggedValues": {
+          "SOSI_navn": "RAPPORT"
+        }
+      },
+      {
+        "name": "boretLengde",
+        "type": "Real",
+        "description": "total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BORETLENGDE"
+        }
+      },
+      {
+        "name": "boretLengdeTilBerg",
+        "type": "Real",
+        "description": "dybde til berg som ikke er målt men basert på tolkning",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BORETLENGDETILBERG"
+        }
+      },
+      {
+        "name": "vannstandBorehull",
+        "type": "Real",
+        "description": "stabil vannstand etter boring målt fra overflaten i meter.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "VANNSTANDBOREHULL"
+        }
+      },
+      {
+        "name": "datoVannstandBorehull",
+        "type": "Date",
+        "description": "dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DATOVANNSTBOREHULL"
+        }
+      },
+      {
+        "name": "brønnHelningType",
+        "type": "BrønnHelningType",
+        "description": "hvilken type helning borehullet kan ha (grovinndeling)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Loddrett",
+              "label": "Loddrett"
+            },
+            {
+              "value": "Skrå",
+              "label": "Skrå"
+            },
+            {
+              "value": "Horisontal",
+              "label": "Horisontal"
+            }
+          ],
+          "definition": "hvilken type helning borehullet kan ha (grovinndeling)",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "BRONNHELNINGTYPE"
+        }
+      },
+      {
+        "name": "diameterBorehull",
+        "type": "Integer",
+        "description": "borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DIAMETERBOREHULL"
+        }
+      },
+      {
+        "name": "boretHelningsgrad",
+        "type": "Integer",
+        "description": "borehullets hellning målt som avvik i grader fra loddlinje",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BORETHELNINGSGRAD"
+        }
+      },
+      {
+        "name": "boretAzimuth",
+        "type": "Integer",
+        "description": "helning hvor  90 grader er vertikalt , 0 grader er horisontalt",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BORETAZIMUTH"
+        }
+      },
+      {
+        "name": "materialForingsrør",
+        "type": "ForingsrørMaterialType",
+        "description": "foringsrørets materialtype",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Plast",
+              "label": "Plast"
+            },
+            {
+              "value": "Rustfritt stål",
+              "label": "Rustfritt stål"
+            },
+            {
+              "value": "Stål",
+              "label": "Stål"
+            },
+            {
+              "value": "PVC",
+              "label": "PVC"
+            },
+            {
+              "value": "Damprør",
+              "label": "Damprør"
+            },
+            {
+              "value": "PE",
+              "label": "PE"
+            }
+          ],
+          "definition": "foringsrørets materialtype",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "MATERIALFORINGSROR"
+        }
+      },
+      {
+        "name": "lengdeForingsrør",
+        "type": "Real",
+        "description": "foringsrørets lengde i meter",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "LENGDEFORINGSROR"
+        }
+      },
+      {
+        "name": "boretKapasitet",
+        "type": "Real",
+        "description": "brønnens kapasitet (\"vannføring\") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BORETKAPASITET"
+        }
+      },
+      {
+        "name": "kapasMålemet",
+        "type": "KapasitetMålemetode",
+        "description": "beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Blåsing",
+              "label": "Blåsing"
+            },
+            {
+              "value": "Prøvepumping",
+              "label": "Prøvepumping"
+            },
+            {
+              "value": "Stigningstest",
+              "label": "Stigningstest"
+            }
+          ],
+          "definition": "beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "KAPASMALEMET"
+        }
+      },
+      {
+        "name": "kapasØkningType",
+        "type": "KapasitetØkningType",
+        "description": "beskriver om brønnen er sprengt eller trykket for å øke kapasiteten",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Trykking",
+              "label": "Trykking"
+            },
+            {
+              "value": "Sprengning",
+              "label": "Sprengning"
+            },
+            {
+              "value": "Ukjent",
+              "label": "Ukjent"
+            }
+          ],
+          "definition": "beskriver om brønnen er sprengt eller trykket for å øke kapasiteten",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "KAPASOKNINGTYPE"
+        }
+      },
+      {
+        "name": "øktKapasitet",
+        "type": "Real",
+        "description": "brønnens kapasitet (\"vannføring\") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OKTKAPASITET"
+        }
+      },
+      {
+        "name": "beskrivelse",
+        "type": "CharacterString",
+        "description": "forklaring til objektet og undersøkelser utført på lokaliteten.\nBrønnborers generelle kommentarer til boringen, gitt på brønnskjema",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BESKRIVELSE"
+        }
+      },
+      {
+        "name": "brønnFiler",
+        "type": "CharacterString",
+        "description": "filer i alle formater (billedformater, pdf, excel, word m.fl.) som brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNFILER"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [
+        "FellesegenskaperGrunnvannBorehull"
+      ],
+      "associations": []
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "EnergiBrønn",
+    "description": "Grunnvannborehull som helt eller delvis er dedikert for uttak eller deponering av grunnvarme, enten gjennom kollektorslanger eller pumping av grunnvann hvis temperatur benyttes til oppvarming eller avkjøling.",
+    "attributes": [
+      {
+        "name": "brønnParkNr",
+        "type": "Integer",
+        "description": "brønnparknummer  i NGUs databaser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPARKNR"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "GrunnvannBorehull"
+      ],
+      "associations": [
+        {
+          "target": "BrønnPark",
+          "role": "brønnpark",
+          "cardinality": "0..1"
+        }
+      ]
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "GrunnvannOppkomme",
+    "description": "forekomst av oppkomme/kilde/ naturlig utstrømmende grunnvann",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "Punkt",
+        "description": "objektet har punktgeometri",
+        "cardinality": "1"
+      },
+      {
+        "name": "oppkomNr",
+        "type": "Integer",
+        "description": "oppkommets nummer i Nasjonal Grunnvannsdatabase",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMNR"
+        }
+      },
+      {
+        "name": "geolMedium",
+        "type": "GeolMediumType",
+        "description": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).\n\nI dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller i fjell",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Løsmasse",
+              "label": "Løsmasse"
+            },
+            {
+              "value": "Fjell",
+              "label": "Fjell"
+            }
+          ],
+          "definition": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "GEOLMEDIUM"
+        }
+      },
+      {
+        "name": "oppkomVannføring",
+        "type": "Real",
+        "description": "oppkommets vanngiverevne målt i liter/time målt ved registrering. (vil variere)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMVANNFORING"
+        }
+      },
+      {
+        "name": "oppkomBruk",
+        "type": "OppkomBruk",
+        "description": "overordnet bruksområde for naturlig oppkomme (kilde)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Vannforsyning",
+              "label": "Vannforsyning"
+            },
+            {
+              "value": "Undersøkelse",
+              "label": "Undersøkelse"
+            },
+            {
+              "value": "Ukjent",
+              "label": "Ukjent"
+            }
+          ],
+          "definition": "overordnet bruksområde for naturlig oppkomme (kilde)",
+          "asDictionary": "true",
+          "codeList": "http://skjema.geonorge.no/legg_inn_riktig_url"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMBRUK"
+        }
+      },
+      {
+        "name": "oppkomBrukOmfang",
+        "type": "BrønnBrukOmfangType",
+        "description": "underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Enkelthusholdning",
+              "label": "Enkelthusholdning"
+            },
+            {
+              "value": "Gårdsbruk",
+              "label": "Gårdsbruk"
+            },
+            {
+              "value": "Turistnæring",
+              "label": "Turistnæring"
+            },
+            {
+              "value": "Hytte/fritidsbolig",
+              "label": "Hytte/fritidsbolig"
+            },
+            {
+              "value": "Næringsmiddelproduksjon",
+              "label": "Næringsmiddelproduksjon"
+            },
+            {
+              "value": "Annen industri",
+              "label": "Annen industri"
+            },
+            {
+              "value": "Vannverk",
+              "label": "Vannverk"
+            },
+            {
+              "value": "Vanningsanlegg",
+              "label": "Vanningsanlegg"
+            },
+            {
+              "value": "Vannforsyning",
+              "label": "Vannforsyning"
+            },
+            {
+              "value": "Miljøundersøkelser/overvåkning",
+              "label": "Miljøundersøkelser/overvåkning"
+            },
+            {
+              "value": "Større anlegg",
+              "label": "Større anlegg"
+            },
+            {
+              "value": "Undersøkelse for energibrønn/anlegg",
+              "label": "Undersøkelse for energibrønn/anlegg"
+            },
+            {
+              "value": "Undersøkelse for vannforsyning",
+              "label": "Undersøkelse for vannforsyning"
+            },
+            {
+              "value": "Forskning",
+              "label": "Forskning"
+            },
+            {
+              "value": "Ukjent",
+              "label": "Ukjent"
+            }
+          ],
+          "definition": "underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMBRUKOMFANG"
+        }
+      },
+      {
+        "name": "oppkomUtforming",
+        "type": "OppkomUtforming",
+        "description": "beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Rør",
+              "label": "Rør"
+            },
+            {
+              "value": "Naturlig",
+              "label": "Naturlig"
+            },
+            {
+              "value": "Kum",
+              "label": "Kum"
+            }
+          ],
+          "definition": "beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMUTFORMING"
+        }
+      },
+      {
+        "name": "oppkomBeskyttelse",
+        "type": "OppkomBeskyttelse",
+        "description": "beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde, overbygg)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Drensledning/-grøft",
+              "label": "Drensledning/-grøft"
+            },
+            {
+              "value": "Gjerde",
+              "label": "Gjerde"
+            },
+            {
+              "value": "Overbygg",
+              "label": "Overbygg"
+            }
+          ],
+          "definition": "beskriver hvordan oppkommet evt er beskyttet (drenering, gjerde, overbygg)",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMBESKYTTELSE"
+        }
+      },
+      {
+        "name": "oppkomFareForurensing",
+        "type": "OppkomFareForurensing",
+        "description": "inndeler forurensningsfaren for oppkommet til liten/middels/stor",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Liten",
+              "label": "Liten"
+            },
+            {
+              "value": "Middels",
+              "label": "Middels"
+            },
+            {
+              "value": "Stor",
+              "label": "Stor"
+            }
+          ],
+          "definition": "inndeler forurensningsfaren for oppkommet til liten/middels/stor",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMFAREFORURENSING"
+        }
+      },
+      {
+        "name": "oppkomTypeForurensing",
+        "type": "OppkomTypeForurensing",
+        "description": "definerer om eventuell forurensningsfare stammer fra bebyggelse, industri, jordbruk etc",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Bebyggelse",
+              "label": "Bebyggelse"
+            },
+            {
+              "value": "Beitemark",
+              "label": "Beitemark"
+            },
+            {
+              "value": "Industri",
+              "label": "Industri"
+            },
+            {
+              "value": "Jordbruk",
+              "label": "Jordbruk"
+            },
+            {
+              "value": "Annen",
+              "label": "Annen"
+            }
+          ],
+          "definition": "definerer om eventuell forurensningsfare stammer fra bebyggelse, industri, jordbruk etc",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMTYPEFORURENSING"
+        }
+      },
+      {
+        "name": "oppkomFiler",
+        "type": "Link",
+        "description": "link til eventuelle filer som er knyttet til oppkommet",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMFILER"
+        }
+      },
+      {
+        "name": "konsulentFirma",
+        "type": "CharacterString",
+        "description": "navn på konsulentfirma som evnt har utredet kilden/oppkommet.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "KONSULENTFIRMA"
+        }
+      },
+      {
+        "name": "rapport",
+        "type": "CharacterString",
+        "description": "referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).",
+        "cardinality": "0..*",
+        "taggedValues": {
+          "SOSI_navn": "RAPPORT"
+        }
+      },
+      {
+        "name": "oppkomRegDato",
+        "type": "Date",
+        "description": "dato når oppkomme ble registrert",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMREGDATO"
+        }
+      },
+      {
+        "name": "oppkomKommentar",
+        "type": "CharacterString",
+        "description": "beskriver formål, historikk, referanser og kontakt",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OPPKOMKOMMENTAR"
+        }
+      },
+      {
+        "name": "stedfestelseMetodeInfo",
+        "type": "CharacterString",
+        "description": "metoden brukt for å stedfeste lokaliteten",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "STEDFESTELSEMETODEINFO"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FellesegenskaperGrunnvannBorehull"
+      ],
+      "associations": []
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "Sonderboring",
+    "description": "undersøkelsesboring benyttet til å karakterisere løsmassenes egenskaper, vanligvis for å estimere om massene er grove og velsorterte nok til å kunne levere grunnvann til vannforsyning. Før ca år 2000   var håndholdt borutstyr vanligst, etter hvert mer vanlig med utstyr tilsvarende det som benyttes under geotekniske boringer.",
+    "attributes": [],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "GrunnvannBorehull"
+      ],
+      "associations": []
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "FellesegenskaperGrunnvannBorehull",
+    "description": "abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper\n\nMerknad:\nSpesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.",
+    "attributes": [
+      {
+        "name": "datauttaksdato",
+        "type": "DateTime",
+        "description": "dato for uttak fra en database\n\nMerknad:\nSkiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "DATAUTTAKSDATO"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "LGNGrunnvannOppkomme",
+    "description": "forekomst av oppkomme/ naturlig utstrømmende grunnvann som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer (\"Landsomfattende grunnvannsnett - LGN\" -http://www.grunnvann.no/overvaking_eks.php)",
+    "attributes": [
+      {
+        "name": "målePunktNr",
+        "type": "CharacterString",
+        "description": "Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).\n\nEn slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "MALEPUNKTNR"
+        }
+      },
+      {
+        "name": "måleFrekvens",
+        "type": "CharacterString",
+        "description": "hvor hyppig det utføres målinger/kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "MALEFREKVENS"
+        }
+      },
+      {
+        "name": "kjemiskeAnalyser",
+        "type": "Link",
+        "description": "link til kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "KJEMISKEANALYSER"
+        }
+      },
+      {
+        "name": "driftStartMåling",
+        "type": "CharacterString",
+        "description": "startmåned/år for innsamling av kjemiske data",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DRIFTSTARTMALING"
+        }
+      },
+      {
+        "name": "driftStoppMåling",
+        "type": "CharacterString",
+        "description": "sluttmåned/år for innsamling av kjemiske analyser",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DRIFTSTOPPMALING"
+        }
+      },
+      {
+        "name": "lgnNummer",
+        "type": "Integer",
+        "description": "angir NGUs stasjonsnummer i overvåkningsprogrammet \"Landsomfattende grunnvannsnett\" (LGN)",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "LGNNUMMER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "GrunnvannOppkomme"
+      ],
+      "associations": [
+        {
+          "target": "LGNOmrådeRefPkt",
+          "role": "referansepunkt",
+          "cardinality": "1"
+        }
+      ]
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "BrønnPark",
+    "description": "anlegg for uttak og/eller deponering av grunnvarme. Anlegg må ha tilsluttet minst fem energibrønner for å falle inn under NGUs definisjon av \"Brønnpark\".",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "Punkt",
+        "description": "objektet har punktgeometri",
+        "cardinality": "1"
+      },
+      {
+        "name": "brønnParkNr",
+        "type": "Integer",
+        "description": "brønnparknummer  i NGUs database",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPARKNR"
+        }
+      },
+      {
+        "name": "brønnpOmrNavn",
+        "type": "CharacterString",
+        "description": "lokalt stedsnavn der brønnparken ligger.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPOMRNAVN"
+        }
+      },
+      {
+        "name": "geolMedium",
+        "type": "GeolMediumType",
+        "description": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).\n\nI dette tilfellet definerer den om brønnpark er basert på boringer kun i løsmasse (vanligvis for oppumping av varmt grunnvann) eller også er  boret videre ned i berggrunn (vanligvis varmeuttak via kollektorslanger).",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Løsmasse",
+              "label": "Løsmasse"
+            },
+            {
+              "value": "Fjell",
+              "label": "Fjell"
+            }
+          ],
+          "definition": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "GEOLMEDIUM"
+        }
+      },
+      {
+        "name": "antallEnergiBrønner",
+        "type": "Integer",
+        "description": "beskriver antall energibrønner i brønnparken (minimum 5 for å defineres som brønnpark)",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "ANTALLENERGIBRONNER"
+        }
+      },
+      {
+        "name": "brønnpKommentar",
+        "type": "CharacterString",
+        "description": "brønnboreres kommentarer om brønnparken",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPKOMMENTAR"
+        }
+      },
+      {
+        "name": "brønnpVEffekt",
+        "type": "Integer",
+        "description": "brønnparkens maksimale varmeeffekt i kW",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPVEFFEKT"
+        }
+      },
+      {
+        "name": "brønnpVEnergi",
+        "type": "Integer",
+        "description": "brønnparkens maksimale varmeenergi i kWh/år",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPVENERGI"
+        }
+      },
+      {
+        "name": "brønnpKEffekt",
+        "type": "Integer",
+        "description": "brønnparkens maksimale kjøleeffekt i kW",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPKEFFEKT"
+        }
+      },
+      {
+        "name": "brønnpKEnergi",
+        "type": "Integer",
+        "description": "brønnparkens maksimale kjøleeffekt i kWh/år",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPKENERGI"
+        }
+      },
+      {
+        "name": "brønnpFrikjøling",
+        "type": "CharacterString",
+        "description": "beskriver om brønnparken benyttes til frikjøling (ja/nei)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPFRIKJOLING"
+        }
+      },
+      {
+        "name": "brønnpKollVæske",
+        "type": "BrønnparkKollVæske",
+        "description": "beskriver type kollektorvæske (Metanol osv)",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Etylenglykol",
+              "label": "Etylenglykol"
+            },
+            {
+              "value": "Kaliumformiat",
+              "label": "hycool"
+            },
+            {
+              "value": "Kaliumklorid",
+              "label": "Kaliumklorid"
+            },
+            {
+              "value": "Metanol",
+              "label": "Metanol"
+            },
+            {
+              "value": "Propylenglykol",
+              "label": "Propylenglykol"
+            },
+            {
+              "value": "Vann",
+              "label": "Vann"
+            },
+            {
+              "value": "Etanol",
+              "label": "denaturert sprit"
+            }
+          ],
+          "definition": "beskriver type kollektorvæske (Metanol osv)",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "BRONNPKOLLVESKE"
+        }
+      },
+      {
+        "name": "brønnpFiler",
+        "type": "Link",
+        "description": "link til eventuelle filer som er knyttet til brønnparken",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "BRONNPFILER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FellesegenskaperGrunnvannBorehull"
+      ],
+      "associations": [
+        {
+          "target": "EnergiBrønn",
+          "role": "energibrønn",
+          "cardinality": "5..*"
+        }
+      ]
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "LGNOmrådeRefPkt",
+    "description": "cirka plassert senterpunkt i lokalt \"LGN-område\" bestående av en eller flere brønner/oppkommer som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer (\"Landsomfattende grunnvannsnett - LGN\" -http://www.grunnvann.no/overvaking_eks.php)",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "Punkt",
+        "description": "objektet har punktgeometri",
+        "cardinality": "1"
+      },
+      {
+        "name": "antallBrønnerKilder",
+        "type": "Integer",
+        "description": "antall brønner og kilder i LGNområdet",
+        "cardinality": "1..*",
+        "taggedValues": {
+          "SOSI_navn": "ANTALLBRONNERKILDER"
+        }
+      },
+      {
+        "name": "geolMedium",
+        "type": "GeolMediumType",
+        "description": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).\n\nI dette tilfellet definerer den om LGN-området består av løsmassebrønner eller fjellbrønner",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Løsmasse",
+              "label": "Løsmasse"
+            },
+            {
+              "value": "Fjell",
+              "label": "Fjell"
+            }
+          ],
+          "definition": "definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).",
+          "asDictionary": "true"
+        },
+        "taggedValues": {
+          "SOSI_navn": "GEOLMEDIUM"
+        }
+      },
+      {
+        "name": "posisjonHøyde",
+        "type": "CharacterString",
+        "description": "LGN områdets høyde over havet målt i meter",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "POSISJONHOYDE"
+        }
+      },
+      {
+        "name": "lgnNummer",
+        "type": "Integer",
+        "description": "angir NGUs stasjonsnummer i overvåkningsprogrammet \"Landsomfattende grunnvannsnett\" (LGN)",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "LGNNUMMER"
+        }
+      },
+      {
+        "name": "nveNummer",
+        "type": "CharacterString",
+        "description": "angir NVEs stasjonsnummer i overvåkningsprogrammet \"Landsomfattende grunnvannsnett\" (LGN)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVENUMMER"
+        }
+      },
+      {
+        "name": "lgnOmrNavn",
+        "type": "CharacterString",
+        "description": "stasjonsnavn i overvåkningsprogrammet \"Landsomfattende grunnvannsnett\" (LGN)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "LGNOMRNAVN"
+        }
+      },
+      {
+        "name": "akviferType",
+        "type": "AkviferType",
+        "description": "beskriver akvifertype i LGN-området.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "Åpen",
+              "label": "grunnvannsoverflaten står i direkte kontakt med atmosfæren, og dermed har akvifærisk trykk"
+            },
+            {
+              "value": "Lukket",
+              "label": "grunnvann under hydrostatisk trykk av overliggende tette masser"
+            },
+            {
+              "value": "Artesisk",
+              "label": "lukket akvifer der den piezometriske overflaten er jordoverflaten"
+            }
+          ],
+          "definition": "beskriver akvifertype i LGN-området.",
+          "asDictionary": "true",
+          "codeList": "http://skjema.geonorge.no/legg_inn_riktig_url"
+        },
+        "taggedValues": {
+          "SOSI_navn": "AKVIFERTYPE"
+        }
+      },
+      {
+        "name": "omrEtableringDato",
+        "type": "CharacterString",
+        "description": "beskriver når LGN-området ble etablert",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "OMRETABLERINGDATO"
+        }
+      },
+      {
+        "name": "lgnOmrFiler",
+        "type": "Link",
+        "description": "link til eventuelle filer som er knyttet til LGNområdet",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "LGNOMRFILER"
+        }
+      },
+      {
+        "name": "nedbørÅrMin",
+        "type": "Integer",
+        "description": "angir LGN-områdets minste årlige nedbør i perioden 1960 til 1990",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NEDBORARMIN"
+        }
+      },
+      {
+        "name": "nedbørÅrMid",
+        "type": "Integer",
+        "description": "angir LGN-områdets gjennomsnittlig årlig nedbør i perioden 1960 til 1990",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NEDBORARMID"
+        }
+      },
+      {
+        "name": "nedbørÅrMaks",
+        "type": "Integer",
+        "description": "angir LGN-områdets høyeste årlige nedbør i perioden 1960 til 1990",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NEDBORARMAKS"
+        }
+      },
+      {
+        "name": "tempÅrMiddel",
+        "type": "Integer",
+        "description": "angir LGN-områdets gjennomsnittlig årlig temperatur 1960 til 1990",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "TEMPARMIDDEL"
+        }
+      },
+      {
+        "name": "navnPåVassdrag",
+        "type": "CharacterString",
+        "description": "vassdragsnavn jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NAVNPAVASSDRAG"
+        }
+      },
+      {
+        "name": "vassdragsnummer",
+        "type": "CharacterString",
+        "description": "unik identifikasjon på nedbørsfelt som et hierarkisk system i henhold til NVEs REGINE (REGIster over NEdbørsfelt (T15).\nVassdragsnummer jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "VASSDRAGSNR"
+        }
+      },
+      {
+        "name": "kommentar",
+        "type": "CharacterString",
+        "description": "beskriver formål, historikk, referanser og kontakt",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "KOMMENTAR"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FellesegenskaperGrunnvannBorehull"
+      ],
+      "associations": [
+        {
+          "target": "LGNBrønn",
+          "role": "lgnbrønn",
+          "cardinality": "1..*"
+        },
+        {
+          "target": "LGNGrunnvannOppkomme",
+          "role": "lgngrunnvannoppkomme",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "GrunnvannBorehull 1.0"
+  },
+  {
+    "name": "GrunnvannBrønn",
+    "description": "Boret brønn for uttak av grunnvann til vannforsyning",
+    "attributes": [],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "GrunnvannBorehull"
+      ],
+      "associations": []
+    },
+    "package": "GrunnvannBorehull 1.0"
+  }
+]

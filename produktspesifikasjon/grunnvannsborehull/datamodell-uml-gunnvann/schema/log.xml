@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/schema/shapechange-config.xml" end="Wed Sep 16 08:18:27 UTC 2026" resultCode="0" start="Wed Sep 16 08:18:20 UTC 2026" version="4.0.0">
+  <Messages>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
+    <Info message="Validating input parameters."/>
+    <Info message="Validation of input parameters completed."/>
+    <Info message="Validating log parameters."/>
+    <Info message="Validation of log parameters completed."/>
+    <ProcessFlowInfo message="--- Validating transformer with @id 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' and @inputs 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'datamodell-uml-gunnvann', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'datamodell-uml-gunnvann', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'JSON Schema' for input 'INPUT'."/>
+    <Warning message="JSON Schema definition for type 'Link' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Now processing transformation 'LDPROXY_FLAT' for input ID: 'INPUT'."/>
+    <ProcessFlowInfo message="========== processing phase =========="/>
+    <ProcessFlowInfo message="---------- now processing: rule-trf-prop-flatten-types ----------"/>
+    <ProcessFlowInfo message="========== postprocessing phase =========="/>
+    <ProcessFlowInfo message="---------- TransformationManager postprocessing: validating constraints ----------"/>
+    <ProcessFlowInfo message="Performed transformation for transformer ID 'LDPROXY_FLAT' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'datamodell-uml-gunnvann', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'Ldproxy (v2)' for input 'LDPROXY_FLAT'."/>
+    <Info message="The target configuration does not contain advanced process configuration infos."/>
+    <Error message="Type 'BrønnPark' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::BrønnPark'"/>
+    </Error>
+    <Error message="Type 'EnergiBrønn' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::EnergiBrønn'"/>
+    </Error>
+    <Warning message="Type 'FellesegenskaperGrunnvannBorehull' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::FellesegenskaperGrunnvannBorehull'"/>
+    </Warning>
+    <Warning message="Type 'GrunnvannBorehull' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::GrunnvannBorehull'"/>
+    </Warning>
+    <Error message="Type 'GrunnvannBrønn' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::GrunnvannBrønn'"/>
+    </Error>
+    <Error message="Type 'GrunnvannOppkomme' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::GrunnvannOppkomme'"/>
+    </Error>
+    <Error message="Type 'LGNBrønn' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNBrønn'"/>
+    </Error>
+    <Error message="Type 'LGNGrunnvannOppkomme' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNGrunnvannOppkomme'"/>
+    </Error>
+    <Error message="Type 'LGNOmrådeRefPkt' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNOmrådeRefPkt'"/>
+    </Error>
+    <Error message="Type 'Sonderboring' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::Sonderboring'"/>
+    </Error>
+    <Info message="Could not compute a label for codelist/enumeration 'GeolMediumType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GeolMediumType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnBrukOmfangType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::BrønnBrukOmfangType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnHelningType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::BrønnHelningType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'ForingsrørMaterialType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::ForingsrørMaterialType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'KapasitetMålemetode'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::KapasitetMålemetode'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'KapasitetØkningType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::KapasitetØkningType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomBruk'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::OppkomBruk'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomUtforming'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::OppkomUtforming'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomBeskyttelse'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::OppkomBeskyttelse'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomFareForurensing'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::OppkomFareForurensing'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'OppkomTypeForurensing'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::OppkomTypeForurensing'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'BrønnparkKollVæske'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::BrønnparkKollVæske'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'AkviferType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::AkviferType'"/>
+    </Info>
+    <Error message="The value type 'Link' of property 'brønnpFiler' (of class 'BrønnPark') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::BrønnPark::brønnpFiler'"/>
+    </Error>
+    <Error message="The value type 'Link' of property 'oppkomFiler' (of class 'GrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::GrunnvannOppkomme::oppkomFiler'"/>
+    </Error>
+    <Error message="The value type 'Link' of property 'kjemiskeAnalyser' (of class 'LGNBrønn') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNBrønn::kjemiskeAnalyser'"/>
+    </Error>
+    <Error message="The value type 'Link' of property 'lgnOmrFiler' (of class 'LGNOmrådeRefPkt') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNOmrådeRefPkt::lgnOmrFiler'"/>
+    </Error>
+    <Error message="The value type 'Link' of property 'kjemiskeAnalyser' (of class 'LGNGrunnvannOppkomme') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
+      <Detail message="Context: property 'datamodell-uml-gunnvann::GrunnvannBorehull 1.0::LGNGrunnvannOppkomme::kjemiskeAnalyser'"/>
+    </Error>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' for input ID: 'LDPROXY_FLAT'.&#10;-------------------------------------------------"/>
+  </Messages>
+  <Results>
+    <Result href="file:/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/schema/xsd/INPUT/datamodell-uml-gunnvann.xsd" scope="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0" target="XML Schema">datamodell-uml-gunnvann.xsd</Result>
+    <Result href="file:/home/runner/work/ps_test/ps_test/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/schema/jsonschema/INPUT/datamodellumlgunnvann/datamodell-uml-gunnvann.json" target="JSON Schema">datamodell-uml-gunnvann.json</Result>
+  </Results>
+</ShapeChangeResult>

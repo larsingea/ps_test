@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:datamodellumlgunnvann="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/grunnvannsborehull/datamodell-uml-gunnvann/1.0" version="1.0">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="https://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="BrønnPark" substitutionGroup="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehull" type="datamodellumlgunnvann:BrønnParkType">
+    <annotation>
+      <documentation>anlegg for uttak og/eller deponering av grunnvarme. Anlegg må ha tilsluttet minst fem energibrønner for å falle inn under NGUs definisjon av "Brønnpark".</documentation>
+    </annotation>
+  </element>
+  <complexType name="BrønnParkType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehullType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>objektet har punktgeometri</documentation>
+            </annotation>
+          </element>
+          <element name="brønnParkNr" type="integer">
+            <annotation>
+              <documentation>brønnparknummer  i NGUs database</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPARKNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpOmrNavn" type="string">
+            <annotation>
+              <documentation>lokalt stedsnavn der brønnparken ligger.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPOMRNAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="gml:CodeType">
+            <annotation>
+              <documentation>definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+I dette tilfellet definerer den om brønnpark er basert på boringer kun i løsmasse (vanligvis for oppumping av varmt grunnvann) eller også er  boret videre ned i berggrunn (vanligvis varmeuttak via kollektorslanger).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOLMEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="antallEnergiBrønner" type="integer">
+            <annotation>
+              <documentation>beskriver antall energibrønner i brønnparken (minimum 5 for å defineres som brønnpark)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">ANTALLENERGIBRONNER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKommentar" type="string">
+            <annotation>
+              <documentation>brønnboreres kommentarer om brønnparken</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPKOMMENTAR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpVEffekt" type="integer">
+            <annotation>
+              <documentation>brønnparkens maksimale varmeeffekt i kW</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPVEFFEKT</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpVEnergi" type="integer">
+            <annotation>
+              <documentation>brønnparkens maksimale varmeenergi i kWh/år</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPVENERGI</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKEffekt" type="integer">
+            <annotation>
+              <documentation>brønnparkens maksimale kjøleeffekt i kW</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPKEFFEKT</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKEnergi" type="integer">
+            <annotation>
+              <documentation>brønnparkens maksimale kjøleeffekt i kWh/år</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPKENERGI</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpFrikjøling" type="string">
+            <annotation>
+              <documentation>beskriver om brønnparken benyttes til frikjøling (ja/nei)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPFRIKJOLING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpKollVæske" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver type kollektorvæske (Metanol osv)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPKOLLVESKE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpFiler" type="string">
+            <annotation>
+              <documentation>link til eventuelle filer som er knyttet til brønnparken</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPFILER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="5" name="energibrønn" type="datamodellumlgunnvann:EnergiBrønnPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BrønnParkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:BrønnPark"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="EnergiBrønn" substitutionGroup="datamodellumlgunnvann:GrunnvannBorehull" type="datamodellumlgunnvann:EnergiBrønnType">
+    <annotation>
+      <documentation>Grunnvannborehull som helt eller delvis er dedikert for uttak eller deponering av grunnvarme, enten gjennom kollektorslanger eller pumping av grunnvann hvis temperatur benyttes til oppvarming eller avkjøling.</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergiBrønnType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:GrunnvannBorehullType">
+        <sequence>
+          <element minOccurs="0" name="brønnParkNr" type="integer">
+            <annotation>
+              <documentation>brønnparknummer  i NGUs databaser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNPARKNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnpark" type="datamodellumlgunnvann:BrønnParkPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EnergiBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:EnergiBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="FellesegenskaperGrunnvannBorehull" substitutionGroup="gml:AbstractFeature" type="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehullType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesegenskaperGrunnvannBorehullType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="datauttaksdato" type="date">
+            <annotation>
+              <documentation>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DATAUTTAKSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesegenskaperGrunnvannBorehullPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehull"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="GrunnvannBorehull" substitutionGroup="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehull" type="datamodellumlgunnvann:GrunnvannBorehullType">
+    <annotation>
+      <documentation>ett enkelt fysisk punkt der det er foretatt en boring i forbindelse med bruk eller undersøkelse av grunnvannet eller dets egenskaper, herunder alle energiboringer (til uttak av grunnvarme), boringer etter grunnvann, overvåkningsbrønner og sonderboringer som er motivert i undersøkelse av grunnvann eller potensiale for grunnvannsuttak. Geotekniske boringer inngår ikke.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="GrunnvannBorehullType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehullType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>objektet har punktgeometri</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">POSISJON</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="brønnNr" type="integer">
+            <annotation>
+              <documentation>brønnummer i NGUs database</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="gml:CodeType">
+            <annotation>
+              <documentation>definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOLMEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>stedfestelsesmetode, for eksempel GPS, kart med flere. Fram til ca 2000 finnes en del registreringer som avviker betydelig fra brønnhullets reelle koordinater.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">STEDFESTELSEMETODEINFO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppdragstaker" type="string">
+            <annotation>
+              <documentation>navn på borefirma som har utført boringen</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDRAGSTAKER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnBrukOmfang" type="gml:CodeType">
+            <annotation>
+              <documentation>hvor omfattende vannforsyningen er (til enkelthusholdning, gårdsbruk osv.)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNBRUKOMFANG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boreDato" type="date">
+            <annotation>
+              <documentation>dato for boringen</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BOREDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>konsulentfirma, som for eksempel har valgt ut borelokalitet, eller som har utredet aspekter ved bruk av brønnen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KONSULENTFIRMA</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="rapport" type="string">
+            <annotation>
+              <documentation>referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">RAPPORT</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengde" type="double">
+            <annotation>
+              <documentation>total lengde av borehullets forløp, tilsvarer dyp ved vertikal boring</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BORETLENGDE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretLengdeTilBerg" type="double">
+            <annotation>
+              <documentation>dybde til berg som ikke er målt men basert på tolkning</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BORETLENGDETILBERG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannstandBorehull" type="double">
+            <annotation>
+              <documentation>stabil vannstand etter boring målt fra overflaten i meter.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">VANNSTANDBOREHULL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoVannstandBorehull" type="date">
+            <annotation>
+              <documentation>dato for når vannstand etter boring er målt  (før eventuell kapasitetsøkning).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DATOVANNSTBOREHULL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnHelningType" type="gml:CodeType">
+            <annotation>
+              <documentation>hvilken type helning borehullet kan ha (grovinndeling)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNHELNINGTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="diameterBorehull" type="integer">
+            <annotation>
+              <documentation>borehullets diameter målt i millimeter. For fjellbrønner oppgis dominerende diameter på borhullet nedenfor foringsrørets avslutning.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DIAMETERBOREHULL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretHelningsgrad" type="integer">
+            <annotation>
+              <documentation>borehullets hellning målt som avvik i grader fra loddlinje</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BORETHELNINGSGRAD</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretAzimuth" type="integer">
+            <annotation>
+              <documentation>helning hvor  90 grader er vertikalt , 0 grader er horisontalt</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BORETAZIMUTH</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materialForingsrør" type="gml:CodeType">
+            <annotation>
+              <documentation>foringsrørets materialtype</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MATERIALFORINGSROR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeForingsrør" type="double">
+            <annotation>
+              <documentation>foringsrørets lengde i meter</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LENGDEFORINGSROR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="boretKapasitet" type="double">
+            <annotation>
+              <documentation>brønnens kapasitet ("vannføring") i liter/time før eventuell kapsitetsøkende trykking eller sprengning. Vanligvis målt nokså usikkert av boreren i forbindelse med selve boringen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BORETKAPASITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasMålemet" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver målemetode brukt for å måle brønnens kapasitet (vanngiverevne). Hvis brønnen senere er trykket eller sprengt for å øke kapasiteten,  oppgis her den målemetoden som er brukt FØR denne kapasitetsøkningen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KAPASMALEMET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasØkningType" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver om brønnen er sprengt eller trykket for å øke kapasiteten</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KAPASOKNINGTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øktKapasitet" type="double">
+            <annotation>
+              <documentation>brønnens kapasitet ("vannføring") i liter/time målt etter eventuell kapsitetsøkende trykking eller sprengning.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OKTKAPASITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>forklaring til objektet og undersøkelser utført på lokaliteten.
+Brønnborers generelle kommentarer til boringen, gitt på brønnskjema</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BESKRIVELSE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brønnFiler" type="string">
+            <annotation>
+              <documentation>filer i alle formater (billedformater, pdf, excel, word m.fl.) som brønnborere og andre rapportører har lagt inn og knyttet til borehullet (brønnen).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">BRONNFILER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnvannBorehullPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:GrunnvannBorehull"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="GrunnvannBrønn" substitutionGroup="datamodellumlgunnvann:GrunnvannBorehull" type="datamodellumlgunnvann:GrunnvannBrønnType">
+    <annotation>
+      <documentation>Boret brønn for uttak av grunnvann til vannforsyning</documentation>
+    </annotation>
+  </element>
+  <complexType name="GrunnvannBrønnType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:GrunnvannBorehullType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnvannBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:GrunnvannBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="GrunnvannOppkomme" substitutionGroup="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehull" type="datamodellumlgunnvann:GrunnvannOppkommeType">
+    <annotation>
+      <documentation>forekomst av oppkomme/kilde/ naturlig utstrømmende grunnvann</documentation>
+    </annotation>
+  </element>
+  <complexType name="GrunnvannOppkommeType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehullType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>objektet har punktgeometri</documentation>
+            </annotation>
+          </element>
+          <element name="oppkomNr" type="integer">
+            <annotation>
+              <documentation>oppkommets nummer i Nasjonal Grunnvannsdatabase</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="geolMedium" type="gml:CodeType">
+            <annotation>
+              <documentation>definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+I dette tilfellet definerer den om et oppkommet forekommer i løsmasse eller i fjell</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOLMEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomVannføring" type="double">
+            <annotation>
+              <documentation>oppkommets vanngiverevne målt i liter/time målt ved registrering. (vil variere)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMVANNFORING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBruk" type="gml:CodeType">
+            <annotation>
+              <documentation>overordnet bruksområde for naturlig oppkomme (kilde)</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>http://skjema.geonorge.no/legg_inn_riktig_url</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMBRUK</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBrukOmfang" type="gml:CodeType">
+            <annotation>
+              <documentation>underordnet bruksområde (til enkelthusholdning, gårdsbruk osv.)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMBRUKOMFANG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomUtforming" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver om oppkomme er naturlig uten inngrep, eller lagt i rør/kum</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMUTFORMING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomBeskyttelse" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver hvordan oppkommet evnt er besyttet (drenering, gjerde, overbygg)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMBESKYTTELSE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomFareForurensing" type="gml:CodeType">
+            <annotation>
+              <documentation>inndeler forurensningsfaren for oppkommet til liten/middels/stor</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMFAREFORURENSING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomTypeForurensing" type="gml:CodeType">
+            <annotation>
+              <documentation>definerer om eventuell forurensningsfare stammer fra bebyggelse, industri, jordbruk etc</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMTYPEFORURENSING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomFiler" type="string">
+            <annotation>
+              <documentation>link til eventuelle filer som er knyttet til oppkommet</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMFILER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konsulentFirma" type="string">
+            <annotation>
+              <documentation>navn på konsulentfirma som evnt har utredet kilden/oppkommet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KONSULENTFIRMA</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="rapport" type="string">
+            <annotation>
+              <documentation>referanse til NGU-rapporter, samt VRL46-rapporter (innrapportert til NGU ifm oppgaveplikt jf Vannressurslovens §46 4. ledd).</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">RAPPORT</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomRegDato" type="date">
+            <annotation>
+              <documentation>dato når oppkomme ble registrert</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMREGDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppkomKommentar" type="string">
+            <annotation>
+              <documentation>beskriver formål, historikk, referanser og kontakt</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPKOMKOMMENTAR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedfestelseMetodeInfo" type="string">
+            <annotation>
+              <documentation>metoden brukt for å stedfeste lokaliteten</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">STEDFESTELSEMETODEINFO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnvannOppkommePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:GrunnvannOppkomme"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LGNBrønn" substitutionGroup="datamodellumlgunnvann:GrunnvannBorehull" type="datamodellumlgunnvann:LGNBrønnType">
+    <annotation>
+      <documentation>brønn som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNBrønnType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:GrunnvannBorehullType">
+        <sequence>
+          <element name="målePunktNr" type="string">
+            <annotation>
+              <documentation>Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).
+
+En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MALEPUNKTNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="måleFrekvens" type="string">
+            <annotation>
+              <documentation>hvor hyppig det blir utført målinger/ kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MALEFREKVENS</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjemiskeAnalyser" type="string">
+            <annotation>
+              <documentation>link til kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KJEMISKEANALYSER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStartMåling" type="string">
+            <annotation>
+              <documentation>startmåned/år for innsamling av kjemiske data</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DRIFTSTARTMALING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStoppMåling" type="string">
+            <annotation>
+              <documentation>sluttmåned/år for innsamling av kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DRIFTSTOPPMALING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LGNNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="referansepunkt" type="datamodellumlgunnvann:LGNOmrådeRefPktPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNBrønnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:LGNBrønn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LGNGrunnvannOppkomme" substitutionGroup="datamodellumlgunnvann:GrunnvannOppkomme" type="datamodellumlgunnvann:LGNGrunnvannOppkommeType">
+    <annotation>
+      <documentation>forekomst av oppkomme/ naturlig utstrømmende grunnvann som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNGrunnvannOppkommeType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:GrunnvannOppkommeType">
+        <sequence>
+          <element name="målePunktNr" type="string">
+            <annotation>
+              <documentation>Merking av observasjonspunkter (brønner og oppkommer) som forekommer i et LGNområde (LGN overvåkingsstasjon).
+
+En slags merkelapp/nummerering, men som også kan inneholde bokstaver. Tallverdier over 50 representerer oppkommer.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MALEPUNKTNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="måleFrekvens" type="string">
+            <annotation>
+              <documentation>hvor hyppig det utføres målinger/kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MALEFREKVENS</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjemiskeAnalyser" type="string">
+            <annotation>
+              <documentation>link til kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KJEMISKEANALYSER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStartMåling" type="string">
+            <annotation>
+              <documentation>startmåned/år for innsamling av kjemiske data</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DRIFTSTARTMALING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftStoppMåling" type="string">
+            <annotation>
+              <documentation>sluttmåned/år for innsamling av kjemiske analyser</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DRIFTSTOPPMALING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LGNNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="referansepunkt" type="datamodellumlgunnvann:LGNOmrådeRefPktPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNGrunnvannOppkommePropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:LGNGrunnvannOppkomme"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LGNOmrådeRefPkt" substitutionGroup="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehull" type="datamodellumlgunnvann:LGNOmrådeRefPktType">
+    <annotation>
+      <documentation>cirka plassert senterpunkt i lokalt "LGN-område" bestående av en eller flere brønner/oppkommer som benyttes eller har vært benyttet under monitorering av upåvirkede grunnvannsakviferer ("Landsomfattende grunnvannsnett - LGN" -http://www.grunnvann.no/overvaking_eks.php)</documentation>
+    </annotation>
+  </element>
+  <complexType name="LGNOmrådeRefPktType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:FellesegenskaperGrunnvannBorehullType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>objektet har punktgeometri</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="antallBrønnerKilder" type="integer">
+            <annotation>
+              <documentation>antall brønner og kilder i LGNområdet</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">ANTALLBRONNERKILDER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="geolMedium" type="gml:CodeType">
+            <annotation>
+              <documentation>definerer om et borehull er boret slik at den blir permanent åpen; et stykke ned i fjellgrunnen (fjell) eller kun i løsmasser (løsmasse).
+
+I dette tilfellet definerer den om LGN-området består av løsmassebrønner eller fjellbrønner</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOLMEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjonHøyde" type="string">
+            <annotation>
+              <documentation>LGN områdets høyde over havet målt i meter</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">POSISJONHOYDE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="lgnNummer" type="integer">
+            <annotation>
+              <documentation>angir NGUs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LGNNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nveNummer" type="string">
+            <annotation>
+              <documentation>angir NVEs stasjonsnummer i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NVENUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lgnOmrNavn" type="string">
+            <annotation>
+              <documentation>stasjonsnavn i overvåkningsprogrammet "Landsomfattende grunnvannsnett" (LGN)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LGNOMRNAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="akviferType" type="gml:CodeType">
+            <annotation>
+              <documentation>beskriver akvifertype i LGN-området.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>http://skjema.geonorge.no/legg_inn_riktig_url</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">AKVIFERTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="omrEtableringDato" type="string">
+            <annotation>
+              <documentation>beskriver når LGN-området ble etablert</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OMRETABLERINGDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lgnOmrFiler" type="string">
+            <annotation>
+              <documentation>link til eventuelle filer som er knyttet til LGNområdet</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LGNOMRFILER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMin" type="integer">
+            <annotation>
+              <documentation>angir LGN-områdets minste årlige nedbør i perioden 1960 til 1990</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NEDBORARMIN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMid" type="integer">
+            <annotation>
+              <documentation>angir LGN-områdets gjennomsnittlig årlig nedbør i perioden 1960 til 1990</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NEDBORARMID</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedbørÅrMaks" type="integer">
+            <annotation>
+              <documentation>angir LGN-områdets høyeste årlige nedbør i perioden 1960 til 1990</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NEDBORARMAKS</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tempÅrMiddel" type="integer">
+            <annotation>
+              <documentation>angir LGN-områdets gjennomsnittlig årlig temperatur 1960 til 1990</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">TEMPARMIDDEL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navnPåVassdrag" type="string">
+            <annotation>
+              <documentation>vassdragsnavn jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NAVNPAVASSDRAG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vassdragsnummer" type="string">
+            <annotation>
+              <documentation>unik identifikasjon på nedbørsfelt som et hierarkisk system i henhold til NVEs REGINE (REGIster over NEdbørsfelt (T15).
+Vassdragsnummer jf NVEs databaser (ved eventuelle endringer ikke oppdatert, se NVEs nettsider)</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">VASSDRAGSNR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kommentar" type="string">
+            <annotation>
+              <documentation>beskriver formål, historikk, referanser og kontakt</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KOMMENTAR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="lgnbrønn" type="datamodellumlgunnvann:LGNBrønnPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="lgngrunnvannoppkomme" type="datamodellumlgunnvann:LGNGrunnvannOppkommePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LGNOmrådeRefPktPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:LGNOmrådeRefPkt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Sonderboring" substitutionGroup="datamodellumlgunnvann:GrunnvannBorehull" type="datamodellumlgunnvann:SonderboringType">
+    <annotation>
+      <documentation>undersøkelsesboring benyttet til å karakterisere løsmassenes egenskaper, vanligvis for å estimere om massene er grove og velsorterte nok til å kunne levere grunnvann til vannforsyning. Før ca år 2000   var håndholdt borutstyr vanligst, etter hvert mer vanlig med utstyr tilsvarende det som benyttes under geotekniske boringer.</documentation>
+    </annotation>
+  </element>
+  <complexType name="SonderboringType">
+    <complexContent>
+      <extension base="datamodellumlgunnvann:GrunnvannBorehullType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SonderboringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="datamodellumlgunnvann:Sonderboring"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
