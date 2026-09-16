@@ -2,6 +2,7 @@ metadataId: 17adbcac-bbb2-4efc-ab51-756573c8f178
 output_directory: produktspesifikasjon
 product_slug: kulturminner_kulturmiljoer
 updated: '2026-08-24'
+outputs: geopackage,xsd,jsonschema,odcs
 scopes:
 - name: Kulturminner - Kulturmiljøer
   url: https://api.ra.no/KulturminnerKulturmiljoer
