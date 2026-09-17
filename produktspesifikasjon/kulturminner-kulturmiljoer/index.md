@@ -26,14 +26,14 @@ For beskrivelser og definisjoner av de ulike kategoriene kulturmilijøer, se <ht
 
 - **Tidsperiode**:
   - **Fra**: 2013-01-22
-  - **Til**: 2026-08-20
+  - **Til**: 2026-09-10
 
 ## Om spesifikasjonen
 
 
 > **Denne versjonen av produktspesifikasjonen:** <br>
 > **Opprettet dato:** 2013-01-22<br>
-> **Endret dato:** 2026-08-20<br>
+> **Endret dato:** 2026-09-10<br>
 > **Språk:** nor<br>
 > **Kontaktinformasjon:** Riksantikvaren, [postmottak@ra.no](mailto:postmottak@ra.no)
 
@@ -122,28 +122,26 @@ Kulturmiljøer og landskaper som er prioritert nasjonalt, regionalt eller lokalt
 
 **Nivå**: dataset
 
-- **Kvalitetsmål**: COMMISSION REGULATION (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
-  **Målebeskrivelse**: Dataene er ikke vurdert iht produktspesifikasjonen
-  **Beskrivende resultat**: Dataene er ikke vurdert iht produktspesifikasjonen
+**Kvalitetsmål**: COMMISSION REGULATION (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
 
-- **Kvalitetsmål**: SOSI produktspesifikasjon: Kulturminner - Kulturmiljøer
-  **Målebeskrivelse**: Dataene er i henhold til produktspesifikasjonen
-  **Beskrivende resultat**: Dataene er i henhold til produktspesifikasjonen
+- **Beskrivende resultat**: Dataene er ikke vurdert iht produktspesifikasjonen
 
-- **Kvalitetsmål**: Sosi applikasjonsskjema
-  **Målebeskrivelse**: SOSI-filer er i henhold til applikasjonsskjema
-  **Beskrivende resultat**: SOSI-filer er i henhold til applikasjonsskjema
+**Kvalitetsmål**: SOSI produktspesifikasjon: Kulturminner - Kulturmiljøer
 
-- **Kvalitetsmål**: Sosi applikasjonsskjema
-  **Målebeskrivelse**: GML-filer er i henhold til applikasjonsskjema
-  **Beskrivende resultat**: GML-filer er i henhold til applikasjonsskjema
+- **Beskrivende resultat**: Dataene er i henhold til produktspesifikasjonen
 
-- **Kvalitetsmål**: Prosentvis oppfyllelse av FAIR-prinsipper
-  **Målebeskrivelse**: Angir fullstendighet i forhold til krav fra FAIR-prinsippene (The FAIR Guiding Principles for scientific data management and stewardship)
-  **Resultat**: 93
+**Kvalitetsmål**: Sosi applikasjonsskjema
 
-- **Kvalitetsmål**: FAIR
-  **Resultat**: Prosentvis oppfyllelse av FAIR-prinsipper: 93%
+- **Beskrivende resultat**: SOSI-filer er i henhold til applikasjonsskjema
+
+**Kvalitetsmål**: Sosi applikasjonsskjema
+
+- **Beskrivende resultat**: GML-filer er i henhold til applikasjonsskjema
+
+**Kvalitetsmål**: Prosentvis oppfyllelse av FAIR-prinsipper
+
+- **Målebeskrivelse**: Angir fullstendighet i forhold til krav fra FAIR-prinsippene (The FAIR Guiding Principles for scientific data management and stewardship)
+- **Resultat**: 95
 
 ## Vedlikehold
 
@@ -168,6 +166,9 @@ Kulturmiljøer og landskaper som er prioritert nasjonalt, regionalt eller lokalt
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Kulturmiljoer_AtomFeedPostGIS.xml) | W3C:AtomFeed | PostGIS | fylkesvis, kommunevis, landsfiler |
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Kulturmiljoer_AtomFeedSOSI.xml) | W3C:AtomFeed | SOSI | fylkesvis, kommunevis, landsfiler |
 | Kulturminner - Kulturmiljøer WMS | [Lenke](https://kart.ra.no/wms/kulturmiljoer?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities) | WMS-tjeneste | image/png |  |
+| GeoPackage: kulturminner-kulturmiljer | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/kulturminner-kulturmiljoer/kulturminner-kulturmiljer/kulturminner-kulturmiljer.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: kulturminner-kulturmiljer | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/kulturminner-kulturmiljoer/kulturminner-kulturmiljer/schema/xsd/INPUT/kulturminner-kulturmiljer.xsd) | Nedlasting | XSD |  |
+| JSON Schema: kulturminner-kulturmiljer | [Lenke](https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/kulturminner-kulturmiljoer/kulturminner-kulturmiljer/schema/jsonschema/INPUT/kulturminnerkulturmiljer/kulturminner-kulturmiljer.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 
@@ -175,7 +176,7 @@ Kulturmiljøer og landskaper som er prioritert nasjonalt, regionalt eller lokalt
 
 **Metadatastandardversjon**: 2003
 
-**Metadatadato**: 2026-08-24
+**Metadatadato**: 2026-09-16
 
 **språk**: nor
 
@@ -193,3 +194,9 @@ Kulturmiljøer og landskaper som er prioritert nasjonalt, regionalt eller lokalt
 - **koderom**: <https://kartkatalog.geonorge.no/metadata/>
 - **Metadatalenke**: <https://kartkatalog.geonorge.no/metadata/17adbcac-bbb2-4efc-ab51-756573c8f178>
 
+## Tilleggsinformasjon
+
+
+
+- **Produktark:** [https://register.geonorge.no/produktark/kulturminner-kulturmiljoer](https://register.geonorge.no/produktark/kulturminner-kulturmiljoer)
+- **Produktside:** [https://kartkatalog.geonorge.no/metadata/uuid/17adbcac-bbb2-4efc-ab51-756573c8f178](https://kartkatalog.geonorge.no/metadata/uuid/17adbcac-bbb2-4efc-ab51-756573c8f178)

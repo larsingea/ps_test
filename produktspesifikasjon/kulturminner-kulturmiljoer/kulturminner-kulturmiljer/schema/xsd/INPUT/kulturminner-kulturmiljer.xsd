@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:kulturminnerkulturmiljer="https://skjema.geonorge.no/SOSI/produktspesifikasjon/kulturminner-kulturmiljoer/kulturminner-kulturmiljer/1.0" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/kulturminner-kulturmiljoer/kulturminner-kulturmiljer/1.0" version="1.0">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Kulturmiljoer" substitutionGroup="gml:AbstractFeature" type="kulturminnerkulturmiljer:KulturmiljoerType">
+    <annotation>
+      <documentation>Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Merknad: Kulturmiljø brukes hovedsakelig om områder som er mindre enn landskap, og større enn lokaliteter.</documentation>
+    </annotation>
+  </element>
+  <complexType name="KulturmiljoerType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:GeometryPropertyType"/>
+          <element minOccurs="0" name="datafangstdato" type="dateTime">
+            <annotation>
+              <documentation>dato når objektet siste gang ble registrert/observert/målt i terrenget Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen. Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="forsteDigitaliseringsdato" type="dateTime">
+            <annotation>
+              <documentation>dato når en representasjon av objektet i digital form første gang ble etablert Merknad: førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess. Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="id" type="string">
+            <annotation>
+              <documentation>id</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="informasjon" type="string">
+            <annotation>
+              <documentation>generell opplysning</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kommune" type="string">
+            <annotation>
+              <documentation>kommune</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kulturmiljoId" type="string">
+            <annotation>
+              <documentation>kulturmiljoId</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kulturmiljokategori" type="string">
+            <annotation>
+              <documentation>https://register.geonorge.no/sosi-kodelister/kulturminner/kulturmilj%C3%B8kategori?lang=no</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lokalId" type="string">
+            <annotation>
+              <documentation>lokalId</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="malemetode" type="integer">
+            <annotation>
+              <documentation>malemetode</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>navn</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navnerom" type="string">
+            <annotation>
+              <documentation>navnerom</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="noyaktighet" type="integer">
+            <annotation>
+              <documentation>noyaktighet</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="dateTime">
+            <annotation>
+              <documentation>oppdateringsdato</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="opphav" type="string">
+            <annotation>
+              <documentation>opphav</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vernedato" type="dateTime">
+            <annotation>
+              <documentation>vernedato</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vernelov" type="string">
+            <annotation>
+              <documentation>https://register.geonorge.no/sosi-kodelister/kulturminner/vernelov?lang=no</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="verneparagraf" type="string">
+            <annotation>
+              <documentation>verneparagraf</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vernetype" type="string">
+            <annotation>
+              <documentation>vernetype</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="versjonId" type="string">
+            <annotation>
+              <documentation>versjonId</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KulturmiljoerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="kulturminnerkulturmiljer:Kulturmiljoer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

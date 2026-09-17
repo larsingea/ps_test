@@ -1,0 +1,100 @@
+# Open Data Contract Standard (ODCS) v3.1.0 — generert fra datamodellen.
+apiVersion: v3.1.0
+kind: DataContract
+id: urn:odcs:kulturminner-kulturmilj-er-kulturminner-kulturmilj-er:1.0.0
+version: 1.0.0
+status: active
+name: Kulturminner - Kulturmiljøer - Kulturminner - Kulturmiljøer
+schema:
+- name: Kulturmiljoer
+  physicalName: kulturmiljoer
+  logicalType: object
+  physicalType: table
+  description: 'Et geografisk avgrenset område, hvor kulturminner inngår som del av
+    en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være
+    gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større
+    helheten/sammenhengen. Et geografisk avgrenset område, hvor kulturminner inngår
+    som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil
+    ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør
+    den større helheten/sammenhengen. Merknad: Kulturmiljø brukes hovedsakelig om
+    områder som er mindre enn landskap, og større enn lokaliteter.'
+  customProperties:
+  - property: sosiObjektType
+    value: Kulturmiljoer
+  - property: defaultCrs
+    value: EPSG:25833
+  properties:
+  - name: geometri
+    logicalType: object
+    physicalType: geometry(Geometry,25833)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+    - property: crs
+      value: EPSG:25833
+  - name: datafangstdato
+    logicalType: string
+    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
+      Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte
+      endringer kan bufres i en kortere eller lengre periode før disse legges inn
+      i databasen. Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
+  - name: forsteDigitaliseringsdato
+    logicalType: string
+    description: 'dato når en representasjon av objektet i digital form første gang
+      ble etablert Merknad: førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato
+      ved at den første datafangsten skjedde analogt og gjort om til digital form
+      senere i en produksjonsprosess. Eventuelt at innlegging i databasen skjedde
+      på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.'
+  - name: id
+    logicalType: string
+    description: id
+    primaryKey: true
+  - name: informasjon
+    logicalType: string
+    description: generell opplysning
+  - name: kommune
+    logicalType: string
+    description: kommune
+  - name: kulturmiljoId
+    logicalType: string
+    description: kulturmiljoId
+  - name: kulturmiljokategori
+    logicalType: string
+    description: https://register.geonorge.no/sosi-kodelister/kulturminner/kulturmilj%C3%B8kategori?lang=no
+  - name: lokalId
+    logicalType: string
+    description: lokalId
+  - name: malemetode
+    logicalType: integer
+    description: malemetode
+  - name: navn
+    logicalType: string
+    description: navn
+  - name: navnerom
+    logicalType: string
+    description: navnerom
+  - name: noyaktighet
+    logicalType: integer
+    description: noyaktighet
+  - name: oppdateringsdato
+    logicalType: string
+    description: oppdateringsdato
+  - name: opphav
+    logicalType: string
+    description: opphav
+  - name: vernedato
+    logicalType: string
+    description: vernedato
+  - name: vernelov
+    logicalType: string
+    description: https://register.geonorge.no/sosi-kodelister/kulturminner/vernelov?lang=no
+  - name: verneparagraf
+    logicalType: string
+    description: verneparagraf
+  - name: vernetype
+    logicalType: string
+    description: vernetype
+  - name: versjonId
+    logicalType: string
+    description: versjonId
