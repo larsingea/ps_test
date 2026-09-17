@@ -1,7 +1,7 @@
 [
   {
     "name": "Kulturmiljoer",
-    "description": "",
+    "description": "Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Merknad: Kulturmiljø brukes hovedsakelig om områder som er mindre enn landskap, og større enn lokaliteter.",
     "geometry": {
       "itemType": "feature",
       "type": "geometry-any",
@@ -18,13 +18,13 @@
         "name": "datafangstdato",
         "type": "date-time (string)",
         "cardinality": "0..1",
-        "description": "datafangstdato"
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen. Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato."
       },
       {
         "name": "forsteDigitaliseringsdato",
         "type": "date-time (string)",
         "cardinality": "0..1",
-        "description": "forsteDigitaliseringsdato"
+        "description": "dato når en representasjon av objektet i digital form første gang ble etablert Merknad: førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess. Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet."
       },
       {
         "name": "id",
@@ -37,7 +37,7 @@
         "name": "informasjon",
         "type": "string",
         "cardinality": "0..1",
-        "description": "informasjon"
+        "description": "generell opplysning"
       },
       {
         "name": "kommune",
@@ -55,7 +55,7 @@
         "name": "kulturmiljokategori",
         "type": "string",
         "cardinality": "0..1",
-        "description": "kulturmiljokategori"
+        "description": "https://register.geonorge.no/sosi-kodelister/kulturminner/kulturmilj%C3%B8kategori?lang=no"
       },
       {
         "name": "lokalId",
@@ -110,7 +110,7 @@
         "name": "vernelov",
         "type": "string",
         "cardinality": "0..1",
-        "description": "vernelov"
+        "description": "https://register.geonorge.no/sosi-kodelister/kulturminner/vernelov?lang=no"
       },
       {
         "name": "verneparagraf",

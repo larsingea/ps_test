@@ -10,6 +10,8 @@
 
 #### Kulturmiljoer
 
+Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Et geografisk avgrenset område, hvor kulturminner inngår som del av en større helhet eller sammenheng. Avgrensningen av kulturmiljøet vil ofte være gjort på bakgrunn av en kulturmiljøfaglig vurdering av hva som utgjør den større helheten/sammenhengen. Merknad: Kulturmiljø brukes hovedsakelig om områder som er mindre enn landskap, og større enn lokaliteter.
+
 Geometri:<br />Elementtype: feature<br />Type: geometry-any<br />Lagrings-CRS:<br />• <a href="http://www.opengis.net/def/crs/EPSG/0/25833"><http://www.opengis.net/def/crs/EPSG/0/25833></a><br />Koordinatreferansesystem (crs):<br />• #/crs<br />• <a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84"><http://www.opengis.net/def/crs/OGC/1.3/CRS84></a>
 
 Egenskaper
@@ -51,7 +53,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>datafangstdato</td>
+      <td>dato når objektet siste gang ble registrert/observert/målt i terrenget Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen. Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -76,7 +78,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>forsteDigitaliseringsdato</td>
+      <td>dato når en representasjon av objektet i digital form første gang ble etablert Merknad: førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess. Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -130,7 +132,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>informasjon</td>
+      <td>generell opplysning</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -205,7 +207,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>kulturmiljokategori</td>
+      <td><a href="https://register.geonorge.no/sosi-kodelister/kulturminner/kulturmilj%C3%B8kategori?lang=no">https://register.geonorge.no/sosi-kodelister/kulturminner/kulturmilj%C3%B8kategori?lang=no</a></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -434,7 +436,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>vernelov</td>
+      <td><a href="https://register.geonorge.no/sosi-kodelister/kulturminner/vernelov?lang=no">https://register.geonorge.no/sosi-kodelister/kulturminner/vernelov?lang=no</a></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
