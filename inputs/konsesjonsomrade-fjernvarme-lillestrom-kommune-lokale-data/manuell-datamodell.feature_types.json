@@ -37,14 +37,10 @@
           ],
           "asDictionary": "false"
         }
-      },
-      {
-        "name": "mindatatype",
-        "type": "Identifikasjon",
-        "cardinality": "1",
-        "description": "Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet.",
-        "attributes": []
       }
-    ]
+    ],
+    "relationships": {
+      "associations": []
+    }
   }
 ]
