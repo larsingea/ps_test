@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Fjernvarmekonsesjonsområde",
+    "description": "Område der det er gitt konsesjon for fjernvarme etter energiloven, i Lillestrøm kommune.",
+    "abstract": false,
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "cardinality": "1",
+        "description": "Konsesjonsområdets geografiske utstrekning som flate."
+      },
+      {
+        "name": "områdenavn",
+        "type": "CharacterString",
+        "cardinality": "1",
+        "description": "Navn på konsesjonsområdet, f.eks. tettstedet området dekker."
+      },
+      {
+        "name": "kommunenummer",
+        "type": "Kommunenummer",
+        "cardinality": "1",
+        "description": "Firesifret kommunenummer der de to første sifrene angir fylkestilhørighet.",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "3205",
+              "label": "Lillestrøm",
+              "description": "Lillestrøm kommune"
+            },
+            {
+              "value": "3206",
+              "label": "Strømmen",
+              "description": "Strømmen kommune"
+            }
+          ],
+          "asDictionary": "false"
+        }
+      },
+      {
+        "name": "mindatatype",
+        "type": "Identifikasjon",
+        "cardinality": "1",
+        "description": "Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet.",
+        "attributes": []
+      }
+    ]
+  }
+]
