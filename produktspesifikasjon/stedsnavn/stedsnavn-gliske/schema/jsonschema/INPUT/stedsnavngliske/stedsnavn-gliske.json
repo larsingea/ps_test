@@ -1,0 +1,41 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/stedsnavn/stedsnavn-gliske/stedsnavngliske/stedsnavn-gliske.json",
+  "definitions": {
+    "Stedsnavn": {
+      "description": "Navn på et sted, med posisjon og navneformer på norsk, samisk og gælisk.",
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "norskNavn": {
+          "description": "Stedsnavnets skrivemåte på norsk.",
+          "type": "string"
+        },
+        "samiskNavn": {
+          "description": "Stedsnavnets skrivemåte på samisk.",
+          "type": "string"
+        },
+        "gaeliskNavn": {
+          "description": "Stedsnavnets skrivemåte på gælisk.",
+          "type": "string"
+        },
+        "kommentar": {
+          "description": "Fritekst med utfyllende merknad til stedsnavnet.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    }
+  }
+}
