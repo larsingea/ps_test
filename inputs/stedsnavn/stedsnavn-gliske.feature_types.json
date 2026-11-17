@@ -1,0 +1,42 @@
+[
+  {
+    "attributes": [
+      {
+        "cardinality": "1",
+        "description": "Punkt som angir stedets plassering.",
+        "name": "posisjon",
+        "type": "GM_Point"
+      },
+      {
+        "cardinality": "0..1",
+        "description": "Stedsnavnets skrivemåte på norsk.",
+        "name": "norskNavn",
+        "type": "CharacterString"
+      },
+      {
+        "cardinality": "0..1",
+        "description": "Stedsnavnets skrivemåte på samisk.",
+        "name": "samiskNavn",
+        "type": "CharacterString"
+      },
+      {
+        "cardinality": "0..1",
+        "description": "Stedsnavnets skrivemåte på gælisk.",
+        "name": "gaeliskNavn",
+        "type": "CharacterString"
+      },
+      {
+        "cardinality": "0..1",
+        "description": "Fritekst med utfyllende merknad til stedsnavnet.",
+        "name": "kommentar",
+        "type": "CharacterString"
+      }
+    ],
+    "description": "Navn på et sted, med posisjon og navneformer på norsk, samisk og gælisk.",
+    "name": "Stedsnavn",
+    "relationships": {
+      "associations": [],
+      "inheritance": []
+    }
+  }
+]
