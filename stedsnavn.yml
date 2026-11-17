@@ -2,6 +2,7 @@ metadataId: 30caed2f-454e-44be-b5cc-26bb5c0110ca
 output_directory: produktspesifikasjon
 product_slug: stedsnavn
 updated: '2026-11-17'
+outputs: geopackage,jsonschema
 scopes:
 - name: Stedsnavn - gæliske
   url: inputs/stedsnavn/stedsnavn-gliske.feature_types.json
