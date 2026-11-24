@@ -1,0 +1,177 @@
+{
+  "overview": "Denne produktspesifikasjonen er under arbeid. Datasettet er ennå ikke registrert i Geonorge sin kartkatalog, så beskrivelsen bygger på midlertidige opplysninger og datamodell fra SOSI modellregister, OGC API Features og/eller egen datamodell. Spesifikasjonen kobles til metadata i kartkatalogen når datasettet er registrert. Produktspesifikasjonen er i henhold til standarden: 'Geografisk informasjon - Dataproduktspesifikasjoner' (ISO19131:2022)",
+  "title": "Bopliktsområde",
+  "format": "text/html",
+  "contact": {
+    "organizationName": "Landbruksdirektoratet",
+    "role": "owner"
+  },
+  "identificationSection": {
+    "title": "Bopliktsområde",
+    "abstract": "Konsesjonsområder for boplikt",
+    "contact": [
+      {
+        "organizationName": "Landbruksdirektoratet",
+        "role": "owner"
+      }
+    ]
+  },
+  "scopeSection": [
+    {
+      "specificationScope": {
+        "scopeIdentification": "Hele datasettet",
+        "level": "dataset",
+        "levelDescription": "Gjelder hele datasettet. Hvis omfang ikke er oppgitt under en overskrift, gjelder teksten for hele datasettet og alle leveranser"
+      }
+    },
+    {
+      "specificationScope": {
+        "scopeIdentification": "Bopliktsområder",
+        "level": "dataset",
+        "levelDescription": "Datamodell (SOSI UML (XMI))"
+      }
+    },
+    {
+      "specificationScope": {
+        "scopeIdentification": "Bopliktområde_multipolygon",
+        "level": "dataset",
+        "levelDescription": "Bopliktsområder med multipolygoner"
+      }
+    }
+  ],
+  "metadataLinked": false,
+  "deliverySection": [
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: bopliktomrade-multipolygon",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktomrade-multipolygon/bopliktomrade-multipolygon.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: bopliktsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktsomrader/bopliktsomrader.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: bopliktomrade-multipolygon",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktomrade-multipolygon/schema/xsd/INPUT/bopliktomrade-multipolygon.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: bopliktsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktsomrader/schema/xsd/INPUT/bopliktsomrader.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "JSON Schema: bopliktomrade-multipolygon",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktomrade-multipolygon/schema/jsonschema/INPUT/bopliktomrademultipolygon/bopliktomrade-multipolygon.json",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "JSON Schema"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "JSON Schema: bopliktsomrader",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/larsingea/ps_test/main/produktspesifikasjon/bopliktsomrade/bopliktsomrader/schema/jsonschema/INPUT/bopliktsomrader/bopliktsomrader.json",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "JSON Schema"
+          }
+        ]
+      }
+    }
+  ],
+  "chapterAutofill": {
+    "om_spesifikasjonen": 2,
+    "om_produktet": 5,
+    "formaal": 0,
+    "bruksomraade": 0,
+    "omfang": 33,
+    "datainnhold_og_struktur": 0,
+    "referansesystem": 0,
+    "datakvalitet": 0,
+    "datafangst_og_produksjon": 0,
+    "vedlikehold": 0,
+    "presentasjon": 0,
+    "leveranse": 40,
+    "metadata": 0,
+    "tilleggsinformasjon": 0,
+    "datamodell": 831
+  },
+  "specificationContact": "Landbruksdirektoratet"
+}
