@@ -1,0 +1,20 @@
+dataset_title: Bopliktsområde
+dataset_abstract: Konsesjonsområder for boplikt
+dataset_organization: Landbruksdirektoratet
+output_directory: produktspesifikasjon
+product_slug: bopliktsomrade
+updated: '2026-11-24'
+outputs: geopackage,jsonschema,xsd,odcs
+scopes:
+- name: Bopliktsområder
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Landbruksdirektoratet/Bopliktsomr%C3%A5der_20260101.xml
+  generator: xmi
+  description: Datamodell (SOSI UML (XMI))
+  package: EAPK_BB046F3C_C3F4_4266_8277_D3622DC5717F
+  package_name: Bopliktsområder
+- name: Bopliktområde_multipolygon
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Landbruksdirektoratet/Bopliktsomr%C3%A5der_Innlesing_20260101.xml
+  generator: xmi
+  description: Bopliktsområder med multipolygoner
+  package: EAPK_9BA2BD72_23AA_4538_BC50_65E4CFE07271
+  package_name: Bopliktområder innlesing
